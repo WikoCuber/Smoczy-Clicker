@@ -1,17 +1,20 @@
+﻿using SC_Data;
+using SC_UI.Forms;
+
 namespace SC_UI
 {
     internal static class Program
     {
-        /// <summary>
-        ///  The main entry point for the application.
-        /// </summary>
         [STAThread]
         static void Main()
         {
-            // To customize application configuration such as set high DPI settings or default font,
-            // see https://aka.ms/applicationconfiguration.
-            ApplicationConfiguration.Initialize();
-            Application.Run(new Form1());
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+
+            //Create save file and load it
+            SaveFile.Init();
+
+            Application.Run(new MainForm());
         }
     }
 }

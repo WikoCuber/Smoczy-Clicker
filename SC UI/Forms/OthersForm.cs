@@ -106,7 +106,7 @@ namespace SC_UI.Forms
                     _data.Coordinates.DrawingY = p.Y;
                 }
 
-                button.Text = p.X + "; " + p.X;
+                button.Text = p.X + "; " + p.Y;
                 SaveFile.Save();
             }
             else

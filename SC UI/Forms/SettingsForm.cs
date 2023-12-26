@@ -18,8 +18,8 @@ namespace SC_UI.Forms
             #region Start Values
             backgroundDelayNumeric.Value = _data.Delays.Backgorund;
             commandDelayNumeric.Value = _data.Delays.Command;
-            leftButton.Text = _data.Coordinates.LeftX + "; " + _data.Coordinates.LeftX;
-            rightButton.Text = _data.Coordinates.RightX + "; " + _data.Coordinates.RightX;
+            leftButton.Text = _data.Coordinates.LeftX + "; " + _data.Coordinates.LeftY;
+            rightButton.Text = _data.Coordinates.RightX + "; " + _data.Coordinates.RightY;
             #endregion
         }
 
@@ -87,7 +87,7 @@ namespace SC_UI.Forms
                     _data.Coordinates.RightY = p.Y;
                 }
 
-                button.Text = p.X + "; " + p.X;
+                button.Text = p.X + "; " + p.Y;
                 SaveFile.Save();
             }
             else

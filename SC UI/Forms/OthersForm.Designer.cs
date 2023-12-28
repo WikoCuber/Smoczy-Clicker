@@ -1,4 +1,6 @@
-﻿namespace SC_UI.Forms
+﻿using SC_UI.Helpers;
+
+namespace SC_UI.Forms
 {
     partial class OthersForm
     {
@@ -28,564 +30,581 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OthersForm));
-            this.miningButton = new SC_UI.FormHelper.InvisibleButton();
-            this.bindsButton = new SC_UI.FormHelper.InvisibleButton();
-            this.pvpButton = new SC_UI.FormHelper.InvisibleButton();
-            this.depositDelayNumeric = new System.Windows.Forms.NumericUpDown();
-            this.pickaxe6RadioButton = new System.Windows.Forms.RadioButton();
-            this.pickaxe5RadioButton = new System.Windows.Forms.RadioButton();
-            this.pickaxe4RadioButton = new System.Windows.Forms.RadioButton();
-            this.drawingPositionButton = new System.Windows.Forms.Button();
-            this.effectsPositionButton = new System.Windows.Forms.Button();
-            this.settingsButton = new SC_UI.FormHelper.InvisibleButton();
-            this.voidBindButton = new SC_UI.FormHelper.InvisibleButton();
-            this.drawingBindButton = new SC_UI.FormHelper.InvisibleButton();
-            this.effectsBindButton = new SC_UI.FormHelper.InvisibleButton();
-            this.mathewBindButton = new SC_UI.FormHelper.InvisibleButton();
-            this.altingBindButton = new SC_UI.FormHelper.InvisibleButton();
-            this.dabingBindButton = new SC_UI.FormHelper.InvisibleButton();
-            this.depositBindButton = new SC_UI.FormHelper.InvisibleButton();
-            this.voidButton = new SC_UI.FormHelper.InvisibleButton();
-            this.dabingButton = new SC_UI.FormHelper.InvisibleButton();
-            this.mathewButton = new SC_UI.FormHelper.InvisibleButton();
-            this.altingButton = new SC_UI.FormHelper.InvisibleButton();
-            this.effectsDrawingButton = new SC_UI.FormHelper.InvisibleButton();
-            this.depositButton = new SC_UI.FormHelper.InvisibleButton();
-            this.voidPicBox = new System.Windows.Forms.PictureBox();
-            this.dabingPicBox = new System.Windows.Forms.PictureBox();
-            this.mathewPicBox = new System.Windows.Forms.PictureBox();
-            this.altingPicBox = new System.Windows.Forms.PictureBox();
-            this.effectsDrawingPicBox = new System.Windows.Forms.PictureBox();
-            this.depositPicBox = new System.Windows.Forms.PictureBox();
-            this.effectsOnCheckBox = new System.Windows.Forms.CheckBox();
-            this.drawingOnCheckBox = new System.Windows.Forms.CheckBox();
-            this.dabingType = new System.Windows.Forms.ComboBox();
-            ((System.ComponentModel.ISupportInitialize)(this.depositDelayNumeric)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.voidPicBox)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dabingPicBox)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mathewPicBox)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.altingPicBox)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.effectsDrawingPicBox)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.depositPicBox)).BeginInit();
-            this.SuspendLayout();
+            miningNavButton = new InvisibleButton();
+            bindsNavButton = new InvisibleButton();
+            pvpNavButton = new InvisibleButton();
+            depositDelayNumeric = new NumericUpDown();
+            pickaxe6RadioButton = new RadioButton();
+            pickaxe5RadioButton = new RadioButton();
+            pickaxe4RadioButton = new RadioButton();
+            drawingCoordinateButton = new InvisibleButton();
+            effectsCoordinateButton = new InvisibleButton();
+            settingsNavButton = new InvisibleButton();
+            voidBindButton = new InvisibleButton();
+            drawingBindButton = new InvisibleButton();
+            effectsBindButton = new InvisibleButton();
+            mathewBindButton = new InvisibleButton();
+            altingBindButton = new InvisibleButton();
+            dabingBindButton = new InvisibleButton();
+            depositBindButton = new InvisibleButton();
+            voidStatusButton = new InvisibleButton();
+            dabingStatusButton = new InvisibleButton();
+            mathewStatusButton = new InvisibleButton();
+            altingStatusButton = new InvisibleButton();
+            effectsDrawingStatusButton = new InvisibleButton();
+            depositStatusButton = new InvisibleButton();
+            voidStatusPicBox = new PictureBox();
+            dabingStatusPicBox = new PictureBox();
+            mathewStatusPicBox = new PictureBox();
+            altingStatusPicBox = new PictureBox();
+            effectsDrawingStatusPicBox = new PictureBox();
+            depositStatusPicBox = new PictureBox();
+            effectsOnCheckBox = new CheckBox();
+            drawingOnCheckBox = new CheckBox();
+            dabingTypeComboBox = new ComboBox();
+            voidDelayNumeric = new NumericUpDown();
+            intelligentVoidCheckBox = new CheckBox();
+            ((System.ComponentModel.ISupportInitialize)depositDelayNumeric).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)voidStatusPicBox).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dabingStatusPicBox).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)mathewStatusPicBox).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)altingStatusPicBox).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)effectsDrawingStatusPicBox).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)depositStatusPicBox).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)voidDelayNumeric).BeginInit();
+            SuspendLayout();
             // 
-            // miningButton
+            // miningNavButton
             // 
-            this.miningButton.BackColor = System.Drawing.Color.Transparent;
-            this.miningButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.miningButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.miningButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(68)))), ((int)(((byte)(68)))));
-            this.miningButton.Location = new System.Drawing.Point(13, 63);
-            this.miningButton.Name = "miningButton";
-            this.miningButton.Size = new System.Drawing.Size(110, 34);
-            this.miningButton.TabIndex = 22;
-            this.miningButton.TabStop = false;
-            this.miningButton.UseVisualStyleBackColor = true;
-            this.miningButton.Click += new System.EventHandler(this.miningButton_Click);
+            miningNavButton.BackColor = Color.Transparent;
+            miningNavButton.FlatStyle = FlatStyle.Flat;
+            miningNavButton.Font = new Font("Microsoft Sans Serif", 8.25F);
+            miningNavButton.ForeColor = Color.FromArgb(68, 68, 68);
+            miningNavButton.Location = new Point(16, 74);
+            miningNavButton.Name = "miningNavButton";
+            miningNavButton.Size = new Size(130, 39);
+            miningNavButton.TabIndex = 22;
+            miningNavButton.TabStop = false;
+            miningNavButton.UseVisualStyleBackColor = true;
+            miningNavButton.Click += miningNavButton_Click;
             // 
-            // bindsButton
+            // bindsNavButton
             // 
-            this.bindsButton.BackColor = System.Drawing.Color.Transparent;
-            this.bindsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bindsButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.bindsButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(68)))), ((int)(((byte)(68)))));
-            this.bindsButton.Location = new System.Drawing.Point(13, 146);
-            this.bindsButton.Name = "bindsButton";
-            this.bindsButton.Size = new System.Drawing.Size(109, 33);
-            this.bindsButton.TabIndex = 25;
-            this.bindsButton.TabStop = false;
-            this.bindsButton.UseVisualStyleBackColor = true;
-            this.bindsButton.Click += new System.EventHandler(this.bindsButton_Click);
+            bindsNavButton.BackColor = Color.Transparent;
+            bindsNavButton.FlatStyle = FlatStyle.Flat;
+            bindsNavButton.Font = new Font("Microsoft Sans Serif", 8.25F);
+            bindsNavButton.ForeColor = Color.FromArgb(68, 68, 68);
+            bindsNavButton.Location = new Point(16, 167);
+            bindsNavButton.Name = "bindsNavButton";
+            bindsNavButton.Size = new Size(130, 39);
+            bindsNavButton.TabIndex = 25;
+            bindsNavButton.TabStop = false;
+            bindsNavButton.UseVisualStyleBackColor = true;
+            bindsNavButton.Click += bindsNavButton_Click;
             // 
-            // pvpButton
+            // pvpNavButton
             // 
-            this.pvpButton.BackColor = System.Drawing.Color.Transparent;
-            this.pvpButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.pvpButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.pvpButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(68)))), ((int)(((byte)(68)))));
-            this.pvpButton.Location = new System.Drawing.Point(13, 24);
-            this.pvpButton.Name = "pvpButton";
-            this.pvpButton.Size = new System.Drawing.Size(110, 32);
-            this.pvpButton.TabIndex = 24;
-            this.pvpButton.TabStop = false;
-            this.pvpButton.UseVisualStyleBackColor = true;
-            this.pvpButton.Click += new System.EventHandler(this.pvpButton_Click);
+            pvpNavButton.BackColor = Color.Transparent;
+            pvpNavButton.FlatStyle = FlatStyle.Flat;
+            pvpNavButton.Font = new Font("Microsoft Sans Serif", 8.25F);
+            pvpNavButton.ForeColor = Color.FromArgb(68, 68, 68);
+            pvpNavButton.Location = new Point(14, 28);
+            pvpNavButton.Name = "pvpNavButton";
+            pvpNavButton.Size = new Size(130, 39);
+            pvpNavButton.TabIndex = 24;
+            pvpNavButton.TabStop = false;
+            pvpNavButton.UseVisualStyleBackColor = true;
+            pvpNavButton.Click += pvpNavButton_Click;
             // 
             // depositDelayNumeric
             // 
-            this.depositDelayNumeric.Location = new System.Drawing.Point(258, 147);
-            this.depositDelayNumeric.Maximum = new decimal(new int[] {
-            99999,
-            0,
-            0,
-            0});
-            this.depositDelayNumeric.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.depositDelayNumeric.Name = "depositDelayNumeric";
-            this.depositDelayNumeric.Size = new System.Drawing.Size(50, 20);
-            this.depositDelayNumeric.TabIndex = 66;
-            this.depositDelayNumeric.TabStop = false;
-            this.depositDelayNumeric.Value = new decimal(new int[] {
-            2,
-            0,
-            0,
-            0});
-            this.depositDelayNumeric.ValueChanged += new System.EventHandler(this.depositDelayNumeric_ValueChanged);
-            this.depositDelayNumeric.KeyUp += new System.Windows.Forms.KeyEventHandler(this.depositDelayNumeric_KeyUp);
+            depositDelayNumeric.Location = new Point(301, 169);
+            depositDelayNumeric.Maximum = new decimal(new int[] { 99999, 0, 0, 0 });
+            depositDelayNumeric.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
+            depositDelayNumeric.Name = "depositDelayNumeric";
+            depositDelayNumeric.Size = new Size(58, 20);
+            depositDelayNumeric.TabIndex = 66;
+            depositDelayNumeric.TabStop = false;
+            depositDelayNumeric.Value = new decimal(new int[] { 2, 0, 0, 0 });
+            depositDelayNumeric.ValueChanged += depositDelayNumeric_ValueChanged;
             // 
             // pickaxe6RadioButton
             // 
-            this.pickaxe6RadioButton.AutoSize = true;
-            this.pickaxe6RadioButton.Location = new System.Drawing.Point(780, 148);
-            this.pickaxe6RadioButton.Name = "pickaxe6RadioButton";
-            this.pickaxe6RadioButton.Size = new System.Drawing.Size(14, 13);
-            this.pickaxe6RadioButton.TabIndex = 68;
-            this.pickaxe6RadioButton.UseVisualStyleBackColor = true;
-            this.pickaxe6RadioButton.CheckedChanged += new System.EventHandler(this.pickaxe6RadioButton_CheckedChanged);
+            pickaxe6RadioButton.AutoSize = true;
+            pickaxe6RadioButton.Location = new Point(915, 171);
+            pickaxe6RadioButton.Name = "pickaxe6RadioButton";
+            pickaxe6RadioButton.Size = new Size(14, 13);
+            pickaxe6RadioButton.TabIndex = 68;
+            pickaxe6RadioButton.UseVisualStyleBackColor = true;
+            pickaxe6RadioButton.CheckedChanged += pickaxe6RadioButton_CheckedChanged;
             // 
             // pickaxe5RadioButton
             // 
-            this.pickaxe5RadioButton.AutoSize = true;
-            this.pickaxe5RadioButton.Location = new System.Drawing.Point(780, 173);
-            this.pickaxe5RadioButton.Name = "pickaxe5RadioButton";
-            this.pickaxe5RadioButton.Size = new System.Drawing.Size(14, 13);
-            this.pickaxe5RadioButton.TabIndex = 69;
-            this.pickaxe5RadioButton.UseVisualStyleBackColor = true;
-            this.pickaxe5RadioButton.CheckedChanged += new System.EventHandler(this.pickaxe5RadioButton_CheckedChanged);
+            pickaxe5RadioButton.AutoSize = true;
+            pickaxe5RadioButton.Location = new Point(915, 198);
+            pickaxe5RadioButton.Name = "pickaxe5RadioButton";
+            pickaxe5RadioButton.Size = new Size(14, 13);
+            pickaxe5RadioButton.TabIndex = 69;
+            pickaxe5RadioButton.UseVisualStyleBackColor = true;
+            pickaxe5RadioButton.CheckedChanged += pickaxe5RadioButton_CheckedChanged;
             // 
             // pickaxe4RadioButton
             // 
-            this.pickaxe4RadioButton.AutoSize = true;
-            this.pickaxe4RadioButton.Location = new System.Drawing.Point(780, 195);
-            this.pickaxe4RadioButton.Name = "pickaxe4RadioButton";
-            this.pickaxe4RadioButton.Size = new System.Drawing.Size(14, 13);
-            this.pickaxe4RadioButton.TabIndex = 70;
-            this.pickaxe4RadioButton.UseVisualStyleBackColor = true;
-            this.pickaxe4RadioButton.CheckedChanged += new System.EventHandler(this.pickaxe4RadioButton_CheckedChanged);
+            pickaxe4RadioButton.AutoSize = true;
+            pickaxe4RadioButton.Location = new Point(915, 227);
+            pickaxe4RadioButton.Name = "pickaxe4RadioButton";
+            pickaxe4RadioButton.Size = new Size(14, 13);
+            pickaxe4RadioButton.TabIndex = 70;
+            pickaxe4RadioButton.UseVisualStyleBackColor = true;
+            pickaxe4RadioButton.CheckedChanged += pickaxe4RadioButton_CheckedChanged;
             // 
-            // drawingPositionButton
+            // drawingCoordinateButton
             // 
-            this.drawingPositionButton.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.drawingPositionButton.Location = new System.Drawing.Point(754, 378);
-            this.drawingPositionButton.Name = "drawingPositionButton";
-            this.drawingPositionButton.Size = new System.Drawing.Size(75, 23);
-            this.drawingPositionButton.TabIndex = 76;
-            this.drawingPositionButton.TabStop = false;
-            this.drawingPositionButton.Text = "button1";
-            this.drawingPositionButton.UseVisualStyleBackColor = true;
-            this.drawingPositionButton.Click += new System.EventHandler(this.drawing_Click);
+            drawingCoordinateButton.BackColor = Color.Transparent;
+            drawingCoordinateButton.FlatStyle = FlatStyle.Flat;
+            drawingCoordinateButton.ForeColor = Color.FromArgb(162, 162, 162);
+            drawingCoordinateButton.Location = new Point(587, 192);
+            drawingCoordinateButton.Name = "drawingCoordinateButton";
+            drawingCoordinateButton.Size = new Size(80, 27);
+            drawingCoordinateButton.TabIndex = 76;
+            drawingCoordinateButton.TabStop = false;
+            drawingCoordinateButton.UseVisualStyleBackColor = true;
+            drawingCoordinateButton.Click += drawingCoordinateButtons_Click;
             // 
-            // effectsPositionButton
+            // effectsCoordinateButton
             // 
-            this.effectsPositionButton.Location = new System.Drawing.Point(754, 331);
-            this.effectsPositionButton.Name = "effectsPositionButton";
-            this.effectsPositionButton.Size = new System.Drawing.Size(75, 23);
-            this.effectsPositionButton.TabIndex = 77;
-            this.effectsPositionButton.TabStop = false;
-            this.effectsPositionButton.Text = "button1";
-            this.effectsPositionButton.UseVisualStyleBackColor = true;
-            this.effectsPositionButton.Click += new System.EventHandler(this.effects_Click);
+            effectsCoordinateButton.BackColor = Color.Transparent;
+            effectsCoordinateButton.FlatStyle = FlatStyle.Flat;
+            effectsCoordinateButton.ForeColor = Color.FromArgb(162, 162, 162);
+            effectsCoordinateButton.Location = new Point(585, 137);
+            effectsCoordinateButton.Name = "effectsCoordinateButton";
+            effectsCoordinateButton.Size = new Size(80, 27);
+            effectsCoordinateButton.TabIndex = 77;
+            effectsCoordinateButton.TabStop = false;
+            effectsCoordinateButton.UseVisualStyleBackColor = true;
+            effectsCoordinateButton.Click += effectsCoordinateButtons_Click;
             // 
-            // settingsButton
+            // settingsNavButton
             // 
-            this.settingsButton.BackColor = System.Drawing.Color.Transparent;
-            this.settingsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.settingsButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.settingsButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(68)))), ((int)(((byte)(68)))));
-            this.settingsButton.Location = new System.Drawing.Point(13, 185);
-            this.settingsButton.Name = "settingsButton";
-            this.settingsButton.Size = new System.Drawing.Size(109, 33);
-            this.settingsButton.TabIndex = 80;
-            this.settingsButton.TabStop = false;
-            this.settingsButton.UseVisualStyleBackColor = true;
-            this.settingsButton.Click += new System.EventHandler(this.settingsButton_Click);
+            settingsNavButton.BackColor = Color.Transparent;
+            settingsNavButton.FlatStyle = FlatStyle.Flat;
+            settingsNavButton.Font = new Font("Microsoft Sans Serif", 8.25F);
+            settingsNavButton.ForeColor = Color.FromArgb(68, 68, 68);
+            settingsNavButton.Location = new Point(16, 214);
+            settingsNavButton.Name = "settingsNavButton";
+            settingsNavButton.Size = new Size(130, 39);
+            settingsNavButton.TabIndex = 80;
+            settingsNavButton.TabStop = false;
+            settingsNavButton.UseVisualStyleBackColor = true;
+            settingsNavButton.Click += settingsNavButton_Click;
             // 
             // voidBindButton
             // 
-            this.voidBindButton.BackColor = System.Drawing.Color.Transparent;
-            this.voidBindButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.voidBindButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.voidBindButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(162)))), ((int)(((byte)(162)))));
-            this.voidBindButton.Location = new System.Drawing.Point(407, 305);
-            this.voidBindButton.Name = "voidBindButton";
-            this.voidBindButton.Size = new System.Drawing.Size(69, 25);
-            this.voidBindButton.TabIndex = 84;
-            this.voidBindButton.TabStop = false;
-            this.voidBindButton.Text = "button1";
-            this.voidBindButton.UseVisualStyleBackColor = true;
-            this.voidBindButton.Click += new System.EventHandler(this.voidBindButton_Click);
+            voidBindButton.BackColor = Color.Transparent;
+            voidBindButton.FlatStyle = FlatStyle.Flat;
+            voidBindButton.Font = new Font("Microsoft Sans Serif", 8.25F);
+            voidBindButton.ForeColor = Color.FromArgb(162, 162, 162);
+            voidBindButton.Location = new Point(586, 342);
+            voidBindButton.Name = "voidBindButton";
+            voidBindButton.Size = new Size(80, 27);
+            voidBindButton.TabIndex = 84;
+            voidBindButton.TabStop = false;
+            voidBindButton.UseVisualStyleBackColor = true;
+            voidBindButton.Click += voidBindButton_Click;
             // 
             // drawingBindButton
             // 
-            this.drawingBindButton.BackColor = System.Drawing.Color.Transparent;
-            this.drawingBindButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.drawingBindButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.drawingBindButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(162)))), ((int)(((byte)(162)))));
-            this.drawingBindButton.Location = new System.Drawing.Point(787, 353);
-            this.drawingBindButton.Name = "drawingBindButton";
-            this.drawingBindButton.Size = new System.Drawing.Size(70, 24);
-            this.drawingBindButton.TabIndex = 85;
-            this.drawingBindButton.TabStop = false;
-            this.drawingBindButton.Text = "button1";
-            this.drawingBindButton.UseVisualStyleBackColor = true;
-            this.drawingBindButton.Click += new System.EventHandler(this.drawingBindButton_Click);
+            drawingBindButton.BackColor = Color.Transparent;
+            drawingBindButton.FlatStyle = FlatStyle.Flat;
+            drawingBindButton.Font = new Font("Microsoft Sans Serif", 8.25F);
+            drawingBindButton.ForeColor = Color.FromArgb(162, 162, 162);
+            drawingBindButton.Location = new Point(625, 165);
+            drawingBindButton.Name = "drawingBindButton";
+            drawingBindButton.Size = new Size(80, 27);
+            drawingBindButton.TabIndex = 85;
+            drawingBindButton.TabStop = false;
+            drawingBindButton.UseVisualStyleBackColor = true;
+            drawingBindButton.Click += drawingBindButton_Click;
             // 
             // effectsBindButton
             // 
-            this.effectsBindButton.BackColor = System.Drawing.Color.Transparent;
-            this.effectsBindButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.effectsBindButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.effectsBindButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(162)))), ((int)(((byte)(162)))));
-            this.effectsBindButton.Location = new System.Drawing.Point(763, 305);
-            this.effectsBindButton.Name = "effectsBindButton";
-            this.effectsBindButton.Size = new System.Drawing.Size(72, 24);
-            this.effectsBindButton.TabIndex = 86;
-            this.effectsBindButton.TabStop = false;
-            this.effectsBindButton.Text = "button1";
-            this.effectsBindButton.UseVisualStyleBackColor = true;
-            this.effectsBindButton.Click += new System.EventHandler(this.effectsBindButton_Click);
+            effectsBindButton.BackColor = Color.Transparent;
+            effectsBindButton.FlatStyle = FlatStyle.Flat;
+            effectsBindButton.Font = new Font("Microsoft Sans Serif", 8.25F);
+            effectsBindButton.ForeColor = Color.FromArgb(162, 162, 162);
+            effectsBindButton.Location = new Point(598, 110);
+            effectsBindButton.Name = "effectsBindButton";
+            effectsBindButton.Size = new Size(80, 27);
+            effectsBindButton.TabIndex = 86;
+            effectsBindButton.TabStop = false;
+            effectsBindButton.UseVisualStyleBackColor = true;
+            effectsBindButton.Click += effectsBindButton_Click;
             // 
             // mathewBindButton
             // 
-            this.mathewBindButton.BackColor = System.Drawing.Color.Transparent;
-            this.mathewBindButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.mathewBindButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.mathewBindButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(162)))), ((int)(((byte)(162)))));
-            this.mathewBindButton.Location = new System.Drawing.Point(809, 95);
-            this.mathewBindButton.Name = "mathewBindButton";
-            this.mathewBindButton.Size = new System.Drawing.Size(70, 25);
-            this.mathewBindButton.TabIndex = 87;
-            this.mathewBindButton.TabStop = false;
-            this.mathewBindButton.Text = "button1";
-            this.mathewBindButton.UseVisualStyleBackColor = true;
-            this.mathewBindButton.Click += new System.EventHandler(this.mathewBindButton_Click);
+            mathewBindButton.BackColor = Color.Transparent;
+            mathewBindButton.FlatStyle = FlatStyle.Flat;
+            mathewBindButton.Font = new Font("Microsoft Sans Serif", 8.25F);
+            mathewBindButton.ForeColor = Color.FromArgb(162, 162, 162);
+            mathewBindButton.Location = new Point(945, 110);
+            mathewBindButton.Name = "mathewBindButton";
+            mathewBindButton.Size = new Size(80, 27);
+            mathewBindButton.TabIndex = 87;
+            mathewBindButton.TabStop = false;
+            mathewBindButton.UseVisualStyleBackColor = true;
+            mathewBindButton.Click += mathewBindButton_Click;
             // 
             // altingBindButton
             // 
-            this.altingBindButton.BackColor = System.Drawing.Color.Transparent;
-            this.altingBindButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.altingBindButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.altingBindButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(162)))), ((int)(((byte)(162)))));
-            this.altingBindButton.Location = new System.Drawing.Point(232, 305);
-            this.altingBindButton.Name = "altingBindButton";
-            this.altingBindButton.Size = new System.Drawing.Size(70, 25);
-            this.altingBindButton.TabIndex = 88;
-            this.altingBindButton.TabStop = false;
-            this.altingBindButton.Text = "button1";
-            this.altingBindButton.UseVisualStyleBackColor = true;
-            this.altingBindButton.Click += new System.EventHandler(this.altingBindButton_Click);
+            altingBindButton.BackColor = Color.Transparent;
+            altingBindButton.FlatStyle = FlatStyle.Flat;
+            altingBindButton.Font = new Font("Microsoft Sans Serif", 8.25F);
+            altingBindButton.ForeColor = Color.FromArgb(162, 162, 162);
+            altingBindButton.Location = new Point(274, 348);
+            altingBindButton.Name = "altingBindButton";
+            altingBindButton.Size = new Size(80, 27);
+            altingBindButton.TabIndex = 88;
+            altingBindButton.TabStop = false;
+            altingBindButton.UseVisualStyleBackColor = true;
+            altingBindButton.Click += altingBindButton_Click;
             // 
             // dabingBindButton
             // 
-            this.dabingBindButton.BackColor = System.Drawing.Color.Transparent;
-            this.dabingBindButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.dabingBindButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.dabingBindButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(162)))), ((int)(((byte)(162)))));
-            this.dabingBindButton.Location = new System.Drawing.Point(582, 305);
-            this.dabingBindButton.Name = "dabingBindButton";
-            this.dabingBindButton.Size = new System.Drawing.Size(70, 25);
-            this.dabingBindButton.TabIndex = 89;
-            this.dabingBindButton.TabStop = false;
-            this.dabingBindButton.Text = "button1";
-            this.dabingBindButton.UseVisualStyleBackColor = true;
-            this.dabingBindButton.Click += new System.EventHandler(this.dabingBindButton_Click);
+            dabingBindButton.BackColor = Color.Transparent;
+            dabingBindButton.FlatStyle = FlatStyle.Flat;
+            dabingBindButton.Font = new Font("Microsoft Sans Serif", 8.25F);
+            dabingBindButton.ForeColor = Color.FromArgb(162, 162, 162);
+            dabingBindButton.Location = new Point(939, 348);
+            dabingBindButton.Name = "dabingBindButton";
+            dabingBindButton.Size = new Size(80, 27);
+            dabingBindButton.TabIndex = 89;
+            dabingBindButton.TabStop = false;
+            dabingBindButton.UseVisualStyleBackColor = true;
+            dabingBindButton.Click += dabingBindButton_Click;
             // 
             // depositBindButton
             // 
-            this.depositBindButton.BackColor = System.Drawing.Color.Transparent;
-            this.depositBindButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.depositBindButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.depositBindButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(162)))), ((int)(((byte)(162)))));
-            this.depositBindButton.Location = new System.Drawing.Point(232, 95);
-            this.depositBindButton.Name = "depositBindButton";
-            this.depositBindButton.Size = new System.Drawing.Size(69, 25);
-            this.depositBindButton.TabIndex = 90;
-            this.depositBindButton.TabStop = false;
-            this.depositBindButton.Text = "button1";
-            this.depositBindButton.UseVisualStyleBackColor = true;
-            this.depositBindButton.Click += new System.EventHandler(this.depositBindButton_Click);
+            depositBindButton.BackColor = Color.Transparent;
+            depositBindButton.FlatStyle = FlatStyle.Flat;
+            depositBindButton.Font = new Font("Microsoft Sans Serif", 8.25F);
+            depositBindButton.ForeColor = Color.FromArgb(162, 162, 162);
+            depositBindButton.Location = new Point(272, 110);
+            depositBindButton.Name = "depositBindButton";
+            depositBindButton.Size = new Size(80, 27);
+            depositBindButton.TabIndex = 90;
+            depositBindButton.TabStop = false;
+            depositBindButton.UseVisualStyleBackColor = true;
+            depositBindButton.Click += depositBindButton_Click;
             // 
-            // voidButton
+            // voidStatusButton
             // 
-            this.voidButton.BackColor = System.Drawing.Color.Transparent;
-            this.voidButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.voidButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.voidButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(68)))), ((int)(((byte)(68)))));
-            this.voidButton.Location = new System.Drawing.Point(309, 259);
-            this.voidButton.Name = "voidButton";
-            this.voidButton.Size = new System.Drawing.Size(125, 23);
-            this.voidButton.TabIndex = 105;
-            this.voidButton.TabStop = false;
-            this.voidButton.UseVisualStyleBackColor = true;
-            this.voidButton.Click += new System.EventHandler(this.voidButton_Click);
+            voidStatusButton.BackColor = Color.Transparent;
+            voidStatusButton.FlatStyle = FlatStyle.Flat;
+            voidStatusButton.Font = new Font("Microsoft Sans Serif", 8.25F);
+            voidStatusButton.ForeColor = Color.FromArgb(68, 68, 68);
+            voidStatusButton.Location = new Point(470, 291);
+            voidStatusButton.Name = "voidStatusButton";
+            voidStatusButton.Size = new Size(145, 27);
+            voidStatusButton.TabIndex = 105;
+            voidStatusButton.TabStop = false;
+            voidStatusButton.UseVisualStyleBackColor = true;
+            voidStatusButton.Click += voidStatusButton_Click;
             // 
-            // dabingButton
+            // dabingStatusButton
             // 
-            this.dabingButton.BackColor = System.Drawing.Color.Transparent;
-            this.dabingButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.dabingButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.dabingButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(68)))), ((int)(((byte)(68)))));
-            this.dabingButton.Location = new System.Drawing.Point(483, 258);
-            this.dabingButton.Name = "dabingButton";
-            this.dabingButton.Size = new System.Drawing.Size(126, 23);
-            this.dabingButton.TabIndex = 103;
-            this.dabingButton.TabStop = false;
-            this.dabingButton.UseVisualStyleBackColor = true;
-            this.dabingButton.Click += new System.EventHandler(this.dabingButton_Click);
+            dabingStatusButton.BackColor = Color.Transparent;
+            dabingStatusButton.FlatStyle = FlatStyle.Flat;
+            dabingStatusButton.Font = new Font("Microsoft Sans Serif", 8.25F);
+            dabingStatusButton.ForeColor = Color.FromArgb(68, 68, 68);
+            dabingStatusButton.Location = new Point(823, 296);
+            dabingStatusButton.Name = "dabingStatusButton";
+            dabingStatusButton.Size = new Size(145, 27);
+            dabingStatusButton.TabIndex = 103;
+            dabingStatusButton.TabStop = false;
+            dabingStatusButton.UseVisualStyleBackColor = true;
+            dabingStatusButton.Click += dabingStatusButton_Click;
             // 
-            // mathewButton
+            // mathewStatusButton
             // 
-            this.mathewButton.BackColor = System.Drawing.Color.Transparent;
-            this.mathewButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.mathewButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.mathewButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(68)))), ((int)(((byte)(68)))));
-            this.mathewButton.Location = new System.Drawing.Point(710, 50);
-            this.mathewButton.Name = "mathewButton";
-            this.mathewButton.Size = new System.Drawing.Size(125, 23);
-            this.mathewButton.TabIndex = 102;
-            this.mathewButton.TabStop = false;
-            this.mathewButton.UseVisualStyleBackColor = true;
-            this.mathewButton.Click += new System.EventHandler(this.mathewButton_Click);
+            mathewStatusButton.BackColor = Color.Transparent;
+            mathewStatusButton.FlatStyle = FlatStyle.Flat;
+            mathewStatusButton.Font = new Font("Microsoft Sans Serif", 8.25F);
+            mathewStatusButton.ForeColor = Color.FromArgb(68, 68, 68);
+            mathewStatusButton.Location = new Point(829, 60);
+            mathewStatusButton.Name = "mathewStatusButton";
+            mathewStatusButton.Size = new Size(145, 27);
+            mathewStatusButton.TabIndex = 102;
+            mathewStatusButton.TabStop = false;
+            mathewStatusButton.UseVisualStyleBackColor = true;
+            mathewStatusButton.Click += mathewStatusButton_Click;
             // 
-            // altingButton
+            // altingStatusButton
             // 
-            this.altingButton.BackColor = System.Drawing.Color.Transparent;
-            this.altingButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.altingButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.altingButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(68)))), ((int)(((byte)(68)))));
-            this.altingButton.Location = new System.Drawing.Point(133, 261);
-            this.altingButton.Name = "altingButton";
-            this.altingButton.Size = new System.Drawing.Size(127, 23);
-            this.altingButton.TabIndex = 101;
-            this.altingButton.TabStop = false;
-            this.altingButton.UseVisualStyleBackColor = true;
-            this.altingButton.Click += new System.EventHandler(this.altingButton_Click);
+            altingStatusButton.BackColor = Color.Transparent;
+            altingStatusButton.FlatStyle = FlatStyle.Flat;
+            altingStatusButton.Font = new Font("Microsoft Sans Serif", 8.25F);
+            altingStatusButton.ForeColor = Color.FromArgb(68, 68, 68);
+            altingStatusButton.Location = new Point(157, 295);
+            altingStatusButton.Name = "altingStatusButton";
+            altingStatusButton.Size = new Size(145, 27);
+            altingStatusButton.TabIndex = 101;
+            altingStatusButton.TabStop = false;
+            altingStatusButton.UseVisualStyleBackColor = true;
+            altingStatusButton.Click += altingStatusButton_Click;
             // 
-            // effectsDrawingButton
+            // effectsDrawingStatusButton
             // 
-            this.effectsDrawingButton.BackColor = System.Drawing.Color.Transparent;
-            this.effectsDrawingButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.effectsDrawingButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.effectsDrawingButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(68)))), ((int)(((byte)(68)))));
-            this.effectsDrawingButton.Location = new System.Drawing.Point(657, 258);
-            this.effectsDrawingButton.Name = "effectsDrawingButton";
-            this.effectsDrawingButton.Size = new System.Drawing.Size(124, 23);
-            this.effectsDrawingButton.TabIndex = 100;
-            this.effectsDrawingButton.TabStop = false;
-            this.effectsDrawingButton.UseVisualStyleBackColor = true;
-            this.effectsDrawingButton.Click += new System.EventHandler(this.effectsDrawingButton_Click);
+            effectsDrawingStatusButton.BackColor = Color.Transparent;
+            effectsDrawingStatusButton.FlatStyle = FlatStyle.Flat;
+            effectsDrawingStatusButton.Font = new Font("Microsoft Sans Serif", 8.25F);
+            effectsDrawingStatusButton.ForeColor = Color.FromArgb(68, 68, 68);
+            effectsDrawingStatusButton.Location = new Point(471, 56);
+            effectsDrawingStatusButton.Name = "effectsDrawingStatusButton";
+            effectsDrawingStatusButton.Size = new Size(145, 27);
+            effectsDrawingStatusButton.TabIndex = 100;
+            effectsDrawingStatusButton.TabStop = false;
+            effectsDrawingStatusButton.UseVisualStyleBackColor = true;
+            effectsDrawingStatusButton.Click += effectsDrawingStatusButton_Click;
             // 
-            // depositButton
+            // depositStatusButton
             // 
-            this.depositButton.BackColor = System.Drawing.Color.Transparent;
-            this.depositButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.depositButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.depositButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(68)))), ((int)(((byte)(68)))));
-            this.depositButton.Location = new System.Drawing.Point(133, 48);
-            this.depositButton.Name = "depositButton";
-            this.depositButton.Size = new System.Drawing.Size(127, 25);
-            this.depositButton.TabIndex = 99;
-            this.depositButton.TabStop = false;
-            this.depositButton.UseVisualStyleBackColor = true;
-            this.depositButton.Click += new System.EventHandler(this.depositButton_Click);
+            depositStatusButton.BackColor = Color.Transparent;
+            depositStatusButton.FlatStyle = FlatStyle.Flat;
+            depositStatusButton.Font = new Font("Microsoft Sans Serif", 8.25F);
+            depositStatusButton.ForeColor = Color.FromArgb(68, 68, 68);
+            depositStatusButton.Location = new Point(157, 58);
+            depositStatusButton.Name = "depositStatusButton";
+            depositStatusButton.Size = new Size(145, 27);
+            depositStatusButton.TabIndex = 99;
+            depositStatusButton.TabStop = false;
+            depositStatusButton.UseVisualStyleBackColor = true;
+            depositStatusButton.Click += depositStatusButton_Click;
             // 
-            // voidPicBox
+            // voidStatusPicBox
             // 
-            this.voidPicBox.BackColor = System.Drawing.Color.Transparent;
-            this.voidPicBox.BackgroundImage = SC_UI.Properties.Resources.Yes;
-            this.voidPicBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.voidPicBox.Location = new System.Drawing.Point(412, 261);
-            this.voidPicBox.Name = "voidPicBox";
-            this.voidPicBox.Size = new System.Drawing.Size(20, 20);
-            this.voidPicBox.TabIndex = 98;
-            this.voidPicBox.TabStop = false;
+            voidStatusPicBox.BackColor = Color.Transparent;
+            voidStatusPicBox.BackgroundImage = Properties.Resources.Yes;
+            voidStatusPicBox.BackgroundImageLayout = ImageLayout.Stretch;
+            voidStatusPicBox.Location = new Point(591, 293);
+            voidStatusPicBox.Name = "voidStatusPicBox";
+            voidStatusPicBox.Size = new Size(23, 23);
+            voidStatusPicBox.TabIndex = 98;
+            voidStatusPicBox.TabStop = false;
+            voidStatusPicBox.Click += voidStatusButton_Click;
             // 
-            // dabingPicBox
+            // dabingStatusPicBox
             // 
-            this.dabingPicBox.BackColor = System.Drawing.Color.Transparent;
-            this.dabingPicBox.BackgroundImage = SC_UI.Properties.Resources.Yes;
-            this.dabingPicBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.dabingPicBox.Location = new System.Drawing.Point(589, 261);
-            this.dabingPicBox.Name = "dabingPicBox";
-            this.dabingPicBox.Size = new System.Drawing.Size(20, 20);
-            this.dabingPicBox.TabIndex = 96;
-            this.dabingPicBox.TabStop = false;
+            dabingStatusPicBox.BackColor = Color.Transparent;
+            dabingStatusPicBox.BackgroundImage = Properties.Resources.Yes;
+            dabingStatusPicBox.BackgroundImageLayout = ImageLayout.Stretch;
+            dabingStatusPicBox.Location = new Point(944, 298);
+            dabingStatusPicBox.Name = "dabingStatusPicBox";
+            dabingStatusPicBox.Size = new Size(23, 23);
+            dabingStatusPicBox.TabIndex = 96;
+            dabingStatusPicBox.TabStop = false;
+            dabingStatusPicBox.Click += dabingStatusButton_Click;
             // 
-            // mathewPicBox
+            // mathewStatusPicBox
             // 
-            this.mathewPicBox.BackColor = System.Drawing.Color.Transparent;
-            this.mathewPicBox.BackgroundImage = SC_UI.Properties.Resources.Yes;
-            this.mathewPicBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.mathewPicBox.Location = new System.Drawing.Point(815, 53);
-            this.mathewPicBox.Name = "mathewPicBox";
-            this.mathewPicBox.Size = new System.Drawing.Size(20, 20);
-            this.mathewPicBox.TabIndex = 95;
-            this.mathewPicBox.TabStop = false;
+            mathewStatusPicBox.BackColor = Color.Transparent;
+            mathewStatusPicBox.BackgroundImage = Properties.Resources.Yes;
+            mathewStatusPicBox.BackgroundImageLayout = ImageLayout.Stretch;
+            mathewStatusPicBox.Location = new Point(950, 62);
+            mathewStatusPicBox.Name = "mathewStatusPicBox";
+            mathewStatusPicBox.Size = new Size(23, 23);
+            mathewStatusPicBox.TabIndex = 95;
+            mathewStatusPicBox.TabStop = false;
+            mathewStatusPicBox.Click += mathewStatusButton_Click;
             // 
-            // altingPicBox
+            // altingStatusPicBox
             // 
-            this.altingPicBox.BackColor = System.Drawing.Color.Transparent;
-            this.altingPicBox.BackgroundImage = SC_UI.Properties.Resources.Yes;
-            this.altingPicBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.altingPicBox.Location = new System.Drawing.Point(238, 262);
-            this.altingPicBox.Name = "altingPicBox";
-            this.altingPicBox.Size = new System.Drawing.Size(20, 20);
-            this.altingPicBox.TabIndex = 94;
-            this.altingPicBox.TabStop = false;
+            altingStatusPicBox.BackColor = Color.Transparent;
+            altingStatusPicBox.BackgroundImage = Properties.Resources.Yes;
+            altingStatusPicBox.BackgroundImageLayout = ImageLayout.Stretch;
+            altingStatusPicBox.Location = new Point(278, 298);
+            altingStatusPicBox.Name = "altingStatusPicBox";
+            altingStatusPicBox.Size = new Size(23, 23);
+            altingStatusPicBox.TabIndex = 94;
+            altingStatusPicBox.TabStop = false;
+            altingStatusPicBox.Click += altingStatusButton_Click;
             // 
-            // effectsDrawingPicBox
+            // effectsDrawingStatusPicBox
             // 
-            this.effectsDrawingPicBox.BackColor = System.Drawing.Color.Transparent;
-            this.effectsDrawingPicBox.BackgroundImage = SC_UI.Properties.Resources.Yes;
-            this.effectsDrawingPicBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.effectsDrawingPicBox.Location = new System.Drawing.Point(761, 261);
-            this.effectsDrawingPicBox.Name = "effectsDrawingPicBox";
-            this.effectsDrawingPicBox.Size = new System.Drawing.Size(20, 20);
-            this.effectsDrawingPicBox.TabIndex = 93;
-            this.effectsDrawingPicBox.TabStop = false;
+            effectsDrawingStatusPicBox.BackColor = Color.Transparent;
+            effectsDrawingStatusPicBox.BackgroundImage = Properties.Resources.Yes;
+            effectsDrawingStatusPicBox.BackgroundImageLayout = ImageLayout.Stretch;
+            effectsDrawingStatusPicBox.Location = new Point(593, 58);
+            effectsDrawingStatusPicBox.Name = "effectsDrawingStatusPicBox";
+            effectsDrawingStatusPicBox.Size = new Size(23, 23);
+            effectsDrawingStatusPicBox.TabIndex = 93;
+            effectsDrawingStatusPicBox.TabStop = false;
+            effectsDrawingStatusPicBox.Click += effectsDrawingStatusButton_Click;
             // 
-            // depositPicBox
+            // depositStatusPicBox
             // 
-            this.depositPicBox.BackColor = System.Drawing.Color.Transparent;
-            this.depositPicBox.BackgroundImage = SC_UI.Properties.Resources.Yes;
-            this.depositPicBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.depositPicBox.Location = new System.Drawing.Point(240, 53);
-            this.depositPicBox.Name = "depositPicBox";
-            this.depositPicBox.Size = new System.Drawing.Size(20, 20);
-            this.depositPicBox.TabIndex = 92;
-            this.depositPicBox.TabStop = false;
+            depositStatusPicBox.BackColor = Color.Transparent;
+            depositStatusPicBox.BackgroundImage = Properties.Resources.Yes;
+            depositStatusPicBox.BackgroundImageLayout = ImageLayout.Stretch;
+            depositStatusPicBox.Location = new Point(278, 60);
+            depositStatusPicBox.Name = "depositStatusPicBox";
+            depositStatusPicBox.Size = new Size(23, 23);
+            depositStatusPicBox.TabIndex = 92;
+            depositStatusPicBox.TabStop = false;
+            depositStatusPicBox.Click += depositStatusButton_Click;
             // 
             // effectsOnCheckBox
             // 
-            this.effectsOnCheckBox.AutoSize = true;
-            this.effectsOnCheckBox.Location = new System.Drawing.Point(670, 311);
-            this.effectsOnCheckBox.Name = "effectsOnCheckBox";
-            this.effectsOnCheckBox.Size = new System.Drawing.Size(15, 14);
-            this.effectsOnCheckBox.TabIndex = 108;
-            this.effectsOnCheckBox.TabStop = false;
-            this.effectsOnCheckBox.UseVisualStyleBackColor = true;
-            this.effectsOnCheckBox.CheckedChanged += new System.EventHandler(this.effectsOnCheckBox_CheckedChanged);
+            effectsOnCheckBox.AutoSize = true;
+            effectsOnCheckBox.Location = new Point(482, 116);
+            effectsOnCheckBox.Name = "effectsOnCheckBox";
+            effectsOnCheckBox.Size = new Size(15, 14);
+            effectsOnCheckBox.TabIndex = 108;
+            effectsOnCheckBox.TabStop = false;
+            effectsOnCheckBox.UseVisualStyleBackColor = true;
+            effectsOnCheckBox.CheckedChanged += effectsOnCheckBox_CheckedChanged;
             // 
-            // DrawingOnCheckBox
+            // drawingOnCheckBox
             // 
-            this.drawingOnCheckBox.AutoSize = true;
-            this.drawingOnCheckBox.Location = new System.Drawing.Point(670, 356);
-            this.drawingOnCheckBox.Name = "DrawingOnCheckBox";
-            this.drawingOnCheckBox.Size = new System.Drawing.Size(15, 14);
-            this.drawingOnCheckBox.TabIndex = 109;
-            this.drawingOnCheckBox.TabStop = false;
-            this.drawingOnCheckBox.UseVisualStyleBackColor = true;
-            this.drawingOnCheckBox.CheckedChanged += new System.EventHandler(this.drawingOnCheckBox_CheckedChanged);
+            drawingOnCheckBox.AutoSize = true;
+            drawingOnCheckBox.Location = new Point(484, 169);
+            drawingOnCheckBox.Name = "drawingOnCheckBox";
+            drawingOnCheckBox.Size = new Size(15, 14);
+            drawingOnCheckBox.TabIndex = 109;
+            drawingOnCheckBox.TabStop = false;
+            drawingOnCheckBox.UseVisualStyleBackColor = true;
+            drawingOnCheckBox.CheckedChanged += drawingOnCheckBox_CheckedChanged;
             // 
-            // dabingType
+            // dabingTypeComboBox
             // 
-            this.dabingType.FormattingEnabled = true;
-            this.dabingType.Items.AddRange(new object[] {
-            "Spam",
-            "Trzymanie"});
-            this.dabingType.Location = new System.Drawing.Point(542, 353);
-            this.dabingType.Name = "dabingType";
-            this.dabingType.Size = new System.Drawing.Size(110, 21);
-            this.dabingType.TabIndex = 110;
-            this.dabingType.SelectedIndexChanged += new System.EventHandler(this.dabingType_SelectedIndexChanged);
+            dabingTypeComboBox.FormattingEnabled = true;
+            dabingTypeComboBox.Items.AddRange(new object[] { "Spam", "Trzymanie" });
+            dabingTypeComboBox.Location = new Point(893, 405);
+            dabingTypeComboBox.Name = "dabingTypeComboBox";
+            dabingTypeComboBox.Size = new Size(110, 21);
+            dabingTypeComboBox.TabIndex = 110;
+            dabingTypeComboBox.SelectedIndexChanged += dabingTypeComboBox_SelectedIndexChanged;
             // 
-            // OtherForm
+            // voidDelayNumeric
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.AutoScroll = true;
-            this.BackgroundImage = SC_UI.Properties.Resources.Others;
-            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(882, 497);
-            this.Controls.Add(this.dabingType);
-            this.Controls.Add(this.drawingOnCheckBox);
-            this.Controls.Add(this.effectsOnCheckBox);
-            this.Controls.Add(this.voidPicBox);
-            this.Controls.Add(this.dabingPicBox);
-            this.Controls.Add(this.mathewPicBox);
-            this.Controls.Add(this.altingPicBox);
-            this.Controls.Add(this.effectsDrawingPicBox);
-            this.Controls.Add(this.depositPicBox);
-            this.Controls.Add(this.voidButton);
-            this.Controls.Add(this.dabingButton);
-            this.Controls.Add(this.mathewButton);
-            this.Controls.Add(this.altingButton);
-            this.Controls.Add(this.effectsDrawingButton);
-            this.Controls.Add(this.depositButton);
-            this.Controls.Add(this.voidBindButton);
-            this.Controls.Add(this.drawingBindButton);
-            this.Controls.Add(this.effectsBindButton);
-            this.Controls.Add(this.mathewBindButton);
-            this.Controls.Add(this.altingBindButton);
-            this.Controls.Add(this.dabingBindButton);
-            this.Controls.Add(this.depositBindButton);
-            this.Controls.Add(this.settingsButton);
-            this.Controls.Add(this.effectsPositionButton);
-            this.Controls.Add(this.drawingPositionButton);
-            this.Controls.Add(this.pickaxe4RadioButton);
-            this.Controls.Add(this.pickaxe5RadioButton);
-            this.Controls.Add(this.pickaxe6RadioButton);
-            this.Controls.Add(this.depositDelayNumeric);
-            this.Controls.Add(this.bindsButton);
-            this.Controls.Add(this.pvpButton);
-            this.Controls.Add(this.miningButton);
-            this.DoubleBuffered = true;
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Icon = SC_UI.Properties.Resources.Logo;
-            this.MaximizeBox = false;
-            this.Name = "OtherForm";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
-            this.Text = "Smoczy Clicker";
-            ((System.ComponentModel.ISupportInitialize)(this.depositDelayNumeric)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.voidPicBox)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dabingPicBox)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mathewPicBox)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.altingPicBox)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.effectsDrawingPicBox)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.depositPicBox)).EndInit();
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            voidDelayNumeric.Location = new Point(614, 455);
+            voidDelayNumeric.Maximum = new decimal(new int[] { 99999, 0, 0, 0 });
+            voidDelayNumeric.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
+            voidDelayNumeric.Name = "voidDelayNumeric";
+            voidDelayNumeric.Size = new Size(58, 20);
+            voidDelayNumeric.TabIndex = 111;
+            voidDelayNumeric.TabStop = false;
+            voidDelayNumeric.Value = new decimal(new int[] { 2, 0, 0, 0 });
+            voidDelayNumeric.ValueChanged += voidDelayNumeric_ValueChanged;
+            // 
+            // intelligentVoidCheckBox
+            // 
+            intelligentVoidCheckBox.AutoSize = true;
+            intelligentVoidCheckBox.Location = new Point(693, 407);
+            intelligentVoidCheckBox.Name = "intelligentVoidCheckBox";
+            intelligentVoidCheckBox.Size = new Size(15, 14);
+            intelligentVoidCheckBox.TabIndex = 112;
+            intelligentVoidCheckBox.TabStop = false;
+            intelligentVoidCheckBox.UseVisualStyleBackColor = true;
+            intelligentVoidCheckBox.CheckedChanged += intelligentVoidCheckBox_CheckedChanged;
+            // 
+            // OthersForm
+            // 
+            AutoScaleDimensions = new SizeF(6F, 13F);
+            AutoScaleMode = AutoScaleMode.Font;
+            AutoScroll = true;
+            BackgroundImage = Properties.Resources.Others;
+            BackgroundImageLayout = ImageLayout.Stretch;
+            ClientSize = new Size(1029, 573);
+            Controls.Add(intelligentVoidCheckBox);
+            Controls.Add(voidDelayNumeric);
+            Controls.Add(dabingTypeComboBox);
+            Controls.Add(drawingOnCheckBox);
+            Controls.Add(effectsOnCheckBox);
+            Controls.Add(voidStatusPicBox);
+            Controls.Add(dabingStatusPicBox);
+            Controls.Add(mathewStatusPicBox);
+            Controls.Add(altingStatusPicBox);
+            Controls.Add(effectsDrawingStatusPicBox);
+            Controls.Add(depositStatusPicBox);
+            Controls.Add(voidStatusButton);
+            Controls.Add(dabingStatusButton);
+            Controls.Add(mathewStatusButton);
+            Controls.Add(altingStatusButton);
+            Controls.Add(effectsDrawingStatusButton);
+            Controls.Add(depositStatusButton);
+            Controls.Add(voidBindButton);
+            Controls.Add(drawingBindButton);
+            Controls.Add(effectsBindButton);
+            Controls.Add(mathewBindButton);
+            Controls.Add(altingBindButton);
+            Controls.Add(dabingBindButton);
+            Controls.Add(depositBindButton);
+            Controls.Add(settingsNavButton);
+            Controls.Add(effectsCoordinateButton);
+            Controls.Add(drawingCoordinateButton);
+            Controls.Add(pickaxe4RadioButton);
+            Controls.Add(pickaxe5RadioButton);
+            Controls.Add(pickaxe6RadioButton);
+            Controls.Add(depositDelayNumeric);
+            Controls.Add(bindsNavButton);
+            Controls.Add(pvpNavButton);
+            Controls.Add(miningNavButton);
+            DoubleBuffered = true;
+            Font = new Font("Microsoft Sans Serif", 8.25F);
+            FormBorderStyle = FormBorderStyle.None;
+            Icon = Properties.Resources.Logo;
+            MaximizeBox = false;
+            Name = "OthersForm";
+            StartPosition = FormStartPosition.Manual;
+            Text = "Smoczy Clicker";
+            ((System.ComponentModel.ISupportInitialize)depositDelayNumeric).EndInit();
+            ((System.ComponentModel.ISupportInitialize)voidStatusPicBox).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dabingStatusPicBox).EndInit();
+            ((System.ComponentModel.ISupportInitialize)mathewStatusPicBox).EndInit();
+            ((System.ComponentModel.ISupportInitialize)altingStatusPicBox).EndInit();
+            ((System.ComponentModel.ISupportInitialize)effectsDrawingStatusPicBox).EndInit();
+            ((System.ComponentModel.ISupportInitialize)depositStatusPicBox).EndInit();
+            ((System.ComponentModel.ISupportInitialize)voidDelayNumeric).EndInit();
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
 
-        private FormHelper.InvisibleButton miningButton;
-        private FormHelper.InvisibleButton bindsButton;
-        private FormHelper.InvisibleButton pvpButton;
+        private InvisibleButton miningNavButton;
+        private InvisibleButton bindsNavButton;
+        private InvisibleButton pvpNavButton;
         private System.Windows.Forms.NumericUpDown depositDelayNumeric;
         private System.Windows.Forms.RadioButton pickaxe6RadioButton;
         private System.Windows.Forms.RadioButton pickaxe5RadioButton;
         private System.Windows.Forms.RadioButton pickaxe4RadioButton;
-        private System.Windows.Forms.Button drawingPositionButton;
-        private System.Windows.Forms.Button effectsPositionButton;
-        private FormHelper.InvisibleButton settingsButton;
-        private FormHelper.InvisibleButton voidBindButton;
-        private FormHelper.InvisibleButton drawingBindButton;
-        private FormHelper.InvisibleButton effectsBindButton;
-        private FormHelper.InvisibleButton mathewBindButton;
-        private FormHelper.InvisibleButton altingBindButton;
-        private FormHelper.InvisibleButton dabingBindButton;
-        private FormHelper.InvisibleButton depositBindButton;
-        private FormHelper.InvisibleButton voidButton;
-        private FormHelper.InvisibleButton dabingButton;
-        private FormHelper.InvisibleButton mathewButton;
-        private FormHelper.InvisibleButton altingButton;
-        private FormHelper.InvisibleButton effectsDrawingButton;
-        private FormHelper.InvisibleButton depositButton;
-        private System.Windows.Forms.PictureBox voidPicBox;
-        private System.Windows.Forms.PictureBox dabingPicBox;
-        private System.Windows.Forms.PictureBox mathewPicBox;
-        private System.Windows.Forms.PictureBox altingPicBox;
-        private System.Windows.Forms.PictureBox effectsDrawingPicBox;
-        private System.Windows.Forms.PictureBox depositPicBox;
+        private InvisibleButton drawingCoordinateButton;
+        private InvisibleButton effectsCoordinateButton;
+        private InvisibleButton settingsNavButton;
+        private InvisibleButton voidBindButton;
+        private InvisibleButton drawingBindButton;
+        private InvisibleButton effectsBindButton;
+        private InvisibleButton mathewBindButton;
+        private InvisibleButton altingBindButton;
+        private InvisibleButton dabingBindButton;
+        private InvisibleButton depositBindButton;
+        private InvisibleButton voidStatusButton;
+        private InvisibleButton dabingStatusButton;
+        private InvisibleButton mathewStatusButton;
+        private InvisibleButton altingStatusButton;
+        private InvisibleButton effectsDrawingStatusButton;
+        private InvisibleButton depositStatusButton;
+        private System.Windows.Forms.PictureBox voidStatusPicBox;
+        private System.Windows.Forms.PictureBox dabingStatusPicBox;
+        private System.Windows.Forms.PictureBox mathewStatusPicBox;
+        private System.Windows.Forms.PictureBox altingStatusPicBox;
+        private System.Windows.Forms.PictureBox effectsDrawingStatusPicBox;
+        private System.Windows.Forms.PictureBox depositStatusPicBox;
         private System.Windows.Forms.CheckBox effectsOnCheckBox;
         private System.Windows.Forms.CheckBox drawingOnCheckBox;
-        private System.Windows.Forms.ComboBox dabingType;
+        private System.Windows.Forms.ComboBox dabingTypeComboBox;
+        private NumericUpDown voidDelayNumeric;
+        private CheckBox intelligentVoidCheckBox;
     }
 }
 

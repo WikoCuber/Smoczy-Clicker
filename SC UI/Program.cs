@@ -3,7 +3,7 @@ using SC_UI.Forms;
 
 namespace SC_UI
 {
-    internal static class Program
+    public static class Program
     {
         [STAThread]
         static void Main()
@@ -13,6 +13,9 @@ namespace SC_UI
 
             //Create save file and load it
             SaveFile.Init();
+
+            //Adds all scripts
+            ScriptsInitalizer.Init();
 
             Application.Run(new MainForm());
         }

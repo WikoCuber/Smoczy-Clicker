@@ -1,4 +1,6 @@
-﻿namespace SC_UI.Forms
+﻿using SC_UI.Helpers;
+
+namespace SC_UI.Forms
 {
     partial class MiningForm
     {
@@ -39,22 +41,22 @@
             whichLapDropNumric = new NumericUpDown();
             whichLapEatingNumeric = new NumericUpDown();
             lenghtNumeric = new NumericUpDown();
-            miningPicBox = new PictureBox();
+            miningStatusPicBox = new PictureBox();
             addButton = new Button();
-            commandsPanel = new Panel();
+            commandsBindsPanel = new Panel();
             backgroundBPCheckBox = new CheckBox();
             bindRadioButton = new RadioButton();
             commandRadioButton = new RadioButton();
-            miningBindButton = new FormHelper.InvisibleButton();
-            pvpButton = new FormHelper.InvisibleButton();
-            bindsButton = new FormHelper.InvisibleButton();
-            othersButton = new FormHelper.InvisibleButton();
-            miningButton = new FormHelper.InvisibleButton();
-            settingsButton = new FormHelper.InvisibleButton();
+            miningBindButton = new InvisibleButton();
+            pvpNavButton = new InvisibleButton();
+            bindsNavButton = new InvisibleButton();
+            othersNavButton = new InvisibleButton();
+            miningStatusButton = new InvisibleButton();
+            settingsNavButton = new InvisibleButton();
             ((System.ComponentModel.ISupportInitialize)whichLapDropNumric).BeginInit();
             ((System.ComponentModel.ISupportInitialize)whichLapEatingNumeric).BeginInit();
             ((System.ComponentModel.ISupportInitialize)lenghtNumeric).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)miningPicBox).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)miningStatusPicBox).BeginInit();
             SuspendLayout();
             // 
             // backgroundCheckBox
@@ -139,7 +141,7 @@
             dropOnCheckBox.TabIndex = 37;
             dropOnCheckBox.TabStop = false;
             dropOnCheckBox.UseVisualStyleBackColor = true;
-            dropOnCheckBox.CheckedChanged += dropCheckBox_CheckedChanged;
+            dropOnCheckBox.CheckedChanged += dropOnCheckBox_CheckedChanged;
             // 
             // eatingOnCheckBox
             // 
@@ -165,7 +167,6 @@
             whichLapDropNumric.TabStop = false;
             whichLapDropNumric.Value = new decimal(new int[] { 1, 0, 0, 0 });
             whichLapDropNumric.ValueChanged += whichLapDropNumeric_ValueChanged;
-            whichLapDropNumric.KeyUp += whichLapDropNumeric_KeyUp;
             // 
             // whichLapEatingNumeric
             // 
@@ -179,7 +180,6 @@
             whichLapEatingNumeric.TabStop = false;
             whichLapEatingNumeric.Value = new decimal(new int[] { 1, 0, 0, 0 });
             whichLapEatingNumeric.ValueChanged += whichLapEatingNumeric_ValueChanged;
-            whichLapEatingNumeric.KeyUp += whichLapEatingNumeric_KeyUp;
             // 
             // lenghtNumeric
             // 
@@ -193,19 +193,19 @@
             lenghtNumeric.TabStop = false;
             lenghtNumeric.Value = new decimal(new int[] { 2, 0, 0, 0 });
             lenghtNumeric.ValueChanged += lenghtNumeric_ValueChanged;
-            lenghtNumeric.KeyUp += lenghtNumeric_KeyUp;
             // 
-            // miningPicBox
+            // miningStatusPicBox
             // 
-            miningPicBox.BackColor = Color.Transparent;
-            miningPicBox.BackgroundImage = Properties.Resources.Yes;
-            miningPicBox.BackgroundImageLayout = ImageLayout.Stretch;
-            miningPicBox.Location = new Point(278, 32);
-            miningPicBox.Margin = new Padding(4, 3, 4, 3);
-            miningPicBox.Name = "miningPicBox";
-            miningPicBox.Size = new Size(23, 23);
-            miningPicBox.TabIndex = 68;
-            miningPicBox.TabStop = false;
+            miningStatusPicBox.BackColor = Color.Transparent;
+            miningStatusPicBox.BackgroundImage = Properties.Resources.Yes;
+            miningStatusPicBox.BackgroundImageLayout = ImageLayout.Stretch;
+            miningStatusPicBox.Location = new Point(278, 32);
+            miningStatusPicBox.Margin = new Padding(4, 3, 4, 3);
+            miningStatusPicBox.Name = "miningStatusPicBox";
+            miningStatusPicBox.Size = new Size(23, 23);
+            miningStatusPicBox.TabIndex = 68;
+            miningStatusPicBox.TabStop = false;
+            miningStatusPicBox.Click += miningStatusButton_Click;
             // 
             // addButton
             // 
@@ -218,14 +218,14 @@
             addButton.UseVisualStyleBackColor = true;
             addButton.Click += addButton_Click;
             // 
-            // commandsPanel
+            // commandsBindsPanel
             // 
-            commandsPanel.BackColor = Color.Transparent;
-            commandsPanel.Location = new Point(663, 90);
-            commandsPanel.Margin = new Padding(4, 3, 4, 3);
-            commandsPanel.Name = "commandsPanel";
-            commandsPanel.Size = new Size(338, 404);
-            commandsPanel.TabIndex = 70;
+            commandsBindsPanel.BackColor = Color.Transparent;
+            commandsBindsPanel.Location = new Point(663, 90);
+            commandsBindsPanel.Margin = new Padding(4, 3, 4, 3);
+            commandsBindsPanel.Name = "commandsBindsPanel";
+            commandsBindsPanel.Size = new Size(338, 404);
+            commandsBindsPanel.TabIndex = 70;
             // 
             // backgroundBPCheckBox
             // 
@@ -267,83 +267,83 @@
             miningBindButton.FlatStyle = FlatStyle.Flat;
             miningBindButton.Font = new Font("Microsoft Sans Serif", 8.25F);
             miningBindButton.ForeColor = Color.FromArgb(162, 162, 162);
-            miningBindButton.Location = new Point(267, 111);
+            miningBindButton.Location = new Point(270, 110);
             miningBindButton.Name = "miningBindButton";
-            miningBindButton.Size = new Size(85, 24);
+            miningBindButton.Size = new Size(80, 27);
             miningBindButton.TabIndex = 66;
             miningBindButton.TabStop = false;
             miningBindButton.UseVisualStyleBackColor = true;
             miningBindButton.Click += miningBindButton_Click;
             // 
-            // pvpButton
+            // pvpNavButton
             // 
-            pvpButton.BackColor = Color.Transparent;
-            pvpButton.FlatStyle = FlatStyle.Flat;
-            pvpButton.Font = new Font("Microsoft Sans Serif", 8.25F);
-            pvpButton.ForeColor = Color.FromArgb(68, 68, 68);
-            pvpButton.Location = new Point(12, 31);
-            pvpButton.Name = "pvpButton";
-            pvpButton.Size = new Size(135, 35);
-            pvpButton.TabIndex = 21;
-            pvpButton.TabStop = false;
-            pvpButton.UseVisualStyleBackColor = true;
-            pvpButton.Click += pvpButton_Click;
+            pvpNavButton.BackColor = Color.Transparent;
+            pvpNavButton.FlatStyle = FlatStyle.Flat;
+            pvpNavButton.Font = new Font("Microsoft Sans Serif", 8.25F);
+            pvpNavButton.ForeColor = Color.FromArgb(68, 68, 68);
+            pvpNavButton.Location = new Point(16, 28);
+            pvpNavButton.Name = "pvpNavButton";
+            pvpNavButton.Size = new Size(130, 39);
+            pvpNavButton.TabIndex = 21;
+            pvpNavButton.TabStop = false;
+            pvpNavButton.UseVisualStyleBackColor = true;
+            pvpNavButton.Click += pvpNavButton_Click;
             // 
-            // bindsButton
+            // bindsNavButton
             // 
-            bindsButton.BackColor = Color.Transparent;
-            bindsButton.FlatStyle = FlatStyle.Flat;
-            bindsButton.Font = new Font("Microsoft Sans Serif", 8.25F);
-            bindsButton.ForeColor = Color.FromArgb(68, 68, 68);
-            bindsButton.Location = new Point(12, 171);
-            bindsButton.Name = "bindsButton";
-            bindsButton.Size = new Size(135, 32);
-            bindsButton.TabIndex = 22;
-            bindsButton.TabStop = false;
-            bindsButton.UseVisualStyleBackColor = true;
-            bindsButton.Click += bindsButton_Click;
+            bindsNavButton.BackColor = Color.Transparent;
+            bindsNavButton.FlatStyle = FlatStyle.Flat;
+            bindsNavButton.Font = new Font("Microsoft Sans Serif", 8.25F);
+            bindsNavButton.ForeColor = Color.FromArgb(68, 68, 68);
+            bindsNavButton.Location = new Point(15, 166);
+            bindsNavButton.Name = "bindsNavButton";
+            bindsNavButton.Size = new Size(130, 39);
+            bindsNavButton.TabIndex = 22;
+            bindsNavButton.TabStop = false;
+            bindsNavButton.UseVisualStyleBackColor = true;
+            bindsNavButton.Click += bindsNavButton_Click;
             // 
-            // othersButton
+            // othersNavButton
             // 
-            othersButton.BackColor = Color.Transparent;
-            othersButton.FlatStyle = FlatStyle.Flat;
-            othersButton.Font = new Font("Microsoft Sans Serif", 8.25F);
-            othersButton.ForeColor = Color.FromArgb(68, 68, 68);
-            othersButton.Location = new Point(12, 123);
-            othersButton.Name = "othersButton";
-            othersButton.Size = new Size(135, 34);
-            othersButton.TabIndex = 20;
-            othersButton.TabStop = false;
-            othersButton.UseVisualStyleBackColor = true;
-            othersButton.Click += othersButton_Click;
+            othersNavButton.BackColor = Color.Transparent;
+            othersNavButton.FlatStyle = FlatStyle.Flat;
+            othersNavButton.Font = new Font("Microsoft Sans Serif", 8.25F);
+            othersNavButton.ForeColor = Color.FromArgb(68, 68, 68);
+            othersNavButton.Location = new Point(16, 121);
+            othersNavButton.Name = "othersNavButton";
+            othersNavButton.Size = new Size(130, 39);
+            othersNavButton.TabIndex = 20;
+            othersNavButton.TabStop = false;
+            othersNavButton.UseVisualStyleBackColor = true;
+            othersNavButton.Click += othersNavButton_Click;
             // 
-            // miningButton
+            // miningStatusButton
             // 
-            miningButton.BackColor = Color.Transparent;
-            miningButton.FlatStyle = FlatStyle.Flat;
-            miningButton.Font = new Font("Microsoft Sans Serif", 8.25F);
-            miningButton.ForeColor = Color.FromArgb(68, 68, 68);
-            miningButton.Location = new Point(153, 33);
-            miningButton.Name = "miningButton";
-            miningButton.Size = new Size(124, 23);
-            miningButton.TabIndex = 67;
-            miningButton.TabStop = false;
-            miningButton.UseVisualStyleBackColor = true;
-            miningButton.Click += miningButton_Click;
+            miningStatusButton.BackColor = Color.Transparent;
+            miningStatusButton.FlatStyle = FlatStyle.Flat;
+            miningStatusButton.Font = new Font("Microsoft Sans Serif", 8.25F);
+            miningStatusButton.ForeColor = Color.FromArgb(68, 68, 68);
+            miningStatusButton.Location = new Point(155, 30);
+            miningStatusButton.Name = "miningStatusButton";
+            miningStatusButton.Size = new Size(145, 27);
+            miningStatusButton.TabIndex = 67;
+            miningStatusButton.TabStop = false;
+            miningStatusButton.UseVisualStyleBackColor = true;
+            miningStatusButton.Click += miningStatusButton_Click;
             // 
-            // settingsButton
+            // settingsNavButton
             // 
-            settingsButton.BackColor = Color.Transparent;
-            settingsButton.FlatStyle = FlatStyle.Flat;
-            settingsButton.Font = new Font("Microsoft Sans Serif", 8.25F);
-            settingsButton.ForeColor = Color.FromArgb(68, 68, 68);
-            settingsButton.Location = new Point(12, 215);
-            settingsButton.Name = "settingsButton";
-            settingsButton.Size = new Size(135, 34);
-            settingsButton.TabIndex = 65;
-            settingsButton.TabStop = false;
-            settingsButton.UseVisualStyleBackColor = true;
-            settingsButton.Click += settingsButton_Click;
+            settingsNavButton.BackColor = Color.Transparent;
+            settingsNavButton.FlatStyle = FlatStyle.Flat;
+            settingsNavButton.Font = new Font("Microsoft Sans Serif", 8.25F);
+            settingsNavButton.ForeColor = Color.FromArgb(68, 68, 68);
+            settingsNavButton.Location = new Point(14, 214);
+            settingsNavButton.Name = "settingsNavButton";
+            settingsNavButton.Size = new Size(130, 39);
+            settingsNavButton.TabIndex = 65;
+            settingsNavButton.TabStop = false;
+            settingsNavButton.UseVisualStyleBackColor = true;
+            settingsNavButton.Click += settingsNavButton_Click;
             // 
             // MiningForm
             // 
@@ -356,9 +356,9 @@
             Controls.Add(bindRadioButton);
             Controls.Add(commandRadioButton);
             Controls.Add(backgroundBPCheckBox);
-            Controls.Add(commandsPanel);
+            Controls.Add(commandsBindsPanel);
             Controls.Add(addButton);
-            Controls.Add(miningPicBox);
+            Controls.Add(miningStatusPicBox);
             Controls.Add(lenghtNumeric);
             Controls.Add(whichLapEatingNumeric);
             Controls.Add(whichLapDropNumric);
@@ -370,12 +370,12 @@
             Controls.Add(slot2OnCheckBox);
             Controls.Add(slot1OnCheckBox);
             Controls.Add(backgroundCheckBox);
-            Controls.Add(bindsButton);
-            Controls.Add(pvpButton);
-            Controls.Add(othersButton);
+            Controls.Add(bindsNavButton);
+            Controls.Add(pvpNavButton);
+            Controls.Add(othersNavButton);
             Controls.Add(miningBindButton);
-            Controls.Add(miningButton);
-            Controls.Add(settingsButton);
+            Controls.Add(miningStatusButton);
+            Controls.Add(settingsNavButton);
             DoubleBuffered = true;
             FormBorderStyle = FormBorderStyle.None;
             Icon = Properties.Resources.Logo;
@@ -387,14 +387,14 @@
             ((System.ComponentModel.ISupportInitialize)whichLapDropNumric).EndInit();
             ((System.ComponentModel.ISupportInitialize)whichLapEatingNumeric).EndInit();
             ((System.ComponentModel.ISupportInitialize)lenghtNumeric).EndInit();
-            ((System.ComponentModel.ISupportInitialize)miningPicBox).EndInit();
+            ((System.ComponentModel.ISupportInitialize)miningStatusPicBox).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
-        private FormHelper.InvisibleButton othersButton;
-        private FormHelper.InvisibleButton pvpButton;
+        private InvisibleButton othersNavButton;
+        private InvisibleButton pvpNavButton;
         private System.Windows.Forms.CheckBox backgroundCheckBox;
         private System.Windows.Forms.CheckBox slot1OnCheckBox;
         private System.Windows.Forms.CheckBox slot2OnCheckBox;
@@ -406,13 +406,13 @@
         private System.Windows.Forms.NumericUpDown whichLapDropNumric;
         private System.Windows.Forms.NumericUpDown whichLapEatingNumeric;
         private System.Windows.Forms.NumericUpDown lenghtNumeric;
-        private FormHelper.InvisibleButton bindsButton;
-        private FormHelper.InvisibleButton settingsButton;
-        private FormHelper.InvisibleButton miningBindButton;
-        private FormHelper.InvisibleButton miningButton;
-        private System.Windows.Forms.PictureBox miningPicBox;
+        private InvisibleButton bindsNavButton;
+        private InvisibleButton settingsNavButton;
+        private InvisibleButton miningBindButton;
+        private InvisibleButton miningStatusButton;
+        private System.Windows.Forms.PictureBox miningStatusPicBox;
         private System.Windows.Forms.Button addButton;
-        private System.Windows.Forms.Panel commandsPanel;
+        private System.Windows.Forms.Panel commandsBindsPanel;
         private System.Windows.Forms.CheckBox backgroundBPCheckBox;
         private System.Windows.Forms.RadioButton bindRadioButton;
         private System.Windows.Forms.RadioButton commandRadioButton;

@@ -2,7 +2,6 @@
 {
     public class Data
     {
-        public FormType CurrentFormType { get; set; }
         public Settings Settings { get; set; } = new();
         public Delays Delays { get; set; } = new();
         public Coordinates Coordinates { get; set; } = new();

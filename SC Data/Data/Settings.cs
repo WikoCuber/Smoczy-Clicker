@@ -11,6 +11,6 @@
         public bool IsEffectsOn { get; set; }
         public bool IsDrawingOn { get; set; }
         public int DabingType { get; set; }
-        public bool IntelligentVoid { get; set; }
+        public bool IsIntelligentVoid { get; set; }
     }
 }

@@ -1,4 +1,6 @@
-﻿namespace SC_UI.Forms
+﻿using SC_UI.Helpers;
+
+namespace SC_UI.Forms
 {
     partial class SettingsForm
     {
@@ -28,192 +30,171 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SettingsForm));
-            this.othersButton = new SC_UI.FormHelper.InvisibleButton();
-            this.miningButton = new SC_UI.FormHelper.InvisibleButton();
-            this.pvpButton = new SC_UI.FormHelper.InvisibleButton();
-            this.bindsButton = new SC_UI.FormHelper.InvisibleButton();
-            this.leftButton = new SC_UI.FormHelper.InvisibleButton();
-            this.rightButton = new SC_UI.FormHelper.InvisibleButton();
-            this.backgroundDelayNumeric = new System.Windows.Forms.NumericUpDown();
-            this.commandDelayNumeric = new System.Windows.Forms.NumericUpDown();
-            ((System.ComponentModel.ISupportInitialize)(this.backgroundDelayNumeric)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.commandDelayNumeric)).BeginInit();
-            this.SuspendLayout();
+            othersNavButton = new InvisibleButton();
+            miningNavButton = new InvisibleButton();
+            pvpNavButton = new InvisibleButton();
+            bindsNavButton = new InvisibleButton();
+            leftCoordniateButton = new InvisibleButton();
+            rightCoordinateButton = new InvisibleButton();
+            backgroundDelayNumeric = new NumericUpDown();
+            commandDelayNumeric = new NumericUpDown();
+            ((System.ComponentModel.ISupportInitialize)backgroundDelayNumeric).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)commandDelayNumeric).BeginInit();
+            SuspendLayout();
             // 
-            // othersButton
+            // othersNavButton
             // 
-            this.othersButton.BackColor = System.Drawing.Color.Transparent;
-            this.othersButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.othersButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.othersButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(68)))), ((int)(((byte)(68)))));
-            this.othersButton.Location = new System.Drawing.Point(12, 104);
-            this.othersButton.Name = "othersButton";
-            this.othersButton.Size = new System.Drawing.Size(111, 34);
-            this.othersButton.TabIndex = 62;
-            this.othersButton.TabStop = false;
-            this.othersButton.UseVisualStyleBackColor = true;
-            this.othersButton.Click += new System.EventHandler(this.othersButton_Click);
+            othersNavButton.BackColor = Color.Transparent;
+            othersNavButton.FlatStyle = FlatStyle.Flat;
+            othersNavButton.Font = new Font("Microsoft Sans Serif", 8.25F);
+            othersNavButton.ForeColor = Color.FromArgb(68, 68, 68);
+            othersNavButton.Location = new Point(14, 120);
+            othersNavButton.Margin = new Padding(4, 3, 4, 3);
+            othersNavButton.Name = "othersNavButton";
+            othersNavButton.Size = new Size(130, 39);
+            othersNavButton.TabIndex = 62;
+            othersNavButton.TabStop = false;
+            othersNavButton.UseVisualStyleBackColor = true;
+            othersNavButton.Click += othersNavButton_Click;
             // 
-            // miningButton
+            // miningNavButton
             // 
-            this.miningButton.BackColor = System.Drawing.Color.Transparent;
-            this.miningButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.miningButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.miningButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(68)))), ((int)(((byte)(68)))));
-            this.miningButton.Location = new System.Drawing.Point(13, 64);
-            this.miningButton.Name = "miningButton";
-            this.miningButton.Size = new System.Drawing.Size(111, 34);
-            this.miningButton.TabIndex = 61;
-            this.miningButton.TabStop = false;
-            this.miningButton.UseVisualStyleBackColor = true;
-            this.miningButton.Click += new System.EventHandler(this.miningButton_Click);
+            miningNavButton.BackColor = Color.Transparent;
+            miningNavButton.FlatStyle = FlatStyle.Flat;
+            miningNavButton.Font = new Font("Microsoft Sans Serif", 8.25F);
+            miningNavButton.ForeColor = Color.FromArgb(68, 68, 68);
+            miningNavButton.Location = new Point(15, 74);
+            miningNavButton.Margin = new Padding(4, 3, 4, 3);
+            miningNavButton.Name = "miningNavButton";
+            miningNavButton.Size = new Size(130, 39);
+            miningNavButton.TabIndex = 61;
+            miningNavButton.TabStop = false;
+            miningNavButton.UseVisualStyleBackColor = true;
+            miningNavButton.Click += miningNavButton_Click;
             // 
-            // pvpButton
+            // pvpNavButton
             // 
-            this.pvpButton.BackColor = System.Drawing.Color.Transparent;
-            this.pvpButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.pvpButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.pvpButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(68)))), ((int)(((byte)(68)))));
-            this.pvpButton.Location = new System.Drawing.Point(12, 24);
-            this.pvpButton.Name = "pvpButton";
-            this.pvpButton.Size = new System.Drawing.Size(111, 34);
-            this.pvpButton.TabIndex = 60;
-            this.pvpButton.TabStop = false;
-            this.pvpButton.UseVisualStyleBackColor = true;
-            this.pvpButton.Click += new System.EventHandler(this.pvpButton_Click);
+            pvpNavButton.BackColor = Color.Transparent;
+            pvpNavButton.FlatStyle = FlatStyle.Flat;
+            pvpNavButton.Font = new Font("Microsoft Sans Serif", 8.25F);
+            pvpNavButton.ForeColor = Color.FromArgb(68, 68, 68);
+            pvpNavButton.Location = new Point(14, 28);
+            pvpNavButton.Margin = new Padding(4, 3, 4, 3);
+            pvpNavButton.Name = "pvpNavButton";
+            pvpNavButton.Size = new Size(130, 39);
+            pvpNavButton.TabIndex = 60;
+            pvpNavButton.TabStop = false;
+            pvpNavButton.UseVisualStyleBackColor = true;
+            pvpNavButton.Click += pvpNavButton_Click;
             // 
-            // bindsButton
+            // bindsNavButton
             // 
-            this.bindsButton.BackColor = System.Drawing.Color.Transparent;
-            this.bindsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bindsButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.bindsButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(68)))), ((int)(((byte)(68)))));
-            this.bindsButton.Location = new System.Drawing.Point(13, 146);
-            this.bindsButton.Name = "bindsButton";
-            this.bindsButton.Size = new System.Drawing.Size(111, 33);
-            this.bindsButton.TabIndex = 64;
-            this.bindsButton.TabStop = false;
-            this.bindsButton.UseVisualStyleBackColor = true;
-            this.bindsButton.Click += new System.EventHandler(this.bindsButton_Click);
+            bindsNavButton.BackColor = Color.Transparent;
+            bindsNavButton.FlatStyle = FlatStyle.Flat;
+            bindsNavButton.Font = new Font("Microsoft Sans Serif", 8.25F);
+            bindsNavButton.ForeColor = Color.FromArgb(68, 68, 68);
+            bindsNavButton.Location = new Point(15, 168);
+            bindsNavButton.Margin = new Padding(4, 3, 4, 3);
+            bindsNavButton.Name = "bindsNavButton";
+            bindsNavButton.Size = new Size(130, 38);
+            bindsNavButton.TabIndex = 64;
+            bindsNavButton.TabStop = false;
+            bindsNavButton.UseVisualStyleBackColor = true;
+            bindsNavButton.Click += bindsNavButton_Click;
             // 
-            // leftButton
+            // leftCoordniateButton
             // 
-            this.leftButton.BackColor = System.Drawing.Color.Transparent;
-            this.leftButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.leftButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.leftButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(162)))), ((int)(((byte)(162)))));
-            this.leftButton.Location = new System.Drawing.Point(535, 22);
-            this.leftButton.Name = "leftButton";
-            this.leftButton.Size = new System.Drawing.Size(72, 27);
-            this.leftButton.TabIndex = 65;
-            this.leftButton.TabStop = false;
-            this.leftButton.Text = "button1";
-            this.leftButton.UseVisualStyleBackColor = true;
-            this.leftButton.Click += new System.EventHandler(this.leftButton_Click);
+            leftCoordniateButton.BackColor = Color.Transparent;
+            leftCoordniateButton.FlatStyle = FlatStyle.Flat;
+            leftCoordniateButton.Font = new Font("Microsoft Sans Serif", 8.25F);
+            leftCoordniateButton.ForeColor = Color.FromArgb(162, 162, 162);
+            leftCoordniateButton.Location = new Point(625, 27);
+            leftCoordniateButton.Margin = new Padding(4, 3, 4, 3);
+            leftCoordniateButton.Name = "leftCoordniateButton";
+            leftCoordniateButton.Size = new Size(80, 27);
+            leftCoordniateButton.TabIndex = 65;
+            leftCoordniateButton.TabStop = false;
+            leftCoordniateButton.UseVisualStyleBackColor = true;
+            leftCoordniateButton.Click += leftCoordinateButton_Click;
             // 
-            // rightButton
+            // rightCoordinateButton
             // 
-            this.rightButton.BackColor = System.Drawing.Color.Transparent;
-            this.rightButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rightButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.rightButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(162)))), ((int)(((byte)(162)))));
-            this.rightButton.Location = new System.Drawing.Point(540, 49);
-            this.rightButton.Name = "rightButton";
-            this.rightButton.Size = new System.Drawing.Size(72, 24);
-            this.rightButton.TabIndex = 66;
-            this.rightButton.TabStop = false;
-            this.rightButton.Text = "button1";
-            this.rightButton.UseVisualStyleBackColor = true;
-            this.rightButton.Click += new System.EventHandler(this.rightButton_Click);
+            rightCoordinateButton.BackColor = Color.Transparent;
+            rightCoordinateButton.FlatStyle = FlatStyle.Flat;
+            rightCoordinateButton.Font = new Font("Microsoft Sans Serif", 8.25F);
+            rightCoordinateButton.ForeColor = Color.FromArgb(162, 162, 162);
+            rightCoordinateButton.Location = new Point(632, 56);
+            rightCoordinateButton.Margin = new Padding(4, 3, 4, 3);
+            rightCoordinateButton.Name = "rightCoordinateButton";
+            rightCoordinateButton.Size = new Size(80, 27);
+            rightCoordinateButton.TabIndex = 66;
+            rightCoordinateButton.TabStop = false;
+            rightCoordinateButton.UseVisualStyleBackColor = true;
+            rightCoordinateButton.Click += rightCoordinateButton_Click;
             // 
             // backgroundDelayNumeric
             // 
-            this.backgroundDelayNumeric.Location = new System.Drawing.Point(293, 72);
-            this.backgroundDelayNumeric.Maximum = new decimal(new int[] {
-            99999,
-            0,
-            0,
-            0});
-            this.backgroundDelayNumeric.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.backgroundDelayNumeric.Name = "backgroundDelayNumeric";
-            this.backgroundDelayNumeric.Size = new System.Drawing.Size(50, 20);
-            this.backgroundDelayNumeric.TabIndex = 80;
-            this.backgroundDelayNumeric.TabStop = false;
-            this.backgroundDelayNumeric.Value = new decimal(new int[] {
-            2,
-            0,
-            0,
-            0});
-            this.backgroundDelayNumeric.ValueChanged += new System.EventHandler(this.backgroundDelayNumeric_ValueChanged);
-            this.backgroundDelayNumeric.KeyUp += new System.Windows.Forms.KeyEventHandler(this.backgroundDelayNumeric_KeyUp);
+            backgroundDelayNumeric.Location = new Point(342, 83);
+            backgroundDelayNumeric.Margin = new Padding(4, 3, 4, 3);
+            backgroundDelayNumeric.Maximum = new decimal(new int[] { 99999, 0, 0, 0 });
+            backgroundDelayNumeric.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
+            backgroundDelayNumeric.Name = "backgroundDelayNumeric";
+            backgroundDelayNumeric.Size = new Size(58, 23);
+            backgroundDelayNumeric.TabIndex = 80;
+            backgroundDelayNumeric.TabStop = false;
+            backgroundDelayNumeric.Value = new decimal(new int[] { 2, 0, 0, 0 });
+            backgroundDelayNumeric.ValueChanged += backgroundDelayNumeric_ValueChanged;
             // 
             // commandDelayNumeric
             // 
-            this.commandDelayNumeric.Location = new System.Drawing.Point(352, 96);
-            this.commandDelayNumeric.Maximum = new decimal(new int[] {
-            99999,
-            0,
-            0,
-            0});
-            this.commandDelayNumeric.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.commandDelayNumeric.Name = "commandDelayNumeric";
-            this.commandDelayNumeric.Size = new System.Drawing.Size(50, 20);
-            this.commandDelayNumeric.TabIndex = 81;
-            this.commandDelayNumeric.TabStop = false;
-            this.commandDelayNumeric.Value = new decimal(new int[] {
-            2,
-            0,
-            0,
-            0});
-            this.commandDelayNumeric.ValueChanged += new System.EventHandler(this.commandDelayNumeric_ValueChanged);
-            this.commandDelayNumeric.KeyUp += new System.Windows.Forms.KeyEventHandler(this.commandDelayNumeric_KeyUp);
+            commandDelayNumeric.Location = new Point(411, 111);
+            commandDelayNumeric.Margin = new Padding(4, 3, 4, 3);
+            commandDelayNumeric.Maximum = new decimal(new int[] { 99999, 0, 0, 0 });
+            commandDelayNumeric.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
+            commandDelayNumeric.Name = "commandDelayNumeric";
+            commandDelayNumeric.Size = new Size(58, 23);
+            commandDelayNumeric.TabIndex = 81;
+            commandDelayNumeric.TabStop = false;
+            commandDelayNumeric.Value = new decimal(new int[] { 2, 0, 0, 0 });
+            commandDelayNumeric.ValueChanged += commandDelayNumeric_ValueChanged;
             // 
             // SettingsForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.AutoScroll = true;
-            this.BackgroundImage = SC_UI.Properties.Resources.Settings;
-            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(882, 497);
-            this.Controls.Add(this.commandDelayNumeric);
-            this.Controls.Add(this.backgroundDelayNumeric);
-            this.Controls.Add(this.rightButton);
-            this.Controls.Add(this.leftButton);
-            this.Controls.Add(this.bindsButton);
-            this.Controls.Add(this.othersButton);
-            this.Controls.Add(this.miningButton);
-            this.Controls.Add(this.pvpButton);
-            this.DoubleBuffered = true;
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Icon = SC_UI.Properties.Resources.Logo;
-            this.MaximizeBox = false;
-            this.Name = "SettingsForm";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
-            this.Text = "Smoczy Clicker";
-            ((System.ComponentModel.ISupportInitialize)(this.backgroundDelayNumeric)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.commandDelayNumeric)).EndInit();
-            this.ResumeLayout(false);
-
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            AutoScroll = true;
+            BackgroundImage = Properties.Resources.Settings;
+            BackgroundImageLayout = ImageLayout.Stretch;
+            ClientSize = new Size(1029, 573);
+            Controls.Add(commandDelayNumeric);
+            Controls.Add(backgroundDelayNumeric);
+            Controls.Add(rightCoordinateButton);
+            Controls.Add(leftCoordniateButton);
+            Controls.Add(bindsNavButton);
+            Controls.Add(othersNavButton);
+            Controls.Add(miningNavButton);
+            Controls.Add(pvpNavButton);
+            DoubleBuffered = true;
+            FormBorderStyle = FormBorderStyle.None;
+            Icon = Properties.Resources.Logo;
+            Margin = new Padding(4, 3, 4, 3);
+            MaximizeBox = false;
+            Name = "SettingsForm";
+            StartPosition = FormStartPosition.Manual;
+            Text = "Smoczy Clicker";
+            ((System.ComponentModel.ISupportInitialize)backgroundDelayNumeric).EndInit();
+            ((System.ComponentModel.ISupportInitialize)commandDelayNumeric).EndInit();
+            ResumeLayout(false);
         }
 
         #endregion
 
-        private FormHelper.InvisibleButton othersButton;
-        private FormHelper.InvisibleButton miningButton;
-        private FormHelper.InvisibleButton pvpButton;
-        private FormHelper.InvisibleButton bindsButton;
-        private FormHelper.InvisibleButton leftButton;
-        private FormHelper.InvisibleButton rightButton;
+        private InvisibleButton othersNavButton;
+        private InvisibleButton miningNavButton;
+        private InvisibleButton pvpNavButton;
+        private InvisibleButton bindsNavButton;
+        private InvisibleButton leftCoordniateButton;
+        private InvisibleButton rightCoordinateButton;
         private System.Windows.Forms.NumericUpDown backgroundDelayNumeric;
         private System.Windows.Forms.NumericUpDown commandDelayNumeric;
     }

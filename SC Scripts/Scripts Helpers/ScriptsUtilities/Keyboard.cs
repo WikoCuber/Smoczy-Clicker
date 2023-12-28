@@ -61,15 +61,5 @@ namespace SC_Scripts.Scripts_Helpers
             Sleep(1);
             HoldKey(key, false);
         }
-
-        //Convert Keys to string
-        public static string KeysToString(Keys key)
-        {
-            string result = key.ToString();
-            if (result.Length == 2 && result.Contains('D'))
-                result = result[1].ToString();
-
-            return result;
-        }
     }
 }

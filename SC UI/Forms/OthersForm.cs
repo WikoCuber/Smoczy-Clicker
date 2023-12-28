@@ -1,11 +1,11 @@
 ﻿using SC_Data;
 using SC_Scripts.Scripts_Helpers;
+using SC_UI.Helpers;
 
 namespace SC_UI.Forms
 {
     public partial class OthersForm : Form
     {
-        private readonly ScriptsUtilities su;
         private readonly Data _data;
 
         public OthersForm()
@@ -14,269 +14,213 @@ namespace SC_UI.Forms
             CheckForIllegalCrossThreadCalls = false;
             UpdateImages();
 
-            su = new();
             _data = DataProvider.Get();
 
-            #region Start Values
+            SetStartValues();
+        }
+
+        private void SetStartValues()
+        {
+            effectsOnCheckBox.Checked = _data.Settings.IsEffectsOn;
+            drawingOnCheckBox.Checked = _data.Settings.IsDrawingOn;
+            intelligentVoidCheckBox.Checked = _data.Settings.IsIntelligentVoid;
+            depositDelayNumeric.Value = _data.Delays.Deposit;
+            voidDelayNumeric.Value = _data.Delays.Void;
+            effectsCoordinateButton.Text = _data.Coordinates.EffectsX + "; " + _data.Coordinates.EffectsY;
+            drawingCoordinateButton.Text = _data.Coordinates.DrawingX + "; " + _data.Coordinates.DrawingY;
+            depositBindButton.Text = ConvertHeleper.KeysToString(_data.ScriptsBinds.Deposit);
+            dabingBindButton.Text = ConvertHeleper.KeysToString(_data.ScriptsBinds.Dabing);
+            altingBindButton.Text = ConvertHeleper.KeysToString(_data.ScriptsBinds.Alting);
+            mathewBindButton.Text = ConvertHeleper.KeysToString(_data.ScriptsBinds.Mathew);
+            effectsBindButton.Text = ConvertHeleper.KeysToString(_data.ScriptsBinds.Effects);
+            drawingBindButton.Text = ConvertHeleper.KeysToString(_data.ScriptsBinds.Drawing);
+            voidBindButton.Text = ConvertHeleper.KeysToString(_data.ScriptsBinds.Void);
+            dabingTypeComboBox.SelectedIndex = _data.Settings.DabingType - 1;
+
             if (_data.Settings.PickaxeType == 1)
                 pickaxe6RadioButton.Checked = true;
             else if (_data.Settings.PickaxeType == 2)
                 pickaxe5RadioButton.Checked = true;
             else
                 pickaxe4RadioButton.Checked = true;
-            effectsOnCheckBox.Checked = _data.Settings.IsEffectsOn;
-            drawingOnCheckBox.Checked = _data.Settings.IsDrawingOn;
-            effectsPositionButton.Text = _data.Coordinates.EffectsX + "; " + _data.Coordinates.EffectsY;
-            drawingPositionButton.Text = _data.Coordinates.DrawingX + "; " + _data.Coordinates.DrawingY;
-            depositDelayNumeric.Value = _data.Delays.Deposit;
-            depositBindButton.Text = ScriptsUtilities.KeysToString(_data.ScriptsBinds.Deposit);
-            dabingBindButton.Text = ScriptsUtilities.KeysToString(_data.ScriptsBinds.Dabing);
-            altingBindButton.Text = ScriptsUtilities.KeysToString(_data.ScriptsBinds.Alting);
-            mathewBindButton.Text = ScriptsUtilities.KeysToString(_data.ScriptsBinds.Mathew);
-            effectsBindButton.Text = ScriptsUtilities.KeysToString(_data.ScriptsBinds.Effects);
-            drawingBindButton.Text = ScriptsUtilities.KeysToString(_data.ScriptsBinds.Drawing);
-            voidBindButton.Text = ScriptsUtilities.KeysToString(_data.ScriptsBinds.Void);
-            dabingType.SelectedIndex = _data.Settings.DabingType - 1;
-            #endregion
         }
-
-        #region Navigate
-        private void miningButton_Click(object sender, EventArgs e)
-        {
-            _data.CurrentFormType = FormType.Mining;
-            Close();
-        }
-
-        private void pvpButton_Click(object sender, EventArgs e)
-        {
-            _data.CurrentFormType = FormType.PvP;
-            Close();
-        }
-
-        private void bindsButton_Click(object sender, EventArgs e)
-        {
-            _data.CurrentFormType = FormType.Binds;
-            Close();
-        }
-
-        private void settingsButton_Click(object sender, EventArgs e)
-        {
-            _data.CurrentFormType = FormType.Settings;
-            Close();
-        }
-        #endregion
-
-        
-
-        private void SetCoordinate(Button button)
-        {
-            Enabled = false;
-            string oldText = button.Text;
-            button.Text = "......";
-            Keys currentKey = ScriptsSetup.GetKey();
-
-            while (currentKey != Keys.F12 && currentKey != Keys.Escape)
-            {
-                //Move cursor when arrows was pressed
-                if (currentKey == Keys.Up)
-                    su.MouseMove(MousePosition.X, MousePosition.Y - 1);
-                if (currentKey == Keys.Down)
-                    su.MouseMove(MousePosition.X, MousePosition.Y + 1);
-                if (currentKey == Keys.Right)
-                    su.MouseMove(MousePosition.X + 1, MousePosition.Y);
-                if (currentKey == Keys.Left)
-                    su.MouseMove(MousePosition.X - 1, MousePosition.Y);
-
-                currentKey = ScriptsSetup.GetKey();
-            }
-
-            if (currentKey != Keys.Escape)
-            {
-                Point p;
-                p = Cursor.Position;
-
-                if (button == effectsPositionButton)
-                {
-                    _data.Coordinates.EffectsX = p.X;
-                    _data.Coordinates.EffectsY = p.Y;
-                }
-                else
-                {
-                    _data.Coordinates.DrawingX = p.X;
-                    _data.Coordinates.DrawingY = p.Y;
-                }
-
-                button.Text = p.X + "; " + p.Y;
-                SaveFile.Save();
-            }
-            else
-                button.Text = oldText;
-
-            Enabled = true;
-        }
-
-        private void effects_Click(object sender, EventArgs e) => Task.Run(() => SetCoordinate(effectsPositionButton));
-
-        private void drawing_Click(object sender, EventArgs e) => Task.Run(() => SetCoordinate(drawingPositionButton));
 
         private void UpdateImages()
         {
             if (ScriptsSetup.GetScriptByName("Deposit")!.IsActive)
-                depositPicBox.BackgroundImage = Properties.Resources.Yes;
+                depositStatusPicBox.BackgroundImage = Properties.Resources.Yes;
             else
-                depositPicBox.BackgroundImage = Properties.Resources.No;
+                depositStatusPicBox.BackgroundImage = Properties.Resources.No;
             if (ScriptsSetup.GetScriptByName("Effects")!.IsActive)
-                effectsDrawingPicBox.BackgroundImage = Properties.Resources.Yes;
+                effectsDrawingStatusPicBox.BackgroundImage = Properties.Resources.Yes;
             else
-                effectsDrawingPicBox.BackgroundImage = Properties.Resources.No;
+                effectsDrawingStatusPicBox.BackgroundImage = Properties.Resources.No;
             if (ScriptsSetup.GetScriptByName("Alting")!.IsActive)
-                altingPicBox.BackgroundImage = Properties.Resources.Yes;
+                altingStatusPicBox.BackgroundImage = Properties.Resources.Yes;
             else
-                altingPicBox.BackgroundImage = Properties.Resources.No;
+                altingStatusPicBox.BackgroundImage = Properties.Resources.No;
             if (ScriptsSetup.GetScriptByName("Mathew")!.IsActive)
-                mathewPicBox.BackgroundImage = Properties.Resources.Yes;
+                mathewStatusPicBox.BackgroundImage = Properties.Resources.Yes;
             else
-                mathewPicBox.BackgroundImage = Properties.Resources.No;
+                mathewStatusPicBox.BackgroundImage = Properties.Resources.No;
             if (ScriptsSetup.GetScriptByName("Dabing")!.IsActive)
-                dabingPicBox.BackgroundImage = Properties.Resources.Yes;
+                dabingStatusPicBox.BackgroundImage = Properties.Resources.Yes;
             else
-                dabingPicBox.BackgroundImage = Properties.Resources.No;
+                dabingStatusPicBox.BackgroundImage = Properties.Resources.No;
             if (ScriptsSetup.GetScriptByName("Void")!.IsActive)
-                voidPicBox.BackgroundImage = Properties.Resources.Yes;
+                voidStatusPicBox.BackgroundImage = Properties.Resources.Yes;
             else
-                voidPicBox.BackgroundImage = Properties.Resources.No;
+                voidStatusPicBox.BackgroundImage = Properties.Resources.No;
         }
 
-        #region RadioButton
-        private void pickaxe6RadioButton_CheckedChanged(object sender, EventArgs e)
+        private void SetCoordinate(Button button)
         {
-            if (pickaxe6RadioButton.Checked)
+            Point coordinate = CoordniateHelper.Get(button, this);
+
+            if (coordinate.X == 0 && coordinate.Y == 0)
+                return;
+
+            if (button == effectsCoordinateButton)
             {
+                _data.Coordinates.EffectsX = coordinate.X;
+                _data.Coordinates.EffectsY = coordinate.Y;
+            }
+            else
+            {
+                _data.Coordinates.DrawingX = coordinate.X;
+                _data.Coordinates.DrawingY = coordinate.Y;
+            }
+
+            SaveFile.Save();
+        }
+
+        private void SetBind(Button button, string? scriptName = null)
+        {
+            Keys key = BindHelper.Get(button, this, scriptName);
+
+            if (key == Keys.Escape)
+                return;
+
+            if (button == altingBindButton)
+                _data.ScriptsBinds.Alting = key;
+            else if (button == voidBindButton)
+                _data.ScriptsBinds.Void = key;
+            else if (button == depositBindButton)
+                _data.ScriptsBinds.Deposit = key;
+            else if (button == effectsBindButton)
+                _data.ScriptsBinds.Effects = key;
+            else if (button == drawingBindButton)
+                _data.ScriptsBinds.Drawing = key;
+            else if (button == mathewBindButton)
+                _data.ScriptsBinds.Mathew = key;
+            else if (button == dabingBindButton)
+                _data.ScriptsBinds.Dabing = key;
+
+            SaveFile.Save();
+        }
+
+        private void ChangeRadioButton(RadioButton radioButton)
+        {
+            if (radioButton == pickaxe6RadioButton && pickaxe6RadioButton.Checked)
                 _data.Settings.PickaxeType = 1;
-                SaveFile.Save();
-            }
-        }
-
-        private void pickaxe5RadioButton_CheckedChanged(object sender, EventArgs e)
-        {
-            if (pickaxe5RadioButton.Checked)
-            {
+            else if (radioButton == pickaxe5RadioButton && pickaxe5RadioButton.Checked)
                 _data.Settings.PickaxeType = 2;
-                SaveFile.Save();
-            }
-        }
-
-        private void pickaxe4RadioButton_CheckedChanged(object sender, EventArgs e)
-        {
-            if (pickaxe4RadioButton.Checked)
-            {
+            else if (radioButton == pickaxe4RadioButton && pickaxe4RadioButton.Checked)
                 _data.Settings.PickaxeType = 3;
-                SaveFile.Save();
-            }
-        }
-        #endregion
 
-        #region CheckBox
+            SaveFile.Save();
+        }
+
+        //Navigation buttons
+        private void miningNavButton_Click(object sender, EventArgs e) => Navigation.ChangeForm(FormType.Mining, this);
+        private void pvpNavButton_Click(object sender, EventArgs e) => Navigation.ChangeForm(FormType.PvP, this);
+        private void bindsNavButton_Click(object sender, EventArgs e) => Navigation.ChangeForm(FormType.Binds, this);
+        private void settingsNavButton_Click(object sender, EventArgs e) => Navigation.ChangeForm(FormType.Settings, this);
+
+        //Coordinates buttons
+        private void effectsCoordinateButtons_Click(object sender, EventArgs e) => Task.Run(() => SetCoordinate(effectsCoordinateButton));
+        private void drawingCoordinateButtons_Click(object sender, EventArgs e) => Task.Run(() => SetCoordinate(drawingCoordinateButton));
+
+        //Radio buttons
+        private void pickaxe6RadioButton_CheckedChanged(object sender, EventArgs e) => ChangeRadioButton(pickaxe6RadioButton);
+        private void pickaxe5RadioButton_CheckedChanged(object sender, EventArgs e) => ChangeRadioButton(pickaxe5RadioButton);
+        private void pickaxe4RadioButton_CheckedChanged(object sender, EventArgs e) => ChangeRadioButton(pickaxe4RadioButton);
+
+        //Check boxes
         private void drawingOnCheckBox_CheckedChanged(object sender, EventArgs e)
         {
             _data.Settings.IsDrawingOn = drawingOnCheckBox.Checked;
             SaveFile.Save();
         }
-
         private void effectsOnCheckBox_CheckedChanged(object sender, EventArgs e)
         {
             _data.Settings.IsEffectsOn = effectsOnCheckBox.Checked;
             SaveFile.Save();
         }
-        #endregion
+        private void intelligentVoidCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            _data.Settings.IsIntelligentVoid = intelligentVoidCheckBox.Checked;
+            SaveFile.Save();
+        }
 
-        #region Numeric
-        private void depositDelayNumeric_KeyUp(object sender, KeyEventArgs e)
+        //Numerics
+        private void depositDelayNumeric_ValueChanged(object sender, EventArgs e)
         {
             _data.Delays.Deposit = (int)depositDelayNumeric.Value;
             SaveFile.Save();
         }
-
-        private void depositDelayNumeric_ValueChanged(object sender, EventArgs e) => depositDelayNumeric_KeyUp(sender, new KeyEventArgs(Keys.None));
-        #endregion
-
-        //Sets bind to variable
-        private Keys SetBind(Button button, string scriptName = "")
+        private void voidDelayNumeric_ValueChanged(object sender, EventArgs e)
         {
-            Enabled = false;
-            string oldText = button.Text;
-            button.Text = "......";
-            Keys currentKey = ScriptsSetup.GetKey();
-
-            if (currentKey != Keys.Escape)
-            {
-                ScriptsSetup.ScriptInfo? script = ScriptsSetup.GetScriptByName(scriptName);
-                if (script != null)
-                    script.Key = currentKey;
-                button.Text = ScriptsUtilities.KeysToString(currentKey);
-
-                switch (scriptName)
-                {
-                    case "Deposit":
-                        _data.ScriptsBinds.Deposit = currentKey;
-                        break;
-                    case "Dabing":
-                        _data.ScriptsBinds.Dabing = currentKey;
-                        break;
-                    case "Alting":
-                        _data.ScriptsBinds.Alting = currentKey;
-                        break;
-                    case "Mathew":
-                        _data.ScriptsBinds.Mathew = currentKey;
-                        break;
-                    case "Effects":
-                        _data.ScriptsBinds.Effects = currentKey;
-                        break;
-                    case "Drawing":
-                        _data.ScriptsBinds.Drawing = currentKey;
-                        break;
-                    case "Void":
-                        _data.ScriptsBinds.Void = currentKey;
-                        break;
-                }
-                SaveFile.Save();
-            }
-            else
-                button.Text = oldText;
-
-            Enabled = true;
-
-            return currentKey;
+            _data.Delays.Void = (int)voidDelayNumeric.Value;
+            SaveFile.Save();
         }
 
-        #region New Bind
+        //Binds buttons
         private void depositBindButton_Click(object sender, EventArgs e) => Task.Run(() => SetBind(depositBindButton, "Deposit"));
-
         private void dabingBindButton_Click(object sender, EventArgs e) => Task.Run(() => SetBind(dabingBindButton, "Dabing"));
-
         private void altingBindButton_Click(object sender, EventArgs e) => Task.Run(() => SetBind(altingBindButton, "Alting"));
-
         private void mathewBindButton_Click(object sender, EventArgs e) => Task.Run(() => SetBind(mathewBindButton, "Mathew"));
-
         private void effectsBindButton_Click(object sender, EventArgs e) => Task.Run(() => SetBind(effectsBindButton, "Effects"));
-
         private void drawingBindButton_Click(object sender, EventArgs e) => Task.Run(() => SetBind(drawingBindButton, "Drawing"));
-
         private void voidBindButton_Click(object sender, EventArgs e) => Task.Run(() => SetBind(voidBindButton, "Void"));
-        #endregion
 
-        #region Scripts Buttons
-        private void depositButton_Click(object sender, EventArgs e) { ScriptsSetup.GetScriptByName("Deposit")!.ToggleActiveState(); UpdateImages(); }
-        private void effectsDrawingButton_Click(object sender, EventArgs e) { ScriptsSetup.GetScriptByName("Effects")!.ToggleActiveState(); ScriptsSetup.GetScriptByName("Drawing")!.ToggleActiveState(); UpdateImages(); }
-        private void altingButton_Click(object sender, EventArgs e) { ScriptsSetup.GetScriptByName("Alting")!.ToggleActiveState(); UpdateImages(); }
-        private void mathewButton_Click(object sender, EventArgs e) { ScriptsSetup.GetScriptByName("Mathew")!.ToggleActiveState(); UpdateImages(); }
-        private void dabingButton_Click(object sender, EventArgs e) { ScriptsSetup.GetScriptByName("Dabing")!.ToggleActiveState(); UpdateImages(); }
-        private void voidButton_Click(object sender, EventArgs e) { ScriptsSetup.GetScriptByName("Void")!.ToggleActiveState(); UpdateImages(); }
-        #endregion
-
-        private void dabingType_SelectedIndexChanged(object sender, EventArgs e)
+        //Scripts status buttons
+        private void depositStatusButton_Click(object sender, EventArgs e)
         {
-            _data.Settings.DabingType = dabingType.SelectedIndex + 1;
+            ScriptsSetup.GetScriptByName("Deposit")!.ToggleActiveState();
+            UpdateImages();
+        }
+        private void effectsDrawingStatusButton_Click(object sender, EventArgs e)
+        {
+            ScriptsSetup.GetScriptByName("Effects")!.ToggleActiveState();
+            ScriptsSetup.GetScriptByName("Drawing")!.ToggleActiveState();
+            UpdateImages();
+        }
+        private void altingStatusButton_Click(object sender, EventArgs e)
+        {
+            ScriptsSetup.GetScriptByName("Alting")!.ToggleActiveState();
+            UpdateImages();
+        }
+        private void mathewStatusButton_Click(object sender, EventArgs e)
+        {
+            ScriptsSetup.GetScriptByName("Mathew")!.ToggleActiveState();
+            UpdateImages();
+        }
+        private void dabingStatusButton_Click(object sender, EventArgs e)
+        {
+            ScriptsSetup.GetScriptByName("Dabing")!.ToggleActiveState();
+            UpdateImages();
+        }
+        private void voidStatusButton_Click(object sender, EventArgs e)
+        {
+            ScriptsSetup.GetScriptByName("Void")!.ToggleActiveState();
+            UpdateImages();
+        }
+
+        //Combo box
+        private void dabingTypeComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            _data.Settings.DabingType = dabingTypeComboBox.SelectedIndex + 1;
             SaveFile.Save();
         }
     }

@@ -1,5 +1,6 @@
 ﻿using SC_Data;
 using SC_Scripts.Scripts_Helpers;
+using SC_UI.Helpers;
 using System.Windows.Forms;
 
 namespace SC_UI.Forms
@@ -16,17 +17,21 @@ namespace SC_UI.Forms
 
             _data = DataProvider.Get();
 
-            #region Satrt Values
-            leftBindButton.Text = ScriptsUtilities.KeysToString(_data.ScriptsBinds.LeftMacro);
-            rightBindButton.Text = ScriptsUtilities.KeysToString(_data.ScriptsBinds.RightMacro);
-            armor1BindButton.Text = ScriptsUtilities.KeysToString(_data.ScriptsBinds.Armor1);
-            armor2BindButton.Text = ScriptsUtilities.KeysToString(_data.ScriptsBinds.Armor2);
-            armor3BindButton.Text = ScriptsUtilities.KeysToString(_data.ScriptsBinds.Armor3);
-            snowballBindButton.Text = ScriptsUtilities.KeysToString(_data.ScriptsBinds.Snowball);
-            fishingRodBindButton.Text = ScriptsUtilities.KeysToString(_data.ScriptsBinds.FishingRod);
+            SetStartValues();
+        }
 
-            leftCpsNumeric.Value = _data.Macro.LeftCps;
-            rightCpsNumeric.Value = _data.Macro.RightCps;
+        private void SetStartValues()
+        {
+            leftMacroBindButton.Text = ConvertHeleper.KeysToString(_data.ScriptsBinds.LeftMacro);
+            rightMacroBindButton.Text = ConvertHeleper.KeysToString(_data.ScriptsBinds.RightMacro);
+            armor1BindButton.Text = ConvertHeleper.KeysToString(_data.ScriptsBinds.Armor1);
+            armor2BindButton.Text = ConvertHeleper.KeysToString(_data.ScriptsBinds.Armor2);
+            armor3BindButton.Text = ConvertHeleper.KeysToString(_data.ScriptsBinds.Armor3);
+            snowballBindButton.Text = ConvertHeleper.KeysToString(_data.ScriptsBinds.Snowball);
+            fishingRodBindButton.Text = ConvertHeleper.KeysToString(_data.ScriptsBinds.FishingRod);
+
+            leftMacroCpsNumeric.Value = _data.Macro.LeftCps;
+            rightMacroCpsNumeric.Value = _data.Macro.RightCps;
             armorDelayNumeric.Value = _data.Delays.Armor;
             snowballDelayNumeric.Value = _data.Delays.Snowball;
             fishingRodDelayNumeric.Value = _data.Delays.FishingRod;
@@ -38,289 +43,193 @@ namespace SC_UI.Forms
             fishingRodOnCheckBox.Checked = _data.Settings.IsFishingRodOn;
 
             if (_data.Macro.RightType == 1)
-                rightOCRadioButton.Checked = true;
+                rightMacroOCRadioButton.Checked = true;
             else if (_data.Macro.RightType == 2)
-                rightDHRadioButton.Checked = true;
+                rightMacroPCRadioButton.Checked = true;
             else if (_data.Macro.RightType == 3)
-                rightPCRadioButton.Checked = true;
+                rightMacroDHRadioButton.Checked = true;
 
             if (_data.Macro.LeftType == 1)
-                leftOCRadioButton.Checked = true;
+                leftMacroOCRadioButton.Checked = true;
             else if (_data.Macro.LeftType == 2)
-                leftDHRadioButton.Checked = true;
+                leftMacroPCRadioButton.Checked = true;
             else if (_data.Macro.LeftType == 3)
-                leftPCRadioButton.Checked = true;
-            #endregion
-        }
-
-        #region Navigate
-        private void othersButton_Click(object sender, EventArgs e)
-        {
-            _data.CurrentFormType = FormType.Others;
-            Close();
-        }
-
-        private void bindsButton_Click(object sender, EventArgs e)
-        {
-            _data.CurrentFormType = FormType.Binds;
-            Close();
-        }
-
-        private void miningButton_Click(object sender, EventArgs e)
-        {
-            _data.CurrentFormType = FormType.Mining;
-            Close();
-        }
-
-        private void settingsButton_Click(object sender, EventArgs e)
-        {
-            _data.CurrentFormType = FormType.Settings;
-            Close();
-        }
-        #endregion
-
-        //Sets bind to variable
-        private Keys SetBind(Button button, string scriptName = "")
-        {
-            Enabled = false;
-            string oldText = button.Text;
-            button.Text = "......";
-            Keys currentKey = ScriptsSetup.GetKey();
-
-            if (currentKey != Keys.Escape)
-            {
-                ScriptsSetup.ScriptInfo? script = ScriptsSetup.GetScriptByName(scriptName);
-                if (script != null)
-                    script.Key = currentKey;
-                button.Text = ScriptsUtilities.KeysToString(currentKey);
-            }
-            else
-                button.Text = oldText;
-
-            Enabled = true;
-
-            return currentKey;
+                leftMacroDHRadioButton.Checked = true;
         }
 
         private void UpdateImages()
         {
             if (ScriptsSetup.GetScriptByName("Armor1")!.IsActive)
-                armorPicBox.BackgroundImage = Properties.Resources.Yes;
+                armorStatusPicBox.BackgroundImage = Properties.Resources.Yes;
             else
-                armorPicBox.BackgroundImage = Properties.Resources.No;
+                armorStatusPicBox.BackgroundImage = Properties.Resources.No;
             if (ScriptsSetup.GetScriptByName("Snowball")!.IsActive)
-                snowballPicBox.BackgroundImage = Properties.Resources.Yes;
+                snowballFishingRodStatusPicBox.BackgroundImage = Properties.Resources.Yes;
             else
-                snowballPicBox.BackgroundImage = Properties.Resources.No;
+                snowballFishingRodStatusPicBox.BackgroundImage = Properties.Resources.No;
             if (ScriptsSetup.GetScriptByName("LeftMacro")!.IsActive)
-                macroPicBox.BackgroundImage = Properties.Resources.Yes;
+                macroStatusPicBox.BackgroundImage = Properties.Resources.Yes;
             else
-                macroPicBox.BackgroundImage = Properties.Resources.No;
+                macroStatusPicBox.BackgroundImage = Properties.Resources.No;
         }
 
-        #region CheckBox
+        private void SetBind(Button button, string? scriptName = null)
+        {
+            Keys key = BindHelper.Get(button, this, scriptName);
 
+            if (key == Keys.Escape)
+                return;
+
+            if (button == snowballBindButton)
+                _data.ScriptsBinds.Snowball = key;
+            else if (button == fishingRodBindButton)
+                _data.ScriptsBinds.FishingRod = key;
+            else if (button == leftMacroBindButton)
+                _data.ScriptsBinds.LeftMacro = key;
+            else if (button == rightMacroBindButton)
+                _data.ScriptsBinds.RightMacro = key;
+            else if (button == armor1BindButton)
+                _data.ScriptsBinds.Armor1 = key;
+            else if (button == armor2BindButton)
+                _data.ScriptsBinds.Armor2 = key;
+            else if (button == armor3BindButton)
+                _data.ScriptsBinds.Armor3 = key;
+
+            SaveFile.Save();
+        }
+
+        private void ChangeRadioButton(RadioButton radioButton)
+        {
+            if (radioButton == leftMacroOCRadioButton && leftMacroOCRadioButton.Checked)
+            {
+                _data.Macro.LeftType = 1;
+                ScriptsSetup.GetScriptByName("LeftMacro")!.CaptureType = ScriptsSetup.CaptureTypes.KEY_DOWN;
+            }
+            else if (radioButton == leftMacroPCRadioButton && leftMacroPCRadioButton.Checked)
+            {
+                _data.Macro.LeftType = 2;
+                ScriptsSetup.GetScriptByName("LeftMacro")!.CaptureType = ScriptsSetup.CaptureTypes.KEY_PRESS;
+            }
+            else if (radioButton == leftMacroDHRadioButton && leftMacroDHRadioButton.Checked)
+            {
+                _data.Macro.LeftType = 3;
+                ScriptsSetup.GetScriptByName("LeftMacro")!.CaptureType = ScriptsSetup.CaptureTypes.KEYSTROKE_PRESS;
+            }
+            else if (radioButton == rightMacroOCRadioButton && rightMacroOCRadioButton.Checked)
+            {
+                _data.Macro.RightType = 1;
+                ScriptsSetup.GetScriptByName("RightMacro")!.CaptureType = ScriptsSetup.CaptureTypes.KEY_DOWN;
+            }
+            else if (radioButton == rightMacroPCRadioButton && rightMacroPCRadioButton.Checked)
+            {
+                _data.Macro.RightType = 2;
+                ScriptsSetup.GetScriptByName("RightMacro")!.CaptureType = ScriptsSetup.CaptureTypes.KEY_PRESS;
+            }
+            else if (radioButton == rightMacroDHRadioButton && rightMacroDHRadioButton.Checked)
+            {
+                _data.Macro.RightType = 3;
+                ScriptsSetup.GetScriptByName("RightMacro")!.CaptureType = ScriptsSetup.CaptureTypes.KEYSTROKE_PRESS;
+            }
+
+            SaveFile.Save();
+        }
+
+        //Navigation buttons
+        private void othersNavButton_Click(object sender, EventArgs e) => Navigation.ChangeForm(FormType.Others, this);
+        private void bindsNavButton_Click(object sender, EventArgs e) => Navigation.ChangeForm(FormType.Binds, this);
+        private void miningNavButton_Click(object sender, EventArgs e) => Navigation.ChangeForm(FormType.Mining, this);
+        private void settingsNavButton_Click(object sender, EventArgs e) => Navigation.ChangeForm(FormType.Settings, this);
+
+        //Check boxes
         private void armor1OnCheckBox_CheckedChanged(object sender, EventArgs e)
         {
             _data.Settings.IsArmor1On = armor1OnCheckBox.Checked;
             SaveFile.Save();
         }
-
         private void armor2OnCheckBox_CheckedChanged(object sender, EventArgs e)
         {
             _data.Settings.IsArmor2On = armor2OnCheckBox.Checked;
             SaveFile.Save();
         }
-
         private void armor3OnCheckBox_CheckedChanged(object sender, EventArgs e)
         {
             _data.Settings.IsArmor3On = armor3OnCheckBox.Checked;
             SaveFile.Save();
         }
-
         private void snowballOnCheckBox_CheckedChanged(object sender, EventArgs e)
         {
             _data.Settings.IsSnowballOn = snowballOnCheckBox.Checked;
             SaveFile.Save();
         }
-
         private void fishingRodOnCheckBox_CheckedChanged(object sender, EventArgs e)
         {
             _data.Settings.IsFishingRodOn = fishingRodOnCheckBox.Checked;
             SaveFile.Save();
         }
-        #endregion
 
-        #region Numeric
-
-        private void leftCpsNumeric_KeyUp(object sender, KeyEventArgs e)
+        //Numerics
+        private void leftMacroCpsNumeric_ValueChanged(object sender, EventArgs e)
         {
-            _data.Macro.LeftCps = (int)leftCpsNumeric.Value;
+            _data.Macro.LeftCps = (int)leftMacroCpsNumeric.Value;
             SaveFile.Save();
         }
-
-        private void rightCpsNumeric_KeyUp(object sender, KeyEventArgs e)
+        private void rightMacroCpsNumeric_ValueChanged(object sender, EventArgs e)
         {
-            _data.Macro.RightCps = (int)rightCpsNumeric.Value;
+            _data.Macro.RightCps = (int)rightMacroCpsNumeric.Value;
             SaveFile.Save();
         }
-
-        private void armorDelayNumeric_KeyUp(object sender, KeyEventArgs e)
+        private void armorDelayNumeric_ValueChanged(object sender, EventArgs e)
         {
             _data.Delays.Armor = (int)armorDelayNumeric.Value;
             SaveFile.Save();
         }
-
-        private void snowballDelayNumeric_KeyUp(object sender, KeyEventArgs e)
+        private void snowballDelayNumeric_ValueChanged(object sender, EventArgs e)
         {
             _data.Delays.Snowball = (int)snowballDelayNumeric.Value;
             SaveFile.Save();
         }
-
-        private void fishingRodDelayNumeric_KeyUp(object sender, KeyEventArgs e)
+        private void fishingRodDelayNumeric_ValueChanged(object sender, EventArgs e)
         {
             _data.Delays.FishingRod = (int)fishingRodDelayNumeric.Value;
             SaveFile.Save();
         }
 
-        private void snowballDelayNumeric_ValueChanged(object sender, EventArgs e) => snowballDelayNumeric_KeyUp(sender, new KeyEventArgs(Keys.None));
-        private void fishingRodDelayNumeric_ValueChanged(object sender, EventArgs e) => fishingRodDelayNumeric_KeyUp(sender, new KeyEventArgs(Keys.None));
-        private void armorDelayNumeric_ValueChanged(object sender, EventArgs e) => armorDelayNumeric_KeyUp(sender, new KeyEventArgs(Keys.None));
-        private void leftCpsNumeric_ValueChanged(object sender, EventArgs e) => leftCpsNumeric_KeyUp(sender, new KeyEventArgs(Keys.None));
-        private void rightCpsNumeric_ValueChanged(object sender, EventArgs e) => rightCpsNumeric_KeyUp(sender, new KeyEventArgs(Keys.None));
-        #endregion
+        //Radio buttons
+        private void leftMacroOCRadioButton_CheckedChanged(object sender, EventArgs e) => ChangeRadioButton(leftMacroOCRadioButton);
+        private void leftMacroPCRadioButton_CheckedChanged(object sender, EventArgs e) => ChangeRadioButton(leftMacroPCRadioButton);
+        private void leftMacroDHRadioButton_CheckedChanged(object sender, EventArgs e) => ChangeRadioButton(leftMacroDHRadioButton);
+        private void rightMacroOCRadioButton_CheckedChanged(object sender, EventArgs e) => ChangeRadioButton(rightMacroOCRadioButton);
+        private void rightMacroPCRadioButton_CheckedChanged(object sender, EventArgs e) => ChangeRadioButton(rightMacroPCRadioButton);
+        private void rightMacroDHRadioButton_CheckedChanged(object sender, EventArgs e) => ChangeRadioButton(rightMacroDHRadioButton);
 
-        #region RadioButton
-        private void leftOCRadioButton_CheckedChanged(object sender, EventArgs e)
+        //Binds buttons
+        private void snowballBindButton_Click(object sender, EventArgs e) => Task.Run(() => SetBind(snowballBindButton, "Snowball"));
+        private void fishingRodBindButton_Click(object sender, EventArgs e) => Task.Run(() => SetBind(fishingRodBindButton, "FishingRod"));
+        private void rightMacroBindButton_Click(object sender, EventArgs e) => Task.Run(() => SetBind(rightMacroBindButton, "RightMacro"));
+        private void leftMacroBindButton_Click(object sender, EventArgs e) => Task.Run(() => SetBind(leftMacroBindButton, "LeftMacro"));
+        private void armor1BindButton_Click(object sender, EventArgs e) => Task.Run(() => SetBind(armor1BindButton, "Armor1"));
+        private void armor2BindButton_Click(object sender, EventArgs e) => Task.Run(() => SetBind(armor2BindButton, "Armor2"));
+        private void armor3BindButton_Click(object sender, EventArgs e) => Task.Run(() => SetBind(armor3BindButton, "Armor3"));
+
+        //Scripts status buttons
+        private void armorStatusButton_Click(object sender, EventArgs e)
         {
-            if ((sender as RadioButton)!.Checked)
-            {
-                _data.Macro.LeftType = 1;
-                ScriptsSetup.GetScriptByName("LeftMacro")!.CaptureType = ScriptsSetup.CaptureTypes.KEY_DOWN;
-                SaveFile.Save();
-            }
+            ScriptsSetup.GetScriptByName("Armor1")!.ToggleActiveState();
+            ScriptsSetup.GetScriptByName("Armor2")!.ToggleActiveState();
+            ScriptsSetup.GetScriptByName("Armor3")!.ToggleActiveState();
+            UpdateImages();
         }
-
-
-        private void leftDHRadioButton_CheckedChanged(object sender, EventArgs e)
+        private void snowballFishingRodStatusButton_Click(object sender, EventArgs e)
         {
-            if ((sender as RadioButton)!.Checked)
-            {
-                _data.Macro.LeftType = 2;
-                ScriptsSetup.GetScriptByName("LeftMacro")!.CaptureType = ScriptsSetup.CaptureTypes.KEYSTROKE_PRESS;
-                SaveFile.Save();
-            }
+            ScriptsSetup.GetScriptByName("Snowball")!.ToggleActiveState();
+            ScriptsSetup.GetScriptByName("FishingRod")!.ToggleActiveState();
+            UpdateImages();
         }
-        private void leftPCRadioButton_CheckedChanged(object sender, EventArgs e)
+        private void macroStatusButton_Click(object sender, EventArgs e)
         {
-            if ((sender as RadioButton)!.Checked)
-            {
-                _data.Macro.LeftType = 3;
-                ScriptsSetup.GetScriptByName("LeftMacro")!.CaptureType = ScriptsSetup.CaptureTypes.KEY_PRESS;
-                SaveFile.Save();
-            }
+            ScriptsSetup.GetScriptByName("LeftMacro")!.ToggleActiveState();
+            ScriptsSetup.GetScriptByName("RightMacro")!.ToggleActiveState();
+            UpdateImages();
         }
-
-        private void rightOCRadioButton_CheckedChanged(object sender, EventArgs e)
-        {
-            if ((sender as RadioButton)!.Checked)
-            {
-                _data.Macro.RightType = 1;
-                ScriptsSetup.GetScriptByName("RightMacro")!.CaptureType = ScriptsSetup.CaptureTypes.KEY_DOWN;
-                SaveFile.Save();
-            }
-        }
-        private void rightDHRadioButton_CheckedChanged(object sender, EventArgs e)
-        {
-            if ((sender as RadioButton)!.Checked)
-            {
-                _data.Macro.RightType = 2;
-                ScriptsSetup.GetScriptByName("RightMacro")!.CaptureType = ScriptsSetup.CaptureTypes.KEYSTROKE_PRESS;
-                SaveFile.Save();
-            }
-        }
-
-        private void rightPCRadioButton_CheckedChanged(object sender, EventArgs e)
-        {
-            if ((sender as RadioButton)!.Checked)
-            {
-                _data.Macro.RightType = 3;
-                ScriptsSetup.GetScriptByName("RightMacro")!.CaptureType = ScriptsSetup.CaptureTypes.KEY_PRESS;
-                SaveFile.Save();
-            }
-        }
-
-        #endregion
-
-        #region New Bind
-        private void snowballBindButton_Click(object sender, EventArgs e) => Task.Run(() => {
-            Keys key = SetBind(snowballBindButton, "Snowball");
-            if (key != Keys.Escape)
-            {
-                _data.ScriptsBinds.Snowball = key;
-                SaveFile.Save();
-            }
-        });
-
-        private void fishingRodBindButton_Click(object sender, EventArgs e) => Task.Run(() => { 
-            Keys key = SetBind(fishingRodBindButton, "FishingRod");
-            if (key != Keys.Escape)
-            {
-                _data.ScriptsBinds.FishingRod = key;
-                SaveFile.Save();
-            }
-        });
-
-        private void armor1BindButton_Click(object sender, EventArgs e) => Task.Run(() => {
-            Keys key = SetBind(armor1BindButton, "Armor1");
-            if (key != Keys.Escape)
-            {
-                _data.ScriptsBinds.Armor1 = key;
-                SaveFile.Save();
-            }
-        });
-
-        private void armor2BindButton_Click(object sender, EventArgs e) => Task.Run(() => {
-            Keys key = SetBind(armor2BindButton, "Armor2");
-            if (key != Keys.Escape)
-            {
-                _data.ScriptsBinds.Armor2 = key;
-                SaveFile.Save();
-            }
-        });
-
-        private void armor3BindButton_Click(object sender, EventArgs e) => Task.Run(() => {
-            Keys key = SetBind(armor3BindButton, "Armor3");
-            if (key != Keys.Escape)
-            {
-                _data.ScriptsBinds.Armor3 = key;
-                SaveFile.Save();
-            }
-        });
-
-        private void rightBindButton_Click(object sender, EventArgs e) => Task.Run(() => {
-            Keys key = SetBind(rightBindButton, "RightMacro");
-            if (key != Keys.Escape)
-            {
-                _data.ScriptsBinds.RightMacro = key;
-                SaveFile.Save();
-            }
-        });
-
-        private void leftBindButton_Click(object sender, EventArgs e) => Task.Run(() => {
-            Keys key = SetBind(leftBindButton, "LeftMacro");
-            if (key != Keys.Escape)
-            {
-                _data.ScriptsBinds.LeftMacro = key;
-                SaveFile.Save();
-            }
-        });
-        #endregion
-
-        #region Scripts Buttons
-        private void armorButton_Click(object sender, EventArgs e) { ScriptsSetup.GetScriptByName("Armor1")!.ToggleActiveState(); ScriptsSetup.GetScriptByName("Armor2")!.ToggleActiveState(); ScriptsSetup.GetScriptByName("Armor3")!.ToggleActiveState(); UpdateImages(); }
-        private void snowballButton_Click(object sender, EventArgs e) { ScriptsSetup.GetScriptByName("Snowball")!.ToggleActiveState(); ScriptsSetup.GetScriptByName("FishingRod")!.ToggleActiveState(); UpdateImages(); }
-        private void macroButton_Click(object sender, EventArgs e) { ScriptsSetup.GetScriptByName("LeftMacro")!.ToggleActiveState(); ScriptsSetup.GetScriptByName("RightMacro")!.ToggleActiveState(); UpdateImages(); }
-        #endregion
     }
 }

@@ -26,7 +26,7 @@ namespace SC_Scripts.Scripts
             su.HoldKey(Keys.LControlKey, true);
 
             //Takes screenshot
-            if (data.Settings.IntelligentVoid)
+            if (data.Settings.IsIntelligentVoid)
             {
                 su.MouseMove(10, 10);
                 su.Sleep(500);
@@ -37,7 +37,7 @@ namespace SC_Scripts.Scripts
             {
                 for (int j = 0; j < 9; j++) //Columns
                 {
-                    if (data.Settings.IntelligentVoid)
+                    if (data.Settings.IsIntelligentVoid)
                     {
                         Color c = ScriptsUtilities.GetColorFromBitmap(new Point(X, Y + 1), bitmap!); //Checks color of item
                         if (c.R < 10 && c.G < 10 && c.B < 10) //Drop only black item

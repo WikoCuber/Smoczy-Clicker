@@ -1,11 +1,10 @@
 ﻿using SC_Data;
-using SC_Scripts.Scripts_Helpers;
+using SC_UI.Helpers;
 
 namespace SC_UI.Forms
 {
     public partial class SettingsForm : Form
     {
-        private readonly ScriptsUtilities su = new();
         private readonly Data _data;
 
         public SettingsForm()
@@ -15,105 +14,58 @@ namespace SC_UI.Forms
 
             _data = DataProvider.Get();
 
-            #region Start Values
+            SetStartValues();
+        }
+
+        private void SetStartValues()
+        {
             backgroundDelayNumeric.Value = _data.Delays.Backgorund;
             commandDelayNumeric.Value = _data.Delays.Command;
-            leftButton.Text = _data.Coordinates.LeftX + "; " + _data.Coordinates.LeftY;
-            rightButton.Text = _data.Coordinates.RightX + "; " + _data.Coordinates.RightY;
-            #endregion
+            leftCoordniateButton.Text = _data.Coordinates.LeftX + "; " + _data.Coordinates.LeftY;
+            rightCoordinateButton.Text = _data.Coordinates.RightX + "; " + _data.Coordinates.RightY;
         }
-
-        #region Navigate
-        private void miningButton_Click(object sender, EventArgs e)
-        {
-            _data.CurrentFormType = FormType.Mining;
-            Close();
-        }
-
-        private void pvpButton_Click(object sender, EventArgs e)
-        {
-            _data.CurrentFormType = FormType.PvP;
-            Close();
-        }
-
-        private void othersButton_Click(object sender, EventArgs e)
-        {
-            _data.CurrentFormType = FormType.Others;
-            Close();
-        }
-
-        private void bindsButton_Click(object sender, EventArgs e)
-        {
-            _data.CurrentFormType = FormType.Binds;
-            Close();
-        }
-        #endregion
 
         private void SetCoordinate(Button button)
         {
-            Enabled = false;
-            string oldText = button.Text;
-            button.Text = "......";
-            Keys currentKey = ScriptsSetup.GetKey();
+            Point coordinate = CoordniateHelper.Get(button, this);
 
-            while (currentKey != Keys.F12 && currentKey != Keys.Escape)
+            if (coordinate.X == 0 && coordinate.Y == 0)
+                return;
+
+            if (button == leftCoordniateButton)
             {
-                //Move cursor when arrows was pressed
-                if (currentKey == Keys.Up)
-                    su.MouseMove(MousePosition.X, MousePosition.Y - 1);
-                if (currentKey == Keys.Down)
-                    su.MouseMove(MousePosition.X, MousePosition.Y + 1);
-                if (currentKey == Keys.Right)
-                    su.MouseMove(MousePosition.X + 1, MousePosition.Y);
-                if (currentKey == Keys.Left)
-                    su.MouseMove(MousePosition.X - 1, MousePosition.Y);
-
-                currentKey = ScriptsSetup.GetKey();
-            }
-
-            if (currentKey != Keys.Escape)
-            {
-                Point p;
-                p = Cursor.Position;
-
-                if (button == leftButton)
-                {
-                    _data.Coordinates.LeftX = p.X;
-                    _data.Coordinates.LeftY = p.Y;
-                }
-                else
-                {
-                    _data.Coordinates.RightX = p.X;
-                    _data.Coordinates.RightY = p.Y;
-                }
-
-                button.Text = p.X + "; " + p.Y;
-                SaveFile.Save();
+                _data.Coordinates.LeftX = coordinate.X;
+                _data.Coordinates.LeftY = coordinate.Y;
             }
             else
-                button.Text = oldText;
-            
-            Enabled = true;
+            {
+                _data.Coordinates.RightX = coordinate.X;
+                _data.Coordinates.RightY = coordinate.Y;
+            }
+
+            SaveFile.Save();
         }
 
-        private void leftButton_Click(object sender, EventArgs e) => Task.Run(() => SetCoordinate(leftButton));
+        //Navigation buttons
+        private void miningNavButton_Click(object sender, EventArgs e) => Navigation.ChangeForm(FormType.Mining, this);
+        private void pvpNavButton_Click(object sender, EventArgs e) => Navigation.ChangeForm(FormType.PvP, this);
+        private void othersNavButton_Click(object sender, EventArgs e) => Navigation.ChangeForm(FormType.Others, this);
+        private void bindsNavButton_Click(object sender, EventArgs e) => Navigation.ChangeForm(FormType.Binds, this);
 
-        private void rightButton_Click(object sender, EventArgs e) => Task.Run(() => SetCoordinate(rightButton));
+        //Coordinates buttons
+        private void leftCoordinateButton_Click(object sender, EventArgs e) => Task.Run(() => SetCoordinate(leftCoordniateButton));
+        private void rightCoordinateButton_Click(object sender, EventArgs e) => Task.Run(() => SetCoordinate(rightCoordinateButton));
 
-        private void backgroundDelayNumeric_KeyUp(object sender, KeyEventArgs e)
+        //Numerics
+        private void backgroundDelayNumeric_ValueChanged(object sender, EventArgs e)
         {
             _data.Delays.Backgorund = (int)backgroundDelayNumeric.Value;
             SaveFile.Save();
         }
-
-        private void commandDelayNumeric_KeyUp(object sender, KeyEventArgs e)
+        private void commandDelayNumeric_ValueChanged(object sender, EventArgs e)
         {
             _data.Delays.Command = (int)commandDelayNumeric.Value;
             SaveFile.Save();
         }
-
-        private void backgroundDelayNumeric_ValueChanged(object sender, EventArgs e) => backgroundDelayNumeric_KeyUp(sender, new KeyEventArgs(Keys.None));
-
-        private void commandDelayNumeric_ValueChanged(object sender, EventArgs e) => commandDelayNumeric_KeyUp(sender, new KeyEventArgs(Keys.None));
     }
 }

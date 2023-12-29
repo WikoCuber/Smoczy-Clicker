@@ -1,8 +1,9 @@
 ﻿using SC_Data;
+using SC_UI.Helpers;
 
-namespace SC_UI.Helpers
+namespace SC_UI
 {
-    public class CommandsBindsGenerateHelper(Form form, Panel panel)
+    public class CommandsBindsGenerator(Form form, Panel panel)
     {
         private const int MAX_SIZE = 12;
 
@@ -56,7 +57,7 @@ namespace SC_UI.Helpers
                         Location = new Point(20, panelY),
                         Tag = panelY / 30, //Tag shows index
                         Size = new Size(100, 20),
-                        Text = ConvertHeleper.KeysToString(_data.Commands.BindsList[panelY / 30])
+                        Text = ConvertHelper.KeysToString(_data.Commands.BindsList[panelY / 30])
                     };
                     button.Click += BindButton_Click;
 

@@ -18,21 +18,21 @@ namespace SC_UI.Forms
 
         private void SetStartValues()
         {
-            chatBindButton.Text = ConvertHeleper.KeysToString(_data.SlotsBinds.Chat);
-            dabBindButton.Text = ConvertHeleper.KeysToString(_data.SlotsBinds.Dab);
-            eqBindButton.Text = ConvertHeleper.KeysToString(_data.SlotsBinds.Eq);
-            dropBindButton.Text = ConvertHeleper.KeysToString(_data.SlotsBinds.Drop);
-            swordBindButton.Text = ConvertHeleper.KeysToString(_data.SlotsBinds.Sword);
-            snowballBindButton.Text = ConvertHeleper.KeysToString(_data.SlotsBinds.Snowball);
-            fishingRodBindButton.Text = ConvertHeleper.KeysToString(_data.SlotsBinds.FishingRod);
-            pickaxeBindButton.Text = ConvertHeleper.KeysToString(_data.SlotsBinds.Pickaxe);
-            slot1BindButton.Text = ConvertHeleper.KeysToString(_data.SlotsBinds.Slot1);
-            slot2BindButton.Text = ConvertHeleper.KeysToString(_data.SlotsBinds.Slot2);
-            slot3BindButton.Text = ConvertHeleper.KeysToString(_data.SlotsBinds.Slot3);
-            slot4BindButton.Text = ConvertHeleper.KeysToString(_data.SlotsBinds.Slot4);
-            slot5BindButton.Text = ConvertHeleper.KeysToString(_data.SlotsBinds.Slot5);
-            blockBindButton.Text = ConvertHeleper.KeysToString(_data.SlotsBinds.Block);
-            meatBindButton.Text = ConvertHeleper.KeysToString(_data.SlotsBinds.Meat);
+            chatBindButton.Text = ConvertHelper.KeysToString(_data.SlotsBinds.Chat);
+            dabBindButton.Text = ConvertHelper.KeysToString(_data.SlotsBinds.Dab);
+            eqBindButton.Text = ConvertHelper.KeysToString(_data.SlotsBinds.Eq);
+            dropBindButton.Text = ConvertHelper.KeysToString(_data.SlotsBinds.Drop);
+            swordBindButton.Text = ConvertHelper.KeysToString(_data.SlotsBinds.Sword);
+            snowballBindButton.Text = ConvertHelper.KeysToString(_data.SlotsBinds.Snowball);
+            fishingRodBindButton.Text = ConvertHelper.KeysToString(_data.SlotsBinds.FishingRod);
+            pickaxeBindButton.Text = ConvertHelper.KeysToString(_data.SlotsBinds.Pickaxe);
+            slot1BindButton.Text = ConvertHelper.KeysToString(_data.SlotsBinds.Slot1);
+            slot2BindButton.Text = ConvertHelper.KeysToString(_data.SlotsBinds.Slot2);
+            slot3BindButton.Text = ConvertHelper.KeysToString(_data.SlotsBinds.Slot3);
+            slot4BindButton.Text = ConvertHelper.KeysToString(_data.SlotsBinds.Slot4);
+            slot5BindButton.Text = ConvertHelper.KeysToString(_data.SlotsBinds.Slot5);
+            blockBindButton.Text = ConvertHelper.KeysToString(_data.SlotsBinds.Block);
+            meatBindButton.Text = ConvertHelper.KeysToString(_data.SlotsBinds.Meat);
         }
 
         private void SetBind(Button button)

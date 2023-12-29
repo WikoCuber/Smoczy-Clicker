@@ -21,7 +21,7 @@ namespace SC_UI.Helpers
                     script.Key = key;
                 }
 
-                button.Text = ConvertHeleper.KeysToString(key);
+                button.Text = ConvertHelper.KeysToString(key);
             }
 
             form.Enabled = true;

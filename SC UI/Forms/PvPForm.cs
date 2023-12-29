@@ -21,13 +21,13 @@ namespace SC_UI.Forms
 
         private void SetStartValues()
         {
-            leftMacroBindButton.Text = ConvertHeleper.KeysToString(_data.ScriptsBinds.LeftMacro);
-            rightMacroBindButton.Text = ConvertHeleper.KeysToString(_data.ScriptsBinds.RightMacro);
-            armor1BindButton.Text = ConvertHeleper.KeysToString(_data.ScriptsBinds.Armor1);
-            armor2BindButton.Text = ConvertHeleper.KeysToString(_data.ScriptsBinds.Armor2);
-            armor3BindButton.Text = ConvertHeleper.KeysToString(_data.ScriptsBinds.Armor3);
-            snowballBindButton.Text = ConvertHeleper.KeysToString(_data.ScriptsBinds.Snowball);
-            fishingRodBindButton.Text = ConvertHeleper.KeysToString(_data.ScriptsBinds.FishingRod);
+            leftMacroBindButton.Text = ConvertHelper.KeysToString(_data.ScriptsBinds.LeftMacro);
+            rightMacroBindButton.Text = ConvertHelper.KeysToString(_data.ScriptsBinds.RightMacro);
+            armor1BindButton.Text = ConvertHelper.KeysToString(_data.ScriptsBinds.Armor1);
+            armor2BindButton.Text = ConvertHelper.KeysToString(_data.ScriptsBinds.Armor2);
+            armor3BindButton.Text = ConvertHelper.KeysToString(_data.ScriptsBinds.Armor3);
+            snowballBindButton.Text = ConvertHelper.KeysToString(_data.ScriptsBinds.Snowball);
+            fishingRodBindButton.Text = ConvertHelper.KeysToString(_data.ScriptsBinds.FishingRod);
 
             leftMacroCpsNumeric.Value = _data.Macro.LeftCps;
             rightMacroCpsNumeric.Value = _data.Macro.RightCps;

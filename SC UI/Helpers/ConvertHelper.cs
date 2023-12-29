@@ -1,6 +1,6 @@
 ﻿namespace SC_UI.Helpers
 {
-    public static class ConvertHeleper
+    public static class ConvertHelper
     {
         //Convert Keys to string
         public static string KeysToString(Keys key)

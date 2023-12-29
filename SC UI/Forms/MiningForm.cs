@@ -7,7 +7,7 @@ namespace SC_UI.Forms
     public partial class MiningForm : Form
     {
         private readonly Data _data;
-        private readonly CommandsBindsGenerateHelper generator;
+        private readonly CommandsBindsGenerator generator;
 
         public MiningForm()
         {
@@ -23,7 +23,7 @@ namespace SC_UI.Forms
 
         private void SetStartValues()
         {
-            miningBindButton.Text = ConvertHeleper.KeysToString(_data.ScriptsBinds.Mining);
+            miningBindButton.Text = ConvertHelper.KeysToString(_data.ScriptsBinds.Mining);
             lenghtNumeric.Value = _data.Mining.Length;
             whichLapDropNumric.Value = _data.Mining.WhichLapDrop;
             whichLapEatingNumeric.Value = _data.Mining.WhichLapEating;

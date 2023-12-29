@@ -28,13 +28,13 @@ namespace SC_UI.Forms
             voidDelayNumeric.Value = _data.Delays.Void;
             effectsCoordinateButton.Text = _data.Coordinates.EffectsX + "; " + _data.Coordinates.EffectsY;
             drawingCoordinateButton.Text = _data.Coordinates.DrawingX + "; " + _data.Coordinates.DrawingY;
-            depositBindButton.Text = ConvertHeleper.KeysToString(_data.ScriptsBinds.Deposit);
-            dabingBindButton.Text = ConvertHeleper.KeysToString(_data.ScriptsBinds.Dabing);
-            altingBindButton.Text = ConvertHeleper.KeysToString(_data.ScriptsBinds.Alting);
-            mathewBindButton.Text = ConvertHeleper.KeysToString(_data.ScriptsBinds.Mathew);
-            effectsBindButton.Text = ConvertHeleper.KeysToString(_data.ScriptsBinds.Effects);
-            drawingBindButton.Text = ConvertHeleper.KeysToString(_data.ScriptsBinds.Drawing);
-            voidBindButton.Text = ConvertHeleper.KeysToString(_data.ScriptsBinds.Void);
+            depositBindButton.Text = ConvertHelper.KeysToString(_data.ScriptsBinds.Deposit);
+            dabingBindButton.Text = ConvertHelper.KeysToString(_data.ScriptsBinds.Dabing);
+            altingBindButton.Text = ConvertHelper.KeysToString(_data.ScriptsBinds.Alting);
+            mathewBindButton.Text = ConvertHelper.KeysToString(_data.ScriptsBinds.Mathew);
+            effectsBindButton.Text = ConvertHelper.KeysToString(_data.ScriptsBinds.Effects);
+            drawingBindButton.Text = ConvertHelper.KeysToString(_data.ScriptsBinds.Drawing);
+            voidBindButton.Text = ConvertHelper.KeysToString(_data.ScriptsBinds.Void);
             dabingTypeComboBox.SelectedIndex = _data.Settings.DabingType - 1;
 
             if (_data.Settings.PickaxeType == 1)

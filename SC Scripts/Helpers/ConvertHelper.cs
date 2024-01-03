@@ -56,16 +56,16 @@ namespace SC_Scripts.Helpers
             {
                 msg = button switch
                 {
-                    MouseButtons.Left => 0x0002,
-                    MouseButtons.Right => 0x0008,
-                    MouseButtons.Middle => 0x0020,
-                    MouseButtons.XButton1 => 0x0080,
-                    MouseButtons.XButton2 => 0x0080,
+                    MouseButtons.Left => 0x0004,
+                    MouseButtons.Right => 0x0010,
+                    MouseButtons.Middle => 0x0040,
+                    MouseButtons.XButton1 => 0x0100,
+                    MouseButtons.XButton2 => 0x0100,
                     _ => 0
                 };
 
                 if (isHold)
-                    msg <<= 1;
+                    msg /= 2;
             }
 
             return msg;

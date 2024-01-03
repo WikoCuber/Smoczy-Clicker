@@ -9,7 +9,7 @@ namespace SC_Scripts.Scripts
     {
         public static void LeftClicker(ScriptUtility su)
         {
-            ScriptsManager.GetScriptByName("LeftClicker")!.EndWithMethod += () => ScriptsHotkey.CancelStopCaptureKey(Keys.LButton);
+            ScriptsManager.GetScriptByName("LeftClicker")!.EndWithMethod = () => ScriptsHotkey.LeftButtonTimes = 0;
 
             Data data = DataProvider.Get();
 
@@ -18,12 +18,8 @@ namespace SC_Scripts.Scripts
             while (true)
             {
                 s.Restart();
-
-                //Adds 2 clicks to ignore it by hotkey
-                ScriptsHotkey.StopCaptureKey(Keys.LButton);
-                ScriptsHotkey.StopCaptureKey(Keys.LButton);
-
-                su.SendMouseButton(MouseButtons.Left); //Do those 2 clicks
+                ScriptsHotkey.LeftButtonTimes += 2;
+                su.SendMouseButton(MouseButtons.Left);
                 int time = 1000 / data.Clicker.LeftCps - (int)s.ElapsedMilliseconds;
                 su.Sleep(time);
             }

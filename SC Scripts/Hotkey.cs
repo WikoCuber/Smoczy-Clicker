@@ -119,6 +119,9 @@ namespace SC_Scripts
                         else if (hookStruct.mouseData > 70000)
                             downList.Remove(Keys.XButton2);
                         break;
+                    default:
+                        isInvoke = false;
+                        break;
                 }
 
                 if (isInvoke)

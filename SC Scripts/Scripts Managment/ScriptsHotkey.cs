@@ -9,15 +9,15 @@ namespace SC_Scripts.Scripts_Managment
     {
         public static bool IsExited { get; private set; } //If true, block everything
 
+        public static int LeftButtonTimes { get; set; }
+        public static int RightButtonTimes { get; set; }
+
         private static readonly Thread hotkeyThread;
-        private static readonly List<Keys> stopCaptureKeysList;
         private static Keys lastKey;
         private static bool stopCaptureScripts;
 
         static ScriptsHotkey()
         {
-            stopCaptureKeysList = [];
-
             hotkeyThread = new(HotkeySetup)
             {
                 //Set Higest prority to avoid input lag
@@ -77,22 +77,6 @@ namespace SC_Scripts.Scripts_Managment
             return lastKey;
         }
 
-        public static void StopCaptureKey(Keys key)
-        {
-            lock (stopCaptureKeysList)
-            { 
-                stopCaptureKeysList.Add(key); 
-            }
-        }
-
-        public static void CancelStopCaptureKey(Keys key)
-        {
-            lock (stopCaptureKeysList)
-            {
-                while (stopCaptureKeysList.Remove(key)) ;
-            }
-        }
-
         private static void HotkeySetup()
         {
             Hotkey.KeyboardEvent += KeyboardCallback;
@@ -113,6 +97,24 @@ namespace SC_Scripts.Scripts_Managment
         {
             Keys key = ConvertHelper.MouseMessageToKeys(e.Message, e.WhichXButton);
 
+            //For don`t self turn off clicker
+            if (key == Keys.RButton)
+            {
+                RightButtonTimes--;
+                if (RightButtonTimes > 0)
+                    return;
+                else
+                    RightButtonTimes = 0;
+            }
+            else if (key == Keys.LButton)
+            {
+                LeftButtonTimes--;
+                if (LeftButtonTimes > 0)
+                    return;
+                else
+                    LeftButtonTimes = 0;
+            }
+
             //Calls KeyboardAction with appropriate message and key
             if (e.Message.ToString().Contains("DOWN"))
                 KeyboardCallbackBackgound(new KeyboardEventArgs(key, KeyboardMessages.WM_KEYDOWN));
@@ -123,20 +125,12 @@ namespace SC_Scripts.Scripts_Managment
         //Captures keyboard event
         private static void KeyboardCallbackBackgound(KeyboardEventArgs e)
         {
-            if (stopCaptureScripts)
-                return;
-
-            lock (stopCaptureKeysList)
-            {
-                //If exists then return
-                if (stopCaptureKeysList.Remove(e.Key))
-                    return;
-            }
-
             //For GetKey method
             if (e.Message == KeyboardMessages.WM_KEYDOWN && lastKey == Keys.None)
                 lastKey = e.Key;
 
+            if (stopCaptureScripts)
+                return;
 
             foreach (ScriptInfo script in ScriptsManager.GetCopyOfSciptsList()) //Check for all scripts
             {

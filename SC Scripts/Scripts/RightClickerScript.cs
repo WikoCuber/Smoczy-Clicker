@@ -9,7 +9,7 @@ namespace SC_Scripts.Scripts
     {
         public static void RightClicker(ScriptUtility su)
         {
-            ScriptsManager.GetScriptByName("RightClicker")!.EndWithMethod += () => ScriptsHotkey.CancelStopCaptureKey(Keys.RButton);
+            ScriptsManager.GetScriptByName("RightClicker")!.EndWithMethod = () => ScriptsHotkey.RightButtonTimes = 0;
 
             Data data = DataProvider.Get();
 
@@ -18,16 +18,11 @@ namespace SC_Scripts.Scripts
             while (true)
             {
                 s.Restart();
-
-                //Adds 2 clicks to ignore it by hotkey
-                ScriptsHotkey.StopCaptureKey(Keys.RButton); 
-                ScriptsHotkey.StopCaptureKey(Keys.RButton);
-
-                su.SendMouseButton(MouseButtons.Right); //Do those 2 clicks
+                ScriptsHotkey.RightButtonTimes += 2;
+                su.SendMouseButton(MouseButtons.Right);
                 int time = 1000 / data.Clicker.RightCps - (int)s.ElapsedMilliseconds;
                 su.Sleep(time);
             }
-
         }
     }
 }

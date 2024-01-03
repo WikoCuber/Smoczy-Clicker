@@ -1,6 +1,8 @@
 ﻿using SC_Data;
 using SC_Scripts.Helpers;
+using SC_Scripts.Scripts_Managment;
 using SC_Scripts.Timer;
+using System.Diagnostics;
 using System.Runtime.InteropServices;
 
 namespace SC_Scripts.Utilities
@@ -188,7 +190,7 @@ namespace SC_Scripts.Utilities
 
             SendKey(Keys.Enter);
         }
-
+        
         public void Sleep(int time)
         {
             token.ThrowIfCancellationRequested(); //Stop script

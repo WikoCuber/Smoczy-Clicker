@@ -1,5 +1,5 @@
 ﻿using SC_Data;
-using SC_Scripts.Scripts_Helpers;
+using SC_Scripts.Scripts_Managment;
 using SC_UI.Helpers;
 
 namespace SC_UI.Forms
@@ -21,16 +21,16 @@ namespace SC_UI.Forms
 
         private void SetStartValues()
         {
-            leftMacroBindButton.Text = ConvertHelper.KeysToString(_data.ScriptsBinds.LeftMacro);
-            rightMacroBindButton.Text = ConvertHelper.KeysToString(_data.ScriptsBinds.RightMacro);
+            leftClickerBindButton.Text = ConvertHelper.KeysToString(_data.ScriptsBinds.LeftClicker);
+            rightClickerBindButton.Text = ConvertHelper.KeysToString(_data.ScriptsBinds.RightClicker);
             armor1BindButton.Text = ConvertHelper.KeysToString(_data.ScriptsBinds.Armor1);
             armor2BindButton.Text = ConvertHelper.KeysToString(_data.ScriptsBinds.Armor2);
             armor3BindButton.Text = ConvertHelper.KeysToString(_data.ScriptsBinds.Armor3);
             snowballBindButton.Text = ConvertHelper.KeysToString(_data.ScriptsBinds.Snowball);
             fishingRodBindButton.Text = ConvertHelper.KeysToString(_data.ScriptsBinds.FishingRod);
 
-            leftMacroCpsNumeric.Value = _data.Macro.LeftCps;
-            rightMacroCpsNumeric.Value = _data.Macro.RightCps;
+            leftClickerCpsNumeric.Value = _data.Clicker.LeftCps;
+            rightClickerCpsNumeric.Value = _data.Clicker.RightCps;
             armorDelayNumeric.Value = _data.Delays.Armor;
             snowballDelayNumeric.Value = _data.Delays.Snowball;
             fishingRodDelayNumeric.Value = _data.Delays.FishingRod;
@@ -41,35 +41,35 @@ namespace SC_UI.Forms
             snowballOnCheckBox.Checked = _data.Settings.IsSnowballOn;
             fishingRodOnCheckBox.Checked = _data.Settings.IsFishingRodOn;
 
-            if (_data.Macro.RightType == 1)
-                rightMacroOCRadioButton.Checked = true;
-            else if (_data.Macro.RightType == 2)
-                rightMacroPCRadioButton.Checked = true;
-            else if (_data.Macro.RightType == 3)
-                rightMacroDHRadioButton.Checked = true;
+            if (_data.Clicker.RightType == 1)
+                rightClickerOCRadioButton.Checked = true;
+            else if (_data.Clicker.RightType == 2)
+                rightClickerPCRadioButton.Checked = true;
+            else if (_data.Clicker.RightType == 3)
+                rightClickerDHRadioButton.Checked = true;
 
-            if (_data.Macro.LeftType == 1)
-                leftMacroOCRadioButton.Checked = true;
-            else if (_data.Macro.LeftType == 2)
-                leftMacroPCRadioButton.Checked = true;
-            else if (_data.Macro.LeftType == 3)
-                leftMacroDHRadioButton.Checked = true;
+            if (_data.Clicker.LeftType == 1)
+                leftClickerOCRadioButton.Checked = true;
+            else if (_data.Clicker.LeftType == 2)
+                leftClickerPCRadioButton.Checked = true;
+            else if (_data.Clicker.LeftType == 3)
+                leftClickerDHRadioButton.Checked = true;
         }
 
         private void UpdateImages()
         {
-            if (ScriptsSetup.GetScriptByName("Armor1")!.IsActive)
+            if (ScriptsManager.GetScriptByName("Armor1")!.IsActive)
                 armorStatusPicBox.BackgroundImage = Properties.Resources.Yes;
             else
                 armorStatusPicBox.BackgroundImage = Properties.Resources.No;
-            if (ScriptsSetup.GetScriptByName("Snowball")!.IsActive)
+            if (ScriptsManager.GetScriptByName("Snowball")!.IsActive)
                 snowballFishingRodStatusPicBox.BackgroundImage = Properties.Resources.Yes;
             else
                 snowballFishingRodStatusPicBox.BackgroundImage = Properties.Resources.No;
-            if (ScriptsSetup.GetScriptByName("LeftMacro")!.IsActive)
-                macroStatusPicBox.BackgroundImage = Properties.Resources.Yes;
+            if (ScriptsManager.GetScriptByName("LeftClicker")!.IsActive)
+                clickerStatusPicBox.BackgroundImage = Properties.Resources.Yes;
             else
-                macroStatusPicBox.BackgroundImage = Properties.Resources.No;
+                clickerStatusPicBox.BackgroundImage = Properties.Resources.No;
         }
 
         private void SetBind(Button button, string? scriptName = null)
@@ -83,10 +83,10 @@ namespace SC_UI.Forms
                 _data.ScriptsBinds.Snowball = key;
             else if (button == fishingRodBindButton)
                 _data.ScriptsBinds.FishingRod = key;
-            else if (button == leftMacroBindButton)
-                _data.ScriptsBinds.LeftMacro = key;
-            else if (button == rightMacroBindButton)
-                _data.ScriptsBinds.RightMacro = key;
+            else if (button == leftClickerBindButton)
+                _data.ScriptsBinds.LeftClicker = key;
+            else if (button == rightClickerBindButton)
+                _data.ScriptsBinds.RightClicker = key;
             else if (button == armor1BindButton)
                 _data.ScriptsBinds.Armor1 = key;
             else if (button == armor2BindButton)
@@ -99,35 +99,35 @@ namespace SC_UI.Forms
 
         private void ChangeRadioButton(RadioButton radioButton)
         {
-            if (radioButton == leftMacroOCRadioButton && leftMacroOCRadioButton.Checked)
+            if (radioButton == leftClickerOCRadioButton && leftClickerOCRadioButton.Checked)
             {
-                _data.Macro.LeftType = 1;
-                ScriptsSetup.GetScriptByName("LeftMacro")!.CaptureType = ScriptsSetup.CaptureTypes.KEY_DOWN;
+                _data.Clicker.LeftType = 1;
+                ScriptsManager.GetScriptByName("LeftClicker")!.CaptureType = CaptureTypes.KEY_DOWN;
             }
-            else if (radioButton == leftMacroPCRadioButton && leftMacroPCRadioButton.Checked)
+            else if (radioButton == leftClickerPCRadioButton && leftClickerPCRadioButton.Checked)
             {
-                _data.Macro.LeftType = 2;
-                ScriptsSetup.GetScriptByName("LeftMacro")!.CaptureType = ScriptsSetup.CaptureTypes.KEY_PRESS;
+                _data.Clicker.LeftType = 2;
+                ScriptsManager.GetScriptByName("LeftClicker")!.CaptureType = CaptureTypes.KEY_PRESS;
             }
-            else if (radioButton == leftMacroDHRadioButton && leftMacroDHRadioButton.Checked)
+            else if (radioButton == leftClickerDHRadioButton && leftClickerDHRadioButton.Checked)
             {
-                _data.Macro.LeftType = 3;
-                ScriptsSetup.GetScriptByName("LeftMacro")!.CaptureType = ScriptsSetup.CaptureTypes.KEYSTROKE_PRESS;
+                _data.Clicker.LeftType = 3;
+                ScriptsManager.GetScriptByName("LeftClicker")!.CaptureType = CaptureTypes.KEYSTROKE_PRESS;
             }
-            else if (radioButton == rightMacroOCRadioButton && rightMacroOCRadioButton.Checked)
+            else if (radioButton == rightClickerOCRadioButton && rightClickerOCRadioButton.Checked)
             {
-                _data.Macro.RightType = 1;
-                ScriptsSetup.GetScriptByName("RightMacro")!.CaptureType = ScriptsSetup.CaptureTypes.KEY_DOWN;
+                _data.Clicker.RightType = 1;
+                ScriptsManager.GetScriptByName("RightClicker")!.CaptureType = CaptureTypes.KEY_DOWN;
             }
-            else if (radioButton == rightMacroPCRadioButton && rightMacroPCRadioButton.Checked)
+            else if (radioButton == rightClickerPCRadioButton && rightClickerPCRadioButton.Checked)
             {
-                _data.Macro.RightType = 2;
-                ScriptsSetup.GetScriptByName("RightMacro")!.CaptureType = ScriptsSetup.CaptureTypes.KEY_PRESS;
+                _data.Clicker.RightType = 2;
+                ScriptsManager.GetScriptByName("RightClicker")!.CaptureType = CaptureTypes.KEY_PRESS;
             }
-            else if (radioButton == rightMacroDHRadioButton && rightMacroDHRadioButton.Checked)
+            else if (radioButton == rightClickerDHRadioButton && rightClickerDHRadioButton.Checked)
             {
-                _data.Macro.RightType = 3;
-                ScriptsSetup.GetScriptByName("RightMacro")!.CaptureType = ScriptsSetup.CaptureTypes.KEYSTROKE_PRESS;
+                _data.Clicker.RightType = 3;
+                ScriptsManager.GetScriptByName("RightClicker")!.CaptureType = CaptureTypes.KEYSTROKE_PRESS;
             }
 
             SaveFile.Save();
@@ -167,14 +167,14 @@ namespace SC_UI.Forms
         }
 
         //Numerics
-        private void leftMacroCpsNumeric_ValueChanged(object sender, EventArgs e)
+        private void leftClickerCpsNumeric_ValueChanged(object sender, EventArgs e)
         {
-            _data.Macro.LeftCps = (int)leftMacroCpsNumeric.Value;
+            _data.Clicker.LeftCps = (int)leftClickerCpsNumeric.Value;
             SaveFile.Save();
         }
-        private void rightMacroCpsNumeric_ValueChanged(object sender, EventArgs e)
+        private void rightClickerCpsNumeric_ValueChanged(object sender, EventArgs e)
         {
-            _data.Macro.RightCps = (int)rightMacroCpsNumeric.Value;
+            _data.Clicker.RightCps = (int)rightClickerCpsNumeric.Value;
             SaveFile.Save();
         }
         private void armorDelayNumeric_ValueChanged(object sender, EventArgs e)
@@ -194,18 +194,18 @@ namespace SC_UI.Forms
         }
 
         //Radio buttons
-        private void leftMacroOCRadioButton_CheckedChanged(object sender, EventArgs e) => ChangeRadioButton(leftMacroOCRadioButton);
-        private void leftMacroPCRadioButton_CheckedChanged(object sender, EventArgs e) => ChangeRadioButton(leftMacroPCRadioButton);
-        private void leftMacroDHRadioButton_CheckedChanged(object sender, EventArgs e) => ChangeRadioButton(leftMacroDHRadioButton);
-        private void rightMacroOCRadioButton_CheckedChanged(object sender, EventArgs e) => ChangeRadioButton(rightMacroOCRadioButton);
-        private void rightMacroPCRadioButton_CheckedChanged(object sender, EventArgs e) => ChangeRadioButton(rightMacroPCRadioButton);
-        private void rightMacroDHRadioButton_CheckedChanged(object sender, EventArgs e) => ChangeRadioButton(rightMacroDHRadioButton);
+        private void leftClickerOCRadioButton_CheckedChanged(object sender, EventArgs e) => ChangeRadioButton(leftClickerOCRadioButton);
+        private void leftClickerPCRadioButton_CheckedChanged(object sender, EventArgs e) => ChangeRadioButton(leftClickerPCRadioButton);
+        private void leftClickerDHRadioButton_CheckedChanged(object sender, EventArgs e) => ChangeRadioButton(leftClickerDHRadioButton);
+        private void rightClickerOCRadioButton_CheckedChanged(object sender, EventArgs e) => ChangeRadioButton(rightClickerOCRadioButton);
+        private void rightClickerPCRadioButton_CheckedChanged(object sender, EventArgs e) => ChangeRadioButton(rightClickerPCRadioButton);
+        private void rightClickerDHRadioButton_CheckedChanged(object sender, EventArgs e) => ChangeRadioButton(rightClickerDHRadioButton);
 
         //Binds buttons
         private void snowballBindButton_Click(object sender, EventArgs e) => Task.Run(() => SetBind(snowballBindButton, "Snowball"));
         private void fishingRodBindButton_Click(object sender, EventArgs e) => Task.Run(() => SetBind(fishingRodBindButton, "FishingRod"));
-        private void rightMacroBindButton_Click(object sender, EventArgs e) => Task.Run(() => SetBind(rightMacroBindButton, "RightMacro"));
-        private void leftMacroBindButton_Click(object sender, EventArgs e) => Task.Run(() => SetBind(leftMacroBindButton, "LeftMacro"));
+        private void rightClickerBindButton_Click(object sender, EventArgs e) => Task.Run(() => SetBind(rightClickerBindButton, "RightClicker"));
+        private void leftClickerBindButton_Click(object sender, EventArgs e) => Task.Run(() => SetBind(leftClickerBindButton, "LeftClicker"));
         private void armor1BindButton_Click(object sender, EventArgs e) => Task.Run(() => SetBind(armor1BindButton, "Armor1"));
         private void armor2BindButton_Click(object sender, EventArgs e) => Task.Run(() => SetBind(armor2BindButton, "Armor2"));
         private void armor3BindButton_Click(object sender, EventArgs e) => Task.Run(() => SetBind(armor3BindButton, "Armor3"));
@@ -213,21 +213,21 @@ namespace SC_UI.Forms
         //Scripts status buttons
         private void armorStatusButton_Click(object sender, EventArgs e)
         {
-            ScriptsSetup.GetScriptByName("Armor1")!.ToggleActiveState();
-            ScriptsSetup.GetScriptByName("Armor2")!.ToggleActiveState();
-            ScriptsSetup.GetScriptByName("Armor3")!.ToggleActiveState();
+            ScriptsManager.GetScriptByName("Armor1")!.ToggleActiveState();
+            ScriptsManager.GetScriptByName("Armor2")!.ToggleActiveState();
+            ScriptsManager.GetScriptByName("Armor3")!.ToggleActiveState();
             UpdateImages();
         }
         private void snowballFishingRodStatusButton_Click(object sender, EventArgs e)
         {
-            ScriptsSetup.GetScriptByName("Snowball")!.ToggleActiveState();
-            ScriptsSetup.GetScriptByName("FishingRod")!.ToggleActiveState();
+            ScriptsManager.GetScriptByName("Snowball")!.ToggleActiveState();
+            ScriptsManager.GetScriptByName("FishingRod")!.ToggleActiveState();
             UpdateImages();
         }
-        private void macroStatusButton_Click(object sender, EventArgs e)
+        private void clickerStatusButton_Click(object sender, EventArgs e)
         {
-            ScriptsSetup.GetScriptByName("LeftMacro")!.ToggleActiveState();
-            ScriptsSetup.GetScriptByName("RightMacro")!.ToggleActiveState();
+            ScriptsManager.GetScriptByName("LeftClicker")!.ToggleActiveState();
+            ScriptsManager.GetScriptByName("RightClicker")!.ToggleActiveState();
             UpdateImages();
         }
     }

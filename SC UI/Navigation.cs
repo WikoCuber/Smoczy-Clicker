@@ -1,4 +1,4 @@
-﻿using SC_Scripts.Scripts_Helpers;
+﻿using SC_Scripts.Scripts_Managment;
 using SC_UI.Forms;
 
 namespace SC_UI
@@ -25,7 +25,7 @@ namespace SC_UI
 
         public static void SwitchForm(Panel mainPanel, FormClosedEventHandler closeMethod)
         {
-            if (ScriptsSetup.IsExited)
+            if (ScriptsHotkey.IsExited)
                 return;
 
             switch (CurrentFormType)

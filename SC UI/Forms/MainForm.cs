@@ -1,4 +1,4 @@
-﻿using SC_Scripts.Scripts_Helpers;
+﻿using SC_Scripts.Scripts_Managment;
 
 namespace SC_UI.Forms
 {
@@ -18,6 +18,6 @@ namespace SC_UI.Forms
         private void ChangeForm(object? sender, FormClosedEventArgs e) => Navigation.SwitchForm(mainPanel, ChangeForm);
 
         //Closes scripts and threads belonging to them
-        private void MainForm_FormClosed(object sender, FormClosedEventArgs e) => ScriptsSetup.Exit();
+        private void MainForm_FormClosed(object sender, FormClosedEventArgs e) => ScriptsHotkey.Exit();
     }
 }

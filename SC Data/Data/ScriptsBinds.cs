@@ -15,7 +15,7 @@
         public Keys Dabing { get; set; }
         public Keys Drawing { get; set; }
         public Keys FishingRod { get; set; }
-        public Keys LeftMacro { get; set; }
-        public Keys RightMacro { get; set; }
+        public Keys LeftClicker { get; set; }
+        public Keys RightClicker { get; set; }
     }
 }

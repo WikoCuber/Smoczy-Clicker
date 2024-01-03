@@ -1,4 +1,4 @@
-﻿using SC_Scripts.Scripts_Helpers;
+﻿using SC_Scripts.Scripts_Managment;
 
 namespace SC_UI.Helpers
 {
@@ -9,7 +9,7 @@ namespace SC_UI.Helpers
             form.Enabled = false;
             string oldText = button.Text;
             button.Text = "......";
-            Keys key = ScriptsSetup.GetKey();
+            Keys key = ScriptsHotkey.GetKey();
 
             if (key == Keys.Escape)
                 button.Text = oldText;
@@ -17,7 +17,7 @@ namespace SC_UI.Helpers
             {
                 if (scriptName != null)
                 {
-                    ScriptsSetup.ScriptInfo script = ScriptsSetup.GetScriptByName(scriptName)!;
+                    ScriptInfo script = ScriptsManager.GetScriptByName(scriptName)!;
                     script.Key = key;
                 }
 

@@ -1,5 +1,5 @@
 ﻿using SC_Data;
-using SC_Scripts.Scripts_Helpers;
+using SC_Scripts.Scripts_Managment;
 using SC_UI.Helpers;
 
 namespace SC_UI.Forms
@@ -47,27 +47,27 @@ namespace SC_UI.Forms
 
         private void UpdateImages()
         {
-            if (ScriptsSetup.GetScriptByName("Deposit")!.IsActive)
+            if (ScriptsManager.GetScriptByName("Deposit")!.IsActive)
                 depositStatusPicBox.BackgroundImage = Properties.Resources.Yes;
             else
                 depositStatusPicBox.BackgroundImage = Properties.Resources.No;
-            if (ScriptsSetup.GetScriptByName("Effects")!.IsActive)
+            if (ScriptsManager.GetScriptByName("Effects")!.IsActive)
                 effectsDrawingStatusPicBox.BackgroundImage = Properties.Resources.Yes;
             else
                 effectsDrawingStatusPicBox.BackgroundImage = Properties.Resources.No;
-            if (ScriptsSetup.GetScriptByName("Alting")!.IsActive)
+            if (ScriptsManager.GetScriptByName("Alting")!.IsActive)
                 altingStatusPicBox.BackgroundImage = Properties.Resources.Yes;
             else
                 altingStatusPicBox.BackgroundImage = Properties.Resources.No;
-            if (ScriptsSetup.GetScriptByName("Mathew")!.IsActive)
+            if (ScriptsManager.GetScriptByName("Mathew")!.IsActive)
                 mathewStatusPicBox.BackgroundImage = Properties.Resources.Yes;
             else
                 mathewStatusPicBox.BackgroundImage = Properties.Resources.No;
-            if (ScriptsSetup.GetScriptByName("Dabing")!.IsActive)
+            if (ScriptsManager.GetScriptByName("Dabing")!.IsActive)
                 dabingStatusPicBox.BackgroundImage = Properties.Resources.Yes;
             else
                 dabingStatusPicBox.BackgroundImage = Properties.Resources.No;
-            if (ScriptsSetup.GetScriptByName("Void")!.IsActive)
+            if (ScriptsManager.GetScriptByName("Void")!.IsActive)
                 voidStatusPicBox.BackgroundImage = Properties.Resources.Yes;
             else
                 voidStatusPicBox.BackgroundImage = Properties.Resources.No;
@@ -187,33 +187,33 @@ namespace SC_UI.Forms
         //Scripts status buttons
         private void depositStatusButton_Click(object sender, EventArgs e)
         {
-            ScriptsSetup.GetScriptByName("Deposit")!.ToggleActiveState();
+            ScriptsManager.GetScriptByName("Deposit")!.ToggleActiveState();
             UpdateImages();
         }
         private void effectsDrawingStatusButton_Click(object sender, EventArgs e)
         {
-            ScriptsSetup.GetScriptByName("Effects")!.ToggleActiveState();
-            ScriptsSetup.GetScriptByName("Drawing")!.ToggleActiveState();
+            ScriptsManager.GetScriptByName("Effects")!.ToggleActiveState();
+            ScriptsManager.GetScriptByName("Drawing")!.ToggleActiveState();
             UpdateImages();
         }
         private void altingStatusButton_Click(object sender, EventArgs e)
         {
-            ScriptsSetup.GetScriptByName("Alting")!.ToggleActiveState();
+            ScriptsManager.GetScriptByName("Alting")!.ToggleActiveState();
             UpdateImages();
         }
         private void mathewStatusButton_Click(object sender, EventArgs e)
         {
-            ScriptsSetup.GetScriptByName("Mathew")!.ToggleActiveState();
+            ScriptsManager.GetScriptByName("Mathew")!.ToggleActiveState();
             UpdateImages();
         }
         private void dabingStatusButton_Click(object sender, EventArgs e)
         {
-            ScriptsSetup.GetScriptByName("Dabing")!.ToggleActiveState();
+            ScriptsManager.GetScriptByName("Dabing")!.ToggleActiveState();
             UpdateImages();
         }
         private void voidStatusButton_Click(object sender, EventArgs e)
         {
-            ScriptsSetup.GetScriptByName("Void")!.ToggleActiveState();
+            ScriptsManager.GetScriptByName("Void")!.ToggleActiveState();
             UpdateImages();
         }
 

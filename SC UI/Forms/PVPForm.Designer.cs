@@ -33,10 +33,10 @@ namespace SC_UI.Forms
             miningNavButton = new InvisibleButton();
             bindsNavButton = new InvisibleButton();
             othersNavButton = new InvisibleButton();
-            rightMacroBindButton = new InvisibleButton();
-            leftMacroBindButton = new InvisibleButton();
-            rightMacroCpsNumeric = new NumericUpDown();
-            leftMacroCpsNumeric = new NumericUpDown();
+            rightClickerBindButton = new InvisibleButton();
+            leftClickerBindButton = new InvisibleButton();
+            rightClickerCpsNumeric = new NumericUpDown();
+            leftClickerCpsNumeric = new NumericUpDown();
             settingsNavButton = new InvisibleButton();
             armorDelayNumeric = new NumericUpDown();
             armor3OnCheckBox = new CheckBox();
@@ -53,28 +53,28 @@ namespace SC_UI.Forms
             armor1BindButton = new InvisibleButton();
             armorStatusButton = new InvisibleButton();
             snowballFishingRodStatusButton = new InvisibleButton();
-            macroStatusButton = new InvisibleButton();
+            clickerStatusButton = new InvisibleButton();
             snowballFishingRodStatusPicBox = new PictureBox();
             armorStatusPicBox = new PictureBox();
-            macroStatusPicBox = new PictureBox();
-            leftMacroPanel = new Panel();
-            leftMacroDHRadioButton = new RadioButton();
-            leftMacroPCRadioButton = new RadioButton();
-            leftMacroOCRadioButton = new RadioButton();
-            rightMacroPanel = new Panel();
-            rightMacroDHRadioButton = new RadioButton();
-            rightMacroPCRadioButton = new RadioButton();
-            rightMacroOCRadioButton = new RadioButton();
-            ((System.ComponentModel.ISupportInitialize)rightMacroCpsNumeric).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)leftMacroCpsNumeric).BeginInit();
+            clickerStatusPicBox = new PictureBox();
+            leftClickerPanel = new Panel();
+            leftClickerDHRadioButton = new RadioButton();
+            leftClickerPCRadioButton = new RadioButton();
+            leftClickerOCRadioButton = new RadioButton();
+            rightClickerPanel = new Panel();
+            rightClickerDHRadioButton = new RadioButton();
+            rightClickerPCRadioButton = new RadioButton();
+            rightClickerOCRadioButton = new RadioButton();
+            ((System.ComponentModel.ISupportInitialize)rightClickerCpsNumeric).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)leftClickerCpsNumeric).BeginInit();
             ((System.ComponentModel.ISupportInitialize)armorDelayNumeric).BeginInit();
             ((System.ComponentModel.ISupportInitialize)snowballDelayNumeric).BeginInit();
             ((System.ComponentModel.ISupportInitialize)fishingRodDelayNumeric).BeginInit();
             ((System.ComponentModel.ISupportInitialize)snowballFishingRodStatusPicBox).BeginInit();
             ((System.ComponentModel.ISupportInitialize)armorStatusPicBox).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)macroStatusPicBox).BeginInit();
-            leftMacroPanel.SuspendLayout();
-            rightMacroPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)clickerStatusPicBox).BeginInit();
+            leftClickerPanel.SuspendLayout();
+            rightClickerPanel.SuspendLayout();
             SuspendLayout();
             // 
             // miningNavButton
@@ -122,59 +122,59 @@ namespace SC_UI.Forms
             othersNavButton.UseVisualStyleBackColor = true;
             othersNavButton.Click += othersNavButton_Click;
             // 
-            // rightMacroBindButton
+            // rightClickerBindButton
             // 
-            rightMacroBindButton.BackColor = Color.Transparent;
-            rightMacroBindButton.FlatStyle = FlatStyle.Flat;
-            rightMacroBindButton.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 238);
-            rightMacroBindButton.ForeColor = Color.FromArgb(162, 162, 162);
-            rightMacroBindButton.Location = new Point(772, 94);
-            rightMacroBindButton.Margin = new Padding(4, 3, 4, 3);
-            rightMacroBindButton.Name = "rightMacroBindButton";
-            rightMacroBindButton.Size = new Size(80, 27);
-            rightMacroBindButton.TabIndex = 27;
-            rightMacroBindButton.TabStop = false;
-            rightMacroBindButton.UseVisualStyleBackColor = true;
-            rightMacroBindButton.Click += rightMacroBindButton_Click;
+            rightClickerBindButton.BackColor = Color.Transparent;
+            rightClickerBindButton.FlatStyle = FlatStyle.Flat;
+            rightClickerBindButton.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 238);
+            rightClickerBindButton.ForeColor = Color.FromArgb(162, 162, 162);
+            rightClickerBindButton.Location = new Point(772, 94);
+            rightClickerBindButton.Margin = new Padding(4, 3, 4, 3);
+            rightClickerBindButton.Name = "rightClickerBindButton";
+            rightClickerBindButton.Size = new Size(80, 27);
+            rightClickerBindButton.TabIndex = 27;
+            rightClickerBindButton.TabStop = false;
+            rightClickerBindButton.UseVisualStyleBackColor = true;
+            rightClickerBindButton.Click += rightClickerBindButton_Click;
             // 
-            // leftMacroBindButton
+            // leftClickerBindButton
             // 
-            leftMacroBindButton.BackColor = Color.Transparent;
-            leftMacroBindButton.FlatStyle = FlatStyle.Flat;
-            leftMacroBindButton.Font = new Font("Microsoft Sans Serif", 8.25F);
-            leftMacroBindButton.ForeColor = Color.FromArgb(162, 162, 162);
-            leftMacroBindButton.Location = new Point(266, 94);
-            leftMacroBindButton.Margin = new Padding(4, 3, 4, 3);
-            leftMacroBindButton.Name = "leftMacroBindButton";
-            leftMacroBindButton.Size = new Size(80, 27);
-            leftMacroBindButton.TabIndex = 28;
-            leftMacroBindButton.TabStop = false;
-            leftMacroBindButton.UseVisualStyleBackColor = true;
-            leftMacroBindButton.Click += leftMacroBindButton_Click;
+            leftClickerBindButton.BackColor = Color.Transparent;
+            leftClickerBindButton.FlatStyle = FlatStyle.Flat;
+            leftClickerBindButton.Font = new Font("Microsoft Sans Serif", 8.25F);
+            leftClickerBindButton.ForeColor = Color.FromArgb(162, 162, 162);
+            leftClickerBindButton.Location = new Point(266, 94);
+            leftClickerBindButton.Margin = new Padding(4, 3, 4, 3);
+            leftClickerBindButton.Name = "leftClickerBindButton";
+            leftClickerBindButton.Size = new Size(80, 27);
+            leftClickerBindButton.TabIndex = 28;
+            leftClickerBindButton.TabStop = false;
+            leftClickerBindButton.UseVisualStyleBackColor = true;
+            leftClickerBindButton.Click += leftClickerBindButton_Click;
             // 
-            // rightMacroCpsNumeric
+            // rightClickerCpsNumeric
             // 
-            rightMacroCpsNumeric.Location = new Point(716, 149);
-            rightMacroCpsNumeric.Margin = new Padding(4, 3, 4, 3);
-            rightMacroCpsNumeric.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
-            rightMacroCpsNumeric.Name = "rightMacroCpsNumeric";
-            rightMacroCpsNumeric.Size = new Size(58, 23);
-            rightMacroCpsNumeric.TabIndex = 61;
-            rightMacroCpsNumeric.TabStop = false;
-            rightMacroCpsNumeric.Value = new decimal(new int[] { 2, 0, 0, 0 });
-            rightMacroCpsNumeric.ValueChanged += rightMacroCpsNumeric_ValueChanged;
+            rightClickerCpsNumeric.Location = new Point(716, 149);
+            rightClickerCpsNumeric.Margin = new Padding(4, 3, 4, 3);
+            rightClickerCpsNumeric.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
+            rightClickerCpsNumeric.Name = "rightClickerCpsNumeric";
+            rightClickerCpsNumeric.Size = new Size(58, 23);
+            rightClickerCpsNumeric.TabIndex = 61;
+            rightClickerCpsNumeric.TabStop = false;
+            rightClickerCpsNumeric.Value = new decimal(new int[] { 2, 0, 0, 0 });
+            rightClickerCpsNumeric.ValueChanged += rightClickerCpsNumeric_ValueChanged;
             // 
-            // leftMacroCpsNumeric
+            // leftClickerCpsNumeric
             // 
-            leftMacroCpsNumeric.Location = new Point(211, 148);
-            leftMacroCpsNumeric.Margin = new Padding(4, 3, 4, 3);
-            leftMacroCpsNumeric.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
-            leftMacroCpsNumeric.Name = "leftMacroCpsNumeric";
-            leftMacroCpsNumeric.Size = new Size(58, 23);
-            leftMacroCpsNumeric.TabIndex = 62;
-            leftMacroCpsNumeric.TabStop = false;
-            leftMacroCpsNumeric.Value = new decimal(new int[] { 2, 0, 0, 0 });
-            leftMacroCpsNumeric.ValueChanged += leftMacroCpsNumeric_ValueChanged;
+            leftClickerCpsNumeric.Location = new Point(211, 148);
+            leftClickerCpsNumeric.Margin = new Padding(4, 3, 4, 3);
+            leftClickerCpsNumeric.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
+            leftClickerCpsNumeric.Name = "leftClickerCpsNumeric";
+            leftClickerCpsNumeric.Size = new Size(58, 23);
+            leftClickerCpsNumeric.TabIndex = 62;
+            leftClickerCpsNumeric.TabStop = false;
+            leftClickerCpsNumeric.Value = new decimal(new int[] { 2, 0, 0, 0 });
+            leftClickerCpsNumeric.ValueChanged += leftClickerCpsNumeric_ValueChanged;
             // 
             // settingsNavButton
             // 
@@ -395,20 +395,20 @@ namespace SC_UI.Forms
             snowballFishingRodStatusButton.UseVisualStyleBackColor = true;
             snowballFishingRodStatusButton.Click += snowballFishingRodStatusButton_Click;
             // 
-            // macroStatusButton
+            // clickerStatusButton
             // 
-            macroStatusButton.BackColor = Color.Transparent;
-            macroStatusButton.FlatStyle = FlatStyle.Flat;
-            macroStatusButton.Font = new Font("Microsoft Sans Serif", 8.25F);
-            macroStatusButton.ForeColor = Color.FromArgb(68, 68, 68);
-            macroStatusButton.Location = new Point(470, 58);
-            macroStatusButton.Margin = new Padding(4, 3, 4, 3);
-            macroStatusButton.Name = "macroStatusButton";
-            macroStatusButton.Size = new Size(145, 27);
-            macroStatusButton.TabIndex = 93;
-            macroStatusButton.TabStop = false;
-            macroStatusButton.UseVisualStyleBackColor = true;
-            macroStatusButton.Click += macroStatusButton_Click;
+            clickerStatusButton.BackColor = Color.Transparent;
+            clickerStatusButton.FlatStyle = FlatStyle.Flat;
+            clickerStatusButton.Font = new Font("Microsoft Sans Serif", 8.25F);
+            clickerStatusButton.ForeColor = Color.FromArgb(68, 68, 68);
+            clickerStatusButton.Location = new Point(470, 58);
+            clickerStatusButton.Margin = new Padding(4, 3, 4, 3);
+            clickerStatusButton.Name = "clickerStatusButton";
+            clickerStatusButton.Size = new Size(145, 27);
+            clickerStatusButton.TabIndex = 93;
+            clickerStatusButton.TabStop = false;
+            clickerStatusButton.UseVisualStyleBackColor = true;
+            clickerStatusButton.Click += clickerStatusButton_Click;
             // 
             // snowballFishingRodStatusPicBox
             // 
@@ -436,108 +436,108 @@ namespace SC_UI.Forms
             armorStatusPicBox.TabStop = false;
             armorStatusPicBox.Click += armorStatusButton_Click;
             // 
-            // macroStatusPicBox
+            // clickerStatusPicBox
             // 
-            macroStatusPicBox.BackColor = Color.Transparent;
-            macroStatusPicBox.BackgroundImage = Properties.Resources.Yes;
-            macroStatusPicBox.BackgroundImageLayout = ImageLayout.Stretch;
-            macroStatusPicBox.Location = new Point(592, 60);
-            macroStatusPicBox.Margin = new Padding(4, 3, 4, 3);
-            macroStatusPicBox.Name = "macroStatusPicBox";
-            macroStatusPicBox.Size = new Size(23, 23);
-            macroStatusPicBox.TabIndex = 90;
-            macroStatusPicBox.TabStop = false;
-            macroStatusPicBox.Click += macroStatusButton_Click;
+            clickerStatusPicBox.BackColor = Color.Transparent;
+            clickerStatusPicBox.BackgroundImage = Properties.Resources.Yes;
+            clickerStatusPicBox.BackgroundImageLayout = ImageLayout.Stretch;
+            clickerStatusPicBox.Location = new Point(592, 60);
+            clickerStatusPicBox.Margin = new Padding(4, 3, 4, 3);
+            clickerStatusPicBox.Name = "clickerStatusPicBox";
+            clickerStatusPicBox.Size = new Size(23, 23);
+            clickerStatusPicBox.TabIndex = 90;
+            clickerStatusPicBox.TabStop = false;
+            clickerStatusPicBox.Click += clickerStatusButton_Click;
             // 
-            // leftMacroPanel
+            // leftClickerPanel
             // 
-            leftMacroPanel.BackColor = Color.Transparent;
-            leftMacroPanel.Controls.Add(leftMacroDHRadioButton);
-            leftMacroPanel.Controls.Add(leftMacroPCRadioButton);
-            leftMacroPanel.Controls.Add(leftMacroOCRadioButton);
-            leftMacroPanel.Location = new Point(197, 178);
-            leftMacroPanel.Margin = new Padding(4, 3, 4, 3);
-            leftMacroPanel.Name = "leftMacroPanel";
-            leftMacroPanel.Size = new Size(28, 74);
-            leftMacroPanel.TabIndex = 94;
+            leftClickerPanel.BackColor = Color.Transparent;
+            leftClickerPanel.Controls.Add(leftClickerDHRadioButton);
+            leftClickerPanel.Controls.Add(leftClickerPCRadioButton);
+            leftClickerPanel.Controls.Add(leftClickerOCRadioButton);
+            leftClickerPanel.Location = new Point(197, 178);
+            leftClickerPanel.Margin = new Padding(4, 3, 4, 3);
+            leftClickerPanel.Name = "leftClickerPanel";
+            leftClickerPanel.Size = new Size(28, 74);
+            leftClickerPanel.TabIndex = 94;
             // 
-            // leftMacroDHRadioButton
+            // leftClickerDHRadioButton
             // 
-            leftMacroDHRadioButton.AutoSize = true;
-            leftMacroDHRadioButton.Location = new Point(5, 59);
-            leftMacroDHRadioButton.Margin = new Padding(4, 3, 4, 3);
-            leftMacroDHRadioButton.Name = "leftMacroDHRadioButton";
-            leftMacroDHRadioButton.Size = new Size(14, 13);
-            leftMacroDHRadioButton.TabIndex = 2;
-            leftMacroDHRadioButton.UseVisualStyleBackColor = true;
-            leftMacroDHRadioButton.CheckedChanged += leftMacroDHRadioButton_CheckedChanged;
+            leftClickerDHRadioButton.AutoSize = true;
+            leftClickerDHRadioButton.Location = new Point(5, 59);
+            leftClickerDHRadioButton.Margin = new Padding(4, 3, 4, 3);
+            leftClickerDHRadioButton.Name = "leftClickerDHRadioButton";
+            leftClickerDHRadioButton.Size = new Size(14, 13);
+            leftClickerDHRadioButton.TabIndex = 2;
+            leftClickerDHRadioButton.UseVisualStyleBackColor = true;
+            leftClickerDHRadioButton.CheckedChanged += leftClickerDHRadioButton_CheckedChanged;
             // 
-            // leftMacroPCRadioButton
+            // leftClickerPCRadioButton
             // 
-            leftMacroPCRadioButton.AutoSize = true;
-            leftMacroPCRadioButton.Location = new Point(5, 31);
-            leftMacroPCRadioButton.Margin = new Padding(4, 3, 4, 3);
-            leftMacroPCRadioButton.Name = "leftMacroPCRadioButton";
-            leftMacroPCRadioButton.Size = new Size(14, 13);
-            leftMacroPCRadioButton.TabIndex = 1;
-            leftMacroPCRadioButton.UseVisualStyleBackColor = true;
-            leftMacroPCRadioButton.CheckedChanged += leftMacroPCRadioButton_CheckedChanged;
+            leftClickerPCRadioButton.AutoSize = true;
+            leftClickerPCRadioButton.Location = new Point(5, 31);
+            leftClickerPCRadioButton.Margin = new Padding(4, 3, 4, 3);
+            leftClickerPCRadioButton.Name = "leftClickerPCRadioButton";
+            leftClickerPCRadioButton.Size = new Size(14, 13);
+            leftClickerPCRadioButton.TabIndex = 1;
+            leftClickerPCRadioButton.UseVisualStyleBackColor = true;
+            leftClickerPCRadioButton.CheckedChanged += leftClickerPCRadioButton_CheckedChanged;
             // 
-            // leftMacroOCRadioButton
+            // leftClickerOCRadioButton
             // 
-            leftMacroOCRadioButton.AutoSize = true;
-            leftMacroOCRadioButton.Location = new Point(5, 5);
-            leftMacroOCRadioButton.Margin = new Padding(4, 3, 4, 3);
-            leftMacroOCRadioButton.Name = "leftMacroOCRadioButton";
-            leftMacroOCRadioButton.Size = new Size(14, 13);
-            leftMacroOCRadioButton.TabIndex = 0;
-            leftMacroOCRadioButton.UseVisualStyleBackColor = true;
-            leftMacroOCRadioButton.CheckedChanged += leftMacroOCRadioButton_CheckedChanged;
+            leftClickerOCRadioButton.AutoSize = true;
+            leftClickerOCRadioButton.Location = new Point(5, 5);
+            leftClickerOCRadioButton.Margin = new Padding(4, 3, 4, 3);
+            leftClickerOCRadioButton.Name = "leftClickerOCRadioButton";
+            leftClickerOCRadioButton.Size = new Size(14, 13);
+            leftClickerOCRadioButton.TabIndex = 0;
+            leftClickerOCRadioButton.UseVisualStyleBackColor = true;
+            leftClickerOCRadioButton.CheckedChanged += leftClickerOCRadioButton_CheckedChanged;
             // 
-            // rightMacroPanel
+            // rightClickerPanel
             // 
-            rightMacroPanel.BackColor = Color.Transparent;
-            rightMacroPanel.Controls.Add(rightMacroDHRadioButton);
-            rightMacroPanel.Controls.Add(rightMacroPCRadioButton);
-            rightMacroPanel.Controls.Add(rightMacroOCRadioButton);
-            rightMacroPanel.Location = new Point(701, 175);
-            rightMacroPanel.Margin = new Padding(4, 3, 4, 3);
-            rightMacroPanel.Name = "rightMacroPanel";
-            rightMacroPanel.Size = new Size(27, 77);
-            rightMacroPanel.TabIndex = 95;
+            rightClickerPanel.BackColor = Color.Transparent;
+            rightClickerPanel.Controls.Add(rightClickerDHRadioButton);
+            rightClickerPanel.Controls.Add(rightClickerPCRadioButton);
+            rightClickerPanel.Controls.Add(rightClickerOCRadioButton);
+            rightClickerPanel.Location = new Point(701, 175);
+            rightClickerPanel.Margin = new Padding(4, 3, 4, 3);
+            rightClickerPanel.Name = "rightClickerPanel";
+            rightClickerPanel.Size = new Size(27, 77);
+            rightClickerPanel.TabIndex = 95;
             // 
-            // rightMacroDHRadioButton
+            // rightClickerDHRadioButton
             // 
-            rightMacroDHRadioButton.AutoSize = true;
-            rightMacroDHRadioButton.Location = new Point(5, 61);
-            rightMacroDHRadioButton.Margin = new Padding(4, 3, 4, 3);
-            rightMacroDHRadioButton.Name = "rightMacroDHRadioButton";
-            rightMacroDHRadioButton.Size = new Size(14, 13);
-            rightMacroDHRadioButton.TabIndex = 2;
-            rightMacroDHRadioButton.UseVisualStyleBackColor = true;
-            rightMacroDHRadioButton.CheckedChanged += rightMacroDHRadioButton_CheckedChanged;
+            rightClickerDHRadioButton.AutoSize = true;
+            rightClickerDHRadioButton.Location = new Point(5, 61);
+            rightClickerDHRadioButton.Margin = new Padding(4, 3, 4, 3);
+            rightClickerDHRadioButton.Name = "rightClickerDHRadioButton";
+            rightClickerDHRadioButton.Size = new Size(14, 13);
+            rightClickerDHRadioButton.TabIndex = 2;
+            rightClickerDHRadioButton.UseVisualStyleBackColor = true;
+            rightClickerDHRadioButton.CheckedChanged += rightClickerDHRadioButton_CheckedChanged;
             // 
-            // rightMacroPCRadioButton
+            // rightClickerPCRadioButton
             // 
-            rightMacroPCRadioButton.AutoSize = true;
-            rightMacroPCRadioButton.Location = new Point(5, 31);
-            rightMacroPCRadioButton.Margin = new Padding(4, 3, 4, 3);
-            rightMacroPCRadioButton.Name = "rightMacroPCRadioButton";
-            rightMacroPCRadioButton.Size = new Size(14, 13);
-            rightMacroPCRadioButton.TabIndex = 1;
-            rightMacroPCRadioButton.UseVisualStyleBackColor = true;
-            rightMacroPCRadioButton.CheckedChanged += rightMacroPCRadioButton_CheckedChanged;
+            rightClickerPCRadioButton.AutoSize = true;
+            rightClickerPCRadioButton.Location = new Point(5, 31);
+            rightClickerPCRadioButton.Margin = new Padding(4, 3, 4, 3);
+            rightClickerPCRadioButton.Name = "rightClickerPCRadioButton";
+            rightClickerPCRadioButton.Size = new Size(14, 13);
+            rightClickerPCRadioButton.TabIndex = 1;
+            rightClickerPCRadioButton.UseVisualStyleBackColor = true;
+            rightClickerPCRadioButton.CheckedChanged += rightClickerPCRadioButton_CheckedChanged;
             // 
-            // rightMacroOCRadioButton
+            // rightClickerOCRadioButton
             // 
-            rightMacroOCRadioButton.AutoSize = true;
-            rightMacroOCRadioButton.Location = new Point(5, 5);
-            rightMacroOCRadioButton.Margin = new Padding(4, 3, 4, 3);
-            rightMacroOCRadioButton.Name = "rightMacroOCRadioButton";
-            rightMacroOCRadioButton.Size = new Size(14, 13);
-            rightMacroOCRadioButton.TabIndex = 0;
-            rightMacroOCRadioButton.UseVisualStyleBackColor = true;
-            rightMacroOCRadioButton.CheckedChanged += rightMacroOCRadioButton_CheckedChanged;
+            rightClickerOCRadioButton.AutoSize = true;
+            rightClickerOCRadioButton.Location = new Point(5, 5);
+            rightClickerOCRadioButton.Margin = new Padding(4, 3, 4, 3);
+            rightClickerOCRadioButton.Name = "rightClickerOCRadioButton";
+            rightClickerOCRadioButton.Size = new Size(14, 13);
+            rightClickerOCRadioButton.TabIndex = 0;
+            rightClickerOCRadioButton.UseVisualStyleBackColor = true;
+            rightClickerOCRadioButton.CheckedChanged += rightClickerOCRadioButton_CheckedChanged;
             // 
             // PvPForm
             // 
@@ -547,12 +547,12 @@ namespace SC_UI.Forms
             BackgroundImage = Properties.Resources.PvP;
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(1029, 573);
-            Controls.Add(macroStatusPicBox);
-            Controls.Add(rightMacroPanel);
-            Controls.Add(leftMacroPanel);
+            Controls.Add(clickerStatusPicBox);
+            Controls.Add(rightClickerPanel);
+            Controls.Add(leftClickerPanel);
             Controls.Add(armorStatusPicBox);
             Controls.Add(snowballFishingRodStatusPicBox);
-            Controls.Add(macroStatusButton);
+            Controls.Add(clickerStatusButton);
             Controls.Add(snowballFishingRodStatusButton);
             Controls.Add(armorStatusButton);
             Controls.Add(armor3BindButton);
@@ -569,10 +569,10 @@ namespace SC_UI.Forms
             Controls.Add(armor1OnCheckBox);
             Controls.Add(armorDelayNumeric);
             Controls.Add(settingsNavButton);
-            Controls.Add(leftMacroCpsNumeric);
-            Controls.Add(rightMacroCpsNumeric);
-            Controls.Add(leftMacroBindButton);
-            Controls.Add(rightMacroBindButton);
+            Controls.Add(leftClickerCpsNumeric);
+            Controls.Add(rightClickerCpsNumeric);
+            Controls.Add(leftClickerBindButton);
+            Controls.Add(rightClickerBindButton);
             Controls.Add(bindsNavButton);
             Controls.Add(othersNavButton);
             Controls.Add(miningNavButton);
@@ -584,18 +584,18 @@ namespace SC_UI.Forms
             Name = "PvPForm";
             StartPosition = FormStartPosition.Manual;
             Text = "Smoczy Clicker";
-            ((System.ComponentModel.ISupportInitialize)rightMacroCpsNumeric).EndInit();
-            ((System.ComponentModel.ISupportInitialize)leftMacroCpsNumeric).EndInit();
+            ((System.ComponentModel.ISupportInitialize)rightClickerCpsNumeric).EndInit();
+            ((System.ComponentModel.ISupportInitialize)leftClickerCpsNumeric).EndInit();
             ((System.ComponentModel.ISupportInitialize)armorDelayNumeric).EndInit();
             ((System.ComponentModel.ISupportInitialize)snowballDelayNumeric).EndInit();
             ((System.ComponentModel.ISupportInitialize)fishingRodDelayNumeric).EndInit();
             ((System.ComponentModel.ISupportInitialize)snowballFishingRodStatusPicBox).EndInit();
             ((System.ComponentModel.ISupportInitialize)armorStatusPicBox).EndInit();
-            ((System.ComponentModel.ISupportInitialize)macroStatusPicBox).EndInit();
-            leftMacroPanel.ResumeLayout(false);
-            leftMacroPanel.PerformLayout();
-            rightMacroPanel.ResumeLayout(false);
-            rightMacroPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)clickerStatusPicBox).EndInit();
+            leftClickerPanel.ResumeLayout(false);
+            leftClickerPanel.PerformLayout();
+            rightClickerPanel.ResumeLayout(false);
+            rightClickerPanel.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -605,10 +605,10 @@ namespace SC_UI.Forms
         private InvisibleButton miningNavButton;
         private InvisibleButton bindsNavButton;
         private InvisibleButton othersNavButton;
-        private InvisibleButton rightMacroBindButton;
-        private InvisibleButton leftMacroBindButton;
-        private System.Windows.Forms.NumericUpDown rightMacroCpsNumeric;
-        private System.Windows.Forms.NumericUpDown leftMacroCpsNumeric;
+        private InvisibleButton rightClickerBindButton;
+        private InvisibleButton leftClickerBindButton;
+        private System.Windows.Forms.NumericUpDown rightClickerCpsNumeric;
+        private System.Windows.Forms.NumericUpDown leftClickerCpsNumeric;
         private InvisibleButton settingsNavButton;
         private System.Windows.Forms.NumericUpDown armorDelayNumeric;
         private System.Windows.Forms.CheckBox armor3OnCheckBox;
@@ -625,18 +625,18 @@ namespace SC_UI.Forms
         private InvisibleButton armor1BindButton;
         private InvisibleButton armorStatusButton;
         private InvisibleButton snowballFishingRodStatusButton;
-        private InvisibleButton macroStatusButton;
+        private InvisibleButton clickerStatusButton;
         private System.Windows.Forms.PictureBox snowballFishingRodStatusPicBox;
         private System.Windows.Forms.PictureBox armorStatusPicBox;
-        private System.Windows.Forms.PictureBox macroStatusPicBox;
-        private System.Windows.Forms.Panel leftMacroPanel;
-        private System.Windows.Forms.RadioButton leftMacroPCRadioButton;
-        private System.Windows.Forms.RadioButton leftMacroOCRadioButton;
-        private System.Windows.Forms.Panel rightMacroPanel;
-        private System.Windows.Forms.RadioButton rightMacroPCRadioButton;
-        private System.Windows.Forms.RadioButton rightMacroOCRadioButton;
-        private System.Windows.Forms.RadioButton leftMacroDHRadioButton;
-        private System.Windows.Forms.RadioButton rightMacroDHRadioButton;
+        private System.Windows.Forms.PictureBox clickerStatusPicBox;
+        private System.Windows.Forms.Panel leftClickerPanel;
+        private System.Windows.Forms.RadioButton leftClickerPCRadioButton;
+        private System.Windows.Forms.RadioButton leftClickerOCRadioButton;
+        private System.Windows.Forms.Panel rightClickerPanel;
+        private System.Windows.Forms.RadioButton rightClickerPCRadioButton;
+        private System.Windows.Forms.RadioButton rightClickerOCRadioButton;
+        private System.Windows.Forms.RadioButton leftClickerDHRadioButton;
+        private System.Windows.Forms.RadioButton rightClickerDHRadioButton;
     }
 }
 

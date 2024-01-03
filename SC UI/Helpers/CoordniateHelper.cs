@@ -1,4 +1,5 @@
-﻿using SC_Scripts.Scripts_Helpers;
+﻿using SC_Scripts.Scripts_Managment;
+using SC_Scripts.Utilities;
 
 namespace SC_UI.Helpers
 {
@@ -9,8 +10,8 @@ namespace SC_UI.Helpers
             form.Enabled = false;
             string oldText = button.Text;
             button.Text = "......";
-            ScriptsUtilities su = new();
-            Keys currentKey = ScriptsSetup.GetKey();
+            ScriptUtility su = new();
+            Keys currentKey = ScriptsHotkey.GetKey();
 
             while (currentKey != Keys.F12 && currentKey != Keys.Escape)
             {
@@ -24,7 +25,7 @@ namespace SC_UI.Helpers
                 if (currentKey == Keys.Left)
                     su.MouseMove(Cursor.Position.X - 1, Cursor.Position.Y);
 
-                currentKey = ScriptsSetup.GetKey();
+                currentKey = ScriptsHotkey.GetKey();
             }
 
             Point p = Cursor.Position;

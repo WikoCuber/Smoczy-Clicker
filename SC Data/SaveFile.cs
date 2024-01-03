@@ -65,8 +65,8 @@ namespace SC_Data
                 Void = Keys.F12,
                 Mining = Keys.F12,
                 Snowball = Keys.C,
-                LeftMacro = Keys.R,
-                RightMacro = Keys.F,
+                LeftClicker = Keys.R,
+                RightClicker = Keys.F,
                 Dabing = Keys.F12,
                 FishingRod = Keys.C,
                 Alting = Keys.F12,
@@ -122,14 +122,14 @@ namespace SC_Data
             };
             data.Settings = settings;
 
-            Macro macro = new()
+            Clicker clicker = new()
             {
                 LeftCps = 13,
                 RightCps = 100,
                 LeftType = 1,
                 RightType = 1
             };
-            data.Macro = macro;
+            data.Clicker = clicker;
 
             Mining mining = new()
             {

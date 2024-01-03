@@ -1,5 +1,5 @@
 ﻿using SC_Data;
-using SC_Scripts.Scripts_Helpers;
+using SC_Scripts.Scripts_Managment;
 using SC_UI.Helpers;
 
 namespace SC_UI.Forms
@@ -45,7 +45,7 @@ namespace SC_UI.Forms
 
         private void UpdateImages()
         {
-            if (ScriptsSetup.GetScriptByName("Mining")!.IsActive)
+            if (ScriptsManager.GetScriptByName("Mining")!.IsActive)
                 miningStatusPicBox.BackgroundImage = Properties.Resources.Yes;
             else
                 miningStatusPicBox.BackgroundImage = Properties.Resources.No;
@@ -199,7 +199,7 @@ namespace SC_UI.Forms
         //Status button
         private void miningStatusButton_Click(object sender, EventArgs e)
         {
-            ScriptsSetup.GetScriptByName("Mining")!.ToggleActiveState();
+            ScriptsManager.GetScriptByName("Mining")!.ToggleActiveState();
             UpdateImages();
         }
 

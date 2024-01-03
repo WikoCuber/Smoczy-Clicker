@@ -19,7 +19,6 @@ namespace SC_Scripts.Scripts_Managment
         private readonly ScriptMethodDelegate scriptMethod;
         private Thread scriptThread;
         private ScriptUtility su; //Script gets this instance 
-        private bool isWork;
 
         public ScriptInfo(string name, Keys key, ScriptMethodDelegate scriptMethod, CaptureTypes captureType)
         {
@@ -38,7 +37,7 @@ namespace SC_Scripts.Scripts_Managment
 
         public void ToggleActiveState() => IsActive = !IsActive;
 
-        public bool IsScriptWork() => isWork;
+        public bool IsScriptWork() => scriptThread.IsAlive;
 
         public void StopScript() => su.Cancel();
 
@@ -49,8 +48,6 @@ namespace SC_Scripts.Scripts_Managment
 
             scriptThread = new(ScriptMethod);
             scriptThread.Start();
-
-            isWork = true;
         }
 
         //Invokes script and catch errors  
@@ -72,8 +69,6 @@ namespace SC_Scripts.Scripts_Managment
                 su = new();
 
                 scriptThread = new Thread(ScriptMethod); //Reset thread
-
-                isWork = false;
             }
         }
     }

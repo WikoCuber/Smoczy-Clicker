@@ -46,6 +46,5 @@ namespace SC_Scripts.Timer
 
         //When windows call tick, this calls event
         private void CallbackFunc(int uTimerID, int uMsg, IntPtr dwUser, IntPtr dw1, IntPtr dw2) => TimerEvent?.Invoke(this, new System.EventArgs());
-
     }
 }

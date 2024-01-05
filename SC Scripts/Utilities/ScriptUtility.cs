@@ -1,8 +1,6 @@
 ﻿using SC_Data;
 using SC_Scripts.Helpers;
-using SC_Scripts.Scripts_Managment;
 using SC_Scripts.Timer;
-using System.Diagnostics;
 using System.Runtime.InteropServices;
 
 namespace SC_Scripts.Utilities
@@ -51,7 +49,13 @@ namespace SC_Scripts.Utilities
                 //Relese keys
                 foreach (var key in keysInDown)
                 {
-                    ScriptUtility su = new(); //This ScriptUtility is canceled
+                    //This instance is canceled so creating new instance
+                    ScriptUtility su = new()
+                    {
+                        IsBackground = IsBackground,
+                        BackgorundWindow = BackgorundWindow
+                    }; 
+
                     if (ConvertHelper.KeysToMouseButtons(key) != MouseButtons.None) //For mouse buttons
                         su.HoldMouseButton(ConvertHelper.KeysToMouseButtons(key), false);
                     else
@@ -190,7 +194,7 @@ namespace SC_Scripts.Utilities
 
             SendKey(Keys.Enter);
         }
-        
+
         public void Sleep(int time)
         {
             token.ThrowIfCancellationRequested(); //Stop script

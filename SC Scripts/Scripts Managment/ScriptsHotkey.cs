@@ -97,7 +97,7 @@ namespace SC_Scripts.Scripts_Managment
         {
             Keys key = ConvertHelper.MouseMessageToKeys(e.Message, e.WhichXButton);
 
-            //For don`t self turn off clicker
+            //For don`t self turn off clicker in DH
             if (key == Keys.RButton)
             {
                 RightButtonTimes--;

@@ -13,10 +13,10 @@ namespace SC_Scripts.Scripts
             if (!data.Settings.IsFishingRodOn)
                 return;
 
-            su.DelayBetweenAnyOperation = data.Delays.FishingRod;
-
             su.SendKey(data.SlotsBinds.FishingRod);
+            su.Sleep(50);
             su.SendMouseButton(MouseButtons.Right);
+            su.Sleep(data.Delays.FishingRod);
             su.SendKey(data.SlotsBinds.Sword);
         }
     }

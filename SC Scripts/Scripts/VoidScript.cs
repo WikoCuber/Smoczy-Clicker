@@ -40,7 +40,7 @@ namespace SC_Scripts.Scripts
                     if (data.Settings.IsIntelligentVoid)
                     {
                         Color c = ScreenUtility.GetColorFromBitmap(new Point(X, Y + 1), bitmap!); //Checks color of item
-                        if (c.R < 10 && c.G < 10 && c.B < 10) //Drop only black item
+                        if (c.R == 0 && c.G == 0 && c.B == 0) //Drop only black item
                         {
                             su.MouseMove(X, Y);
                             su.SendKey(data.SlotsBinds.Drop);

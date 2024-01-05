@@ -143,8 +143,7 @@ namespace SC_Data
                 WhichLapDrop = 9,
                 IsEatingOn = false,
                 WhichLapEating = 20,
-                IsBackground = false,
-                IsBackgroundBP = false
+                IsBackground = false
             };
             data.Mining = mining;
 

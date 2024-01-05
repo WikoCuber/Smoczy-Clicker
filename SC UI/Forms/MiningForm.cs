@@ -28,14 +28,13 @@ namespace SC_UI.Forms
             whichLapDropNumric.Value = _data.Mining.WhichLapDrop;
             whichLapEatingNumeric.Value = _data.Mining.WhichLapEating;
             eatingOnCheckBox.Checked = _data.Mining.IsEatingOn;
-            backgroundCheckBox.Checked = _data.Mining.IsEatingOn;
+            backgroundCheckBox.Checked = _data.Mining.IsBackground;
             slot1OnCheckBox.Checked = _data.Mining.IsSlot1On;
             slot2OnCheckBox.Checked = _data.Mining.IsSlot2On;
             slot3OnCheckBox.Checked = _data.Mining.IsSlot3On;
             slot4OnCheckBox.Checked = _data.Mining.IsSlot4On;
             slot5OnCheckBox.Checked = _data.Mining.IsSlot5On;
             dropOnCheckBox.Checked = _data.Mining.IsDropOn;
-            backgroundBPCheckBox.Checked = _data.Mining.IsBackgroundBP;
 
             if (_data.Commands.IsCommandType)
                 commandRadioButton.Checked = true;
@@ -122,29 +121,6 @@ namespace SC_UI.Forms
             _data.Mining.IsBackground = backgroundCheckBox.Checked;
 
             if (backgroundCheckBox.Checked)
-                backgroundBPCheckBox.Checked = false;
-
-            if (backgroundCheckBox.Checked)
-            {
-                eatingOnCheckBox.Enabled = false;
-                whichLapEatingNumeric.Enabled = false;
-            }
-            else
-            {
-                eatingOnCheckBox.Enabled = true;
-                whichLapEatingNumeric.Enabled = true;
-            }
-
-            SaveFile.Save();
-        }
-        private void backgroundBPCheckBox_CheckedChanged(object sender, EventArgs e)
-        {
-            _data.Mining.IsBackgroundBP = backgroundBPCheckBox.Checked;
-
-            if (backgroundBPCheckBox.Checked)
-                backgroundCheckBox.Checked = false;
-
-            if (backgroundBPCheckBox.Checked)
             {
                 eatingOnCheckBox.Enabled = false;
                 whichLapEatingNumeric.Enabled = false;

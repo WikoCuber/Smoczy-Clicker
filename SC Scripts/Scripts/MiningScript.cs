@@ -1,21 +1,26 @@
 ﻿using SC_Data;
+using SC_Scripts.Scripts_Managment;
 using SC_Scripts.Utilities;
-using System.Diagnostics;
 
 namespace SC_Scripts.Scripts
 {
     public static class MiningScript
     {
         private static bool isClicking;
+        private static bool isWorking;
 
         public static void Mining(ScriptUtility su)
         {
+            isWorking = true;
+
             Data data = DataProvider.Get();
 
             su.BackgorundWindow = ScriptUtility.GetForegroundWindow(); //Sets backgorund window
             Thread backgroundClicking = new(() => BackgroundClicking(su)); //Thread to mine in background
 
-            if (data.Mining.IsBackground || data.Mining.IsBackgroundBP)
+            ScriptsManager.GetScriptByName("Mining")!.EndWithMethod += () => isWorking = false;
+
+            if (data.Mining.IsBackground)
             {
                 backgroundClicking.Start();
                 su.IsBackground = true;
@@ -34,9 +39,6 @@ namespace SC_Scripts.Scripts
                 WhichLapcommandOrBinds = data.Commands.WhichLapBinds;
                 IsCommandsOrBindsOn = data.Commands.IsBindsOn;
             }
-
-            if (data.Mining.IsBackgroundBP) //Bug BP window
-                BugCurrentWindow(su);
 
             //Main logic
             int currentLap = 0;
@@ -185,24 +187,21 @@ namespace SC_Scripts.Scripts
         }
 
         //Clicking left button to backgorund mining
-        private static void BackgroundClicking(ScriptUtility su)
+        private static void BackgroundClicking(ScriptUtility suOrginal)
         {
-            while (true)
+            //Do another ScriptUtility to don`t throw cancel in clicking thread
+            ScriptUtility su = new()
+            {
+                IsBackground = true,
+                BackgorundWindow = suOrginal.BackgorundWindow
+            };
+
+            while (isWorking)
             {
                 su.Sleep(40);
                 if (isClicking)
                     su.SendMouseButton(MouseButtons.Left);
             }
-        }
-
-        private static void BugCurrentWindow(ScriptUtility su)
-        {
-
-            ScriptUtility.ShowWindow(Process.GetCurrentProcess().MainWindowHandle, 6); //Minimalize Clicker
-            ScriptUtility.SwitchToThisWindow(Process.GetCurrentProcess().MainWindowHandle, true); //Swicth to Clicker
-            su.Sleep(100);
-            ScriptUtility.LockSetForegroundWindow(1);
-            ScriptUtility.SetForegroundWindow(su.BackgorundWindow); //Set BP in lock foreground to Clicker     
         }
 
         private static void DropSlot(ScriptUtility su, Keys slot, Keys dropBind)

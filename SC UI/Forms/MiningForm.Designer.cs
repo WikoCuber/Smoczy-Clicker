@@ -44,7 +44,6 @@ namespace SC_UI.Forms
             miningStatusPicBox = new PictureBox();
             addButton = new Button();
             commandsBindsPanel = new Panel();
-            backgroundBPCheckBox = new CheckBox();
             bindRadioButton = new RadioButton();
             commandRadioButton = new RadioButton();
             miningBindButton = new InvisibleButton();
@@ -74,7 +73,7 @@ namespace SC_UI.Forms
             // slot1OnCheckBox
             // 
             slot1OnCheckBox.AutoSize = true;
-            slot1OnCheckBox.Location = new Point(393, 360);
+            slot1OnCheckBox.Location = new Point(394, 335);
             slot1OnCheckBox.Margin = new Padding(4, 3, 4, 3);
             slot1OnCheckBox.Name = "slot1OnCheckBox";
             slot1OnCheckBox.Size = new Size(15, 14);
@@ -86,7 +85,7 @@ namespace SC_UI.Forms
             // slot2OnCheckBox
             // 
             slot2OnCheckBox.AutoSize = true;
-            slot2OnCheckBox.Location = new Point(397, 388);
+            slot2OnCheckBox.Location = new Point(398, 363);
             slot2OnCheckBox.Margin = new Padding(4, 3, 4, 3);
             slot2OnCheckBox.Name = "slot2OnCheckBox";
             slot2OnCheckBox.Size = new Size(15, 14);
@@ -98,7 +97,7 @@ namespace SC_UI.Forms
             // slot3OnCheckBox
             // 
             slot3OnCheckBox.AutoSize = true;
-            slot3OnCheckBox.Location = new Point(396, 414);
+            slot3OnCheckBox.Location = new Point(397, 389);
             slot3OnCheckBox.Margin = new Padding(4, 3, 4, 3);
             slot3OnCheckBox.Name = "slot3OnCheckBox";
             slot3OnCheckBox.Size = new Size(15, 14);
@@ -110,7 +109,7 @@ namespace SC_UI.Forms
             // slot4OnCheckBox
             // 
             slot4OnCheckBox.AutoSize = true;
-            slot4OnCheckBox.Location = new Point(399, 441);
+            slot4OnCheckBox.Location = new Point(400, 416);
             slot4OnCheckBox.Margin = new Padding(4, 3, 4, 3);
             slot4OnCheckBox.Name = "slot4OnCheckBox";
             slot4OnCheckBox.Size = new Size(15, 14);
@@ -122,7 +121,7 @@ namespace SC_UI.Forms
             // slot5OnCheckBox
             // 
             slot5OnCheckBox.AutoSize = true;
-            slot5OnCheckBox.Location = new Point(398, 467);
+            slot5OnCheckBox.Location = new Point(399, 442);
             slot5OnCheckBox.Margin = new Padding(4, 3, 4, 3);
             slot5OnCheckBox.Name = "slot5OnCheckBox";
             slot5OnCheckBox.Size = new Size(15, 14);
@@ -134,7 +133,7 @@ namespace SC_UI.Forms
             // dropOnCheckBox
             // 
             dropOnCheckBox.AutoSize = true;
-            dropOnCheckBox.Location = new Point(160, 277);
+            dropOnCheckBox.Location = new Point(161, 252);
             dropOnCheckBox.Margin = new Padding(4, 3, 4, 3);
             dropOnCheckBox.Name = "dropOnCheckBox";
             dropOnCheckBox.Size = new Size(15, 14);
@@ -146,7 +145,7 @@ namespace SC_UI.Forms
             // eatingOnCheckBox
             // 
             eatingOnCheckBox.AutoSize = true;
-            eatingOnCheckBox.Location = new Point(159, 306);
+            eatingOnCheckBox.Location = new Point(160, 281);
             eatingOnCheckBox.Margin = new Padding(4, 3, 4, 3);
             eatingOnCheckBox.Name = "eatingOnCheckBox";
             eatingOnCheckBox.Size = new Size(15, 14);
@@ -157,7 +156,7 @@ namespace SC_UI.Forms
             // 
             // whichLapDropNumric
             // 
-            whichLapDropNumric.Location = new Point(330, 276);
+            whichLapDropNumric.Location = new Point(331, 251);
             whichLapDropNumric.Margin = new Padding(4, 3, 4, 3);
             whichLapDropNumric.Maximum = new decimal(new int[] { 50, 0, 0, 0 });
             whichLapDropNumric.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
@@ -170,7 +169,7 @@ namespace SC_UI.Forms
             // 
             // whichLapEatingNumeric
             // 
-            whichLapEatingNumeric.Location = new Point(377, 303);
+            whichLapEatingNumeric.Location = new Point(378, 278);
             whichLapEatingNumeric.Margin = new Padding(4, 3, 4, 3);
             whichLapEatingNumeric.Maximum = new decimal(new int[] { 50, 0, 0, 0 });
             whichLapEatingNumeric.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
@@ -226,18 +225,6 @@ namespace SC_UI.Forms
             commandsBindsPanel.Name = "commandsBindsPanel";
             commandsBindsPanel.Size = new Size(338, 404);
             commandsBindsPanel.TabIndex = 70;
-            // 
-            // backgroundBPCheckBox
-            // 
-            backgroundBPCheckBox.AutoSize = true;
-            backgroundBPCheckBox.Location = new Point(414, 223);
-            backgroundBPCheckBox.Margin = new Padding(4, 3, 4, 3);
-            backgroundBPCheckBox.Name = "backgroundBPCheckBox";
-            backgroundBPCheckBox.Size = new Size(15, 14);
-            backgroundBPCheckBox.TabIndex = 71;
-            backgroundBPCheckBox.TabStop = false;
-            backgroundBPCheckBox.UseVisualStyleBackColor = true;
-            backgroundBPCheckBox.CheckedChanged += backgroundBPCheckBox_CheckedChanged;
             // 
             // bindRadioButton
             // 
@@ -355,7 +342,6 @@ namespace SC_UI.Forms
             ClientSize = new Size(1029, 573);
             Controls.Add(bindRadioButton);
             Controls.Add(commandRadioButton);
-            Controls.Add(backgroundBPCheckBox);
             Controls.Add(commandsBindsPanel);
             Controls.Add(addButton);
             Controls.Add(miningStatusPicBox);
@@ -413,7 +399,6 @@ namespace SC_UI.Forms
         private System.Windows.Forms.PictureBox miningStatusPicBox;
         private System.Windows.Forms.Button addButton;
         private System.Windows.Forms.Panel commandsBindsPanel;
-        private System.Windows.Forms.CheckBox backgroundBPCheckBox;
         private System.Windows.Forms.RadioButton bindRadioButton;
         private System.Windows.Forms.RadioButton commandRadioButton;
     }

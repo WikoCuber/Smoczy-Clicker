@@ -1,5 +1,5 @@
 # Introduction
-Smoczy Clicker is a set of scripts to Minecraft EasyHC servers.
+Smoczy Clicker is a set of scripts to Minecraft 1.8 EasyHC servers.
 
 # Technologies used
 - .NET 8
@@ -7,7 +7,7 @@ Smoczy Clicker is a set of scripts to Minecraft EasyHC servers.
 - Some Windows Libs
 
 # Getting Started
-All you have to do is install .NET 8 Desktop Runtime. You can download this from [here](https://dotnet.microsoft.com/en-us/download/dotnet/8.0) or open an app (if you don't have installed runtime you will get a message with link to download). 
+First download the newest version form [relese tab](https://github.com/WikoCuber/Smoczy-Clicker/releases) in github. Then install .NET 8 Desktop Runtime. You can download this from [here](https://dotnet.microsoft.com/en-us/download/dotnet/8.0) or open an app (if you don't have installed runtime you will get a message with link to download). 
 
 # Usage
 ## Config
@@ -28,7 +28,7 @@ All scripts has activation status (✓ or X). Script will work only in active st
 ![active status](https://github.com/WikoCuber/Smoczy-Clicker/assets/98224818/111c5285-912e-4a13-826c-57109ca17eaf)
 
 ### Script bind
-Every script has bind button. This is key to run (and stop) script. To change this, click the button and press required key.
+Every script has bind button. This is the key to run (and stop) script. To change this, click the button and press required key.
 
 ![bind button](https://github.com/WikoCuber/Smoczy-Clicker/assets/98224818/4acbee46-b3cb-4752-b22b-660ac6d7f0e2)
 
@@ -48,7 +48,7 @@ Macro has 3 capture types:
 ![macro](https://github.com/WikoCuber/Smoczy-Clicker/assets/98224818/461c0a6f-4e74-41e6-9e4e-d892cb5a69be)
 
 ### Armor changing
-Armor changing script switches armor that you wearing with armor in your EQ. Each script change armor with other slots in your EQ (see images below). It will work only when coordinates is correctly configured.
+Armor changing scripts switches armor that you wearing with armor in your EQ. Each script change armor with other slots in your EQ (see images below). It will work only when coordinates is correctly configured.
 
 ![armor](https://github.com/WikoCuber/Smoczy-Clicker/assets/98224818/95c92b25-ad2b-42db-9d33-7ae6d09f7c97)
 ![eq](https://github.com/WikoCuber/Smoczy-Clicker/assets/98224818/ba6717f3-792a-438d-a5b5-0777fcff588f)
@@ -81,12 +81,12 @@ Drop setting drops items into hopper in wall behind right corner.
 
 ![drop place](https://github.com/WikoCuber/Smoczy-Clicker/assets/98224818/639134f3-5cfd-4388-83a4-6dca4a3ab92e)
 
-When you using drop, pickaxe slot should be last. Images belows shows which slots will be droped. Active items should be in a row. For example first and second item on is allowed, but first and third isn't.
+When you using drop, pickaxe slot should be last. Images belows shows which slots will be droped. Activated items should be in a row. For example first and second item active is allowed, but first and third isn't.
 
 ![drop mining](https://github.com/WikoCuber/Smoczy-Clicker/assets/98224818/a2b86d6f-617d-4ac3-99ac-8dfa08226511)
 ![drop slots](https://github.com/WikoCuber/Smoczy-Clicker/assets/98224818/fa7599f1-4532-453e-a719-58e507b1213e)
 
-To mine in background you need a Minecraft other than Blazing Pack (Optifine, Lunar and Vanilla was tested). Move Clicker window more or less to screen center. In game click F3 + P once (it will disable showing menu after you exit an window). Start script normally. With Alt + Tab switch window to Clicker. When commands are not typing correctly increese background delay in settings page.
+To mine in background you need a Minecraft other than Blazing Pack (Optifine, Lunar and Vanilla was tested) in non fullscreen mode. Move Clicker window more or less to screen center. In game click F3 + P once (it will disable showing menu after you exit an window). Start script normally. With Alt + Tab switch window to Clicker and from there you can click Win + D (it will go to desktop). When commands are not typing correctly increese background delay in settings page.
 
 ### Deposit dropping 
 Deposit dropping is a script that spams drop slot. To stop click again the key.
@@ -109,7 +109,7 @@ Alting is a script that freeze your window to freeze your character in place. Do
 ![alting](https://github.com/WikoCuber/Smoczy-Clicker/assets/98224818/a143130d-b961-495a-be50-f61ab991346d)
 
 ### Void
-Void is a script that open void (/otchlan) and drops everything. Intelligent checkbox determines is script supposed to drop only black item (works only in non fullscreen mode). Texture pack template is 
+Void is a script that open void (/otchlan) and drops everything. Intelligent checkbox determines is script supposed to drop only black item (works only in non fullscreen mode, so you may change your coordniate settings). Template texture pack is in your exe file.
 
 ![void](https://github.com/WikoCuber/Smoczy-Clicker/assets/98224818/8348893c-2a42-423e-a8b7-d7e5427dfdda)
 
@@ -118,6 +118,9 @@ Dabing is a script that basically spams or holds a dab key (dependent on a chose
 
 ![dabing](https://github.com/WikoCuber/Smoczy-Clicker/assets/98224818/d761facd-afd1-490a-a333-8dfe7b7f239d)
 
+## Adding new item to intelligent void
+In default texture pack to intelligent void I put some needed items, but maybe you want to add or remove something. First open directory with textures and go into assets\minecraft\textures. Some items has '!' before the name. You can remove this and the item will be displayed as black. And vice versa you can add '!' before the name and item will be displayed normally. If you want to add new item that aren't in directories then copy one of the texture and rename it to needed name. You can use [this](https://www.curseforge.com/minecraft/texture-packs/template-resource-pack/files/4370838) template to search which name item should has and in which directory it should be.
+
 # Save file
-Save file is located at %appdata%/Smoczy Clicker/save.json
+Save file is in JSON format an is located at %appdata%/Smoczy Clicker/save.json. You shouldn't change anything in it.
 

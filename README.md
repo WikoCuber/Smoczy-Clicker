@@ -7,7 +7,7 @@ Smoczy Clicker is a set of scripts to Minecraft 1.8 EasyHC servers.
 - Some Windows Libs
 
 # Getting Started
-First download the newest version form [relese tab](https://github.com/WikoCuber/Smoczy-Clicker/releases). Then install .NET 8 Desktop Runtime. You can download this from [here](https://dotnet.microsoft.com/en-us/download/dotnet/8.0) or open an app (if you don't have installed runtime you will get a message with link to download). 
+First download the newest version form [relese page](https://github.com/WikoCuber/Smoczy-Clicker/releases). Then install .NET 8 Desktop Runtime. You can download this from [here](https://dotnet.microsoft.com/en-us/download/dotnet/8.0) or open an app (if you don't have installed runtime you will get a message with link to download). 
 
 # Usage
 ## Config
@@ -123,6 +123,9 @@ In default texture pack to intelligent void I put some needed items, but maybe y
 
 # Contributors
 Po prostu Jakub - made UI images and logo
+
+# License
+Distributed under the GNU GPL v3.0 License. See LICENSE.txt for more information.
 
 # Save file
 Save file is in JSON format and is located at %appdata%/Smoczy Clicker/save.json. You shouldn't change anything in that.

@@ -7,7 +7,7 @@ Smoczy Clicker is a set of scripts to Minecraft 1.8 EasyHC servers.
 - Some Windows Libs
 
 # Getting Started
-First download the newest version form [relese tab](https://github.com/WikoCuber/Smoczy-Clicker/releases) in github. Then install .NET 8 Desktop Runtime. You can download this from [here](https://dotnet.microsoft.com/en-us/download/dotnet/8.0) or open an app (if you don't have installed runtime you will get a message with link to download). 
+First download the newest version form [relese tab](https://github.com/WikoCuber/Smoczy-Clicker/releases). Then install .NET 8 Desktop Runtime. You can download this from [here](https://dotnet.microsoft.com/en-us/download/dotnet/8.0) or open an app (if you don't have installed runtime you will get a message with link to download). 
 
 # Usage
 ## Config
@@ -89,7 +89,7 @@ When you using drop, pickaxe slot should be last. Images belows shows which slot
 To mine in background you need a Minecraft other than Blazing Pack (Optifine, Lunar and Vanilla was tested) in non fullscreen mode. Move Clicker window more or less to screen center. In game click F3 + P once (it will disable showing menu after you exit an window). Start script normally. With Alt + Tab switch window to Clicker and from there you can click Win + D (it will go to desktop). When commands are not typing correctly increese background delay in settings page.
 
 ### Deposit dropping 
-Deposit dropping is a script that spams drop slot. To stop click again the key.
+Deposit dropping is a script that spams drop slot. To stop, click again the key.
 
 ![deposit](https://github.com/WikoCuber/Smoczy-Clicker/assets/98224818/17b50589-b621-481a-bd8b-156da527c31c)
 
@@ -99,22 +99,22 @@ Drawing / Effects scripts basically do the same thing. It opens a menu with effe
 ![drawing / effects](https://github.com/WikoCuber/Smoczy-Clicker/assets/98224818/a67eb5ab-10e2-45a3-8b85-23b44c268f60)
 
 ### Mathew
-Mathew is a script that mining and going straight from underground to top. You can choose your pickaxe type. To stop click again the key.
+Mathew is a script that mining and going straight from underground to top. You can choose your pickaxe type. To stop, click again the key.
 
 ![mathew](https://github.com/WikoCuber/Smoczy-Clicker/assets/98224818/44634cc6-3a8a-46de-a468-eb1574cab79e)
 
 ### Alting
-Alting is a script that freeze your window to freeze your character in place. Don't clicks into freezed window. It can crash your game. To stop click again the key. 
+Alting is a script that freeze your window to freeze your character in place. Don't click into freezed window. It can crash your game. To stop, click again the key. 
 
 ![alting](https://github.com/WikoCuber/Smoczy-Clicker/assets/98224818/a143130d-b961-495a-be50-f61ab991346d)
 
 ### Void
-Void is a script that open void (/otchlan) and drops everything. Intelligent checkbox determines is script supposed to drop only black item (works only in non fullscreen mode, so you may change your coordniate settings). Template texture pack is in your exe file.
+Void is a script that open void (/otchlan) and drops everything. Intelligent checkbox determines is script supposed to drop only black item (works only in non fullscreen mode, so you may change your coordniate settings). Texture pack for intelligent void is in your exe file.
 
 ![void](https://github.com/WikoCuber/Smoczy-Clicker/assets/98224818/8348893c-2a42-423e-a8b7-d7e5427dfdda)
 
 ### Dabing 
-Dabing is a script that basically spams or holds a dab key (dependent on a chosen type). To stop click again the key.
+Dabing is a script that spams or holds a dab key (dependent on a chosen type). To stop, click again the key.
 
 ![dabing](https://github.com/WikoCuber/Smoczy-Clicker/assets/98224818/d761facd-afd1-490a-a333-8dfe7b7f239d)
 
@@ -122,5 +122,5 @@ Dabing is a script that basically spams or holds a dab key (dependent on a chose
 In default texture pack to intelligent void I put some needed items, but maybe you want to add or remove something. First open directory with textures and go into assets\minecraft\textures. Some items has '!' before the name. You can remove this and the item will be displayed as black. And vice versa you can add '!' before the name and item will be displayed normally. If you want to add new item that aren't in directories then copy one of the texture and rename it to needed name. You can use [this](https://www.curseforge.com/minecraft/texture-packs/template-resource-pack/files/4370838) template to search which name item should has and in which directory it should be.
 
 # Save file
-Save file is in JSON format an is located at %appdata%/Smoczy Clicker/save.json. You shouldn't change anything in it.
+Save file is in JSON format an is located at %appdata%/Smoczy Clicker/save.json. You shouldn't change anything in that.
 

@@ -125,5 +125,5 @@ In default texture pack to intelligent void I put some needed items, but maybe y
 Po prostu Jakub - made UI images and logo
 
 # Save file
-Save file is in JSON format an is located at %appdata%/Smoczy Clicker/save.json. You shouldn't change anything in that.
+Save file is in JSON format and is located at %appdata%/Smoczy Clicker/save.json. You shouldn't change anything in that.
 

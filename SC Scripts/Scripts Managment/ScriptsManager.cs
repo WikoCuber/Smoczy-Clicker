@@ -26,7 +26,7 @@
         {
             ScriptInfo? scriptToRemove = GetScriptByName(scriptName);
 
-            //If script doesn`t exist
+            //If script doesn't exist
             if (scriptToRemove == null)
                 return;
 

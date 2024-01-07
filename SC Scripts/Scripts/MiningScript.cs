@@ -70,7 +70,7 @@ namespace SC_Scripts.Scripts
                 {
                     if (IsCommandsOrBindsOn[i]) //If command is on
                     {
-                        if (currentLap % WhichLapcommandOrBinds[i] == 0) //If it`s correct lap
+                        if (currentLap % WhichLapcommandOrBinds[i] == 0) //If it's correct lap
                         {
                             //Turn off mining
                             if (!su.IsBackground)
@@ -189,7 +189,7 @@ namespace SC_Scripts.Scripts
         //Clicking left button to backgorund mining
         private static void BackgroundClicking(ScriptUtility suOrginal)
         {
-            //Do another ScriptUtility to don`t throw cancel in clicking thread
+            //Do another ScriptUtility to don't throw cancel in clicking thread
             ScriptUtility su = new()
             {
                 IsBackground = true,

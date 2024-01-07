@@ -7,7 +7,7 @@ namespace SC_Data
     {
         private static readonly string FILE_PATH = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "/Smoczy Clicker/save.json";
 
-        //Loads data and creates save file if it doesn`t exists
+        //Loads data and creates save file if it doesn't exists
         public static Data Init()
         {
             Data data;

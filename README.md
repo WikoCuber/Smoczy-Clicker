@@ -121,6 +121,9 @@ Dabing is a script that spams or holds a dab key (dependent on a chosen type). T
 ## Adding new item to intelligent void
 In default texture pack to intelligent void I put some needed items, but maybe you want to add or remove something. First open directory with textures and go into assets\minecraft\textures. Some items has '!' before the name. You can remove this and the item will be displayed as black. And vice versa you can add '!' before the name and item will be displayed normally. If you want to add new item that aren't in directories then copy one of the texture and rename it to needed name. You can use [this](https://www.curseforge.com/minecraft/texture-packs/template-resource-pack/files/4370838) template to search which name item should has and in which directory it should be.
 
+# Contributors
+Po prostu Jakub - made UI images and logo
+
 # Save file
 Save file is in JSON format an is located at %appdata%/Smoczy Clicker/save.json. You shouldn't change anything in that.
 

@@ -145,7 +145,7 @@ namespace SC_Scripts.Utilities
                 else
                     _ = PostMessage(BackgorundWindow, 0x0101, (int)key, lparam); //Keyup
 
-                Sleep(DataProvider.Get().Delays.Backgorund);
+                Sleep(DataProvider.Get().Delays.Backgorund); //Backgorund delay
             }
             else
             {
@@ -186,12 +186,13 @@ namespace SC_Scripts.Utilities
                     if (modifierKey != Keys.None)
                         HoldKey(modifierKey, false);
 
-                    Sleep(data.Delays.Command);
+                    Sleep(data.Delays.Backgorund); //Backgorund delay
                 }
             }
             else
                 SendKeys.SendWait(command);
 
+            Sleep(data.Delays.Command);
             SendKey(Keys.Enter);
         }
 
